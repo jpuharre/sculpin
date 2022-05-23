@@ -9,9 +9,9 @@ ignore_dirs:
     - /data
     - /var
     - /vendor
-    - /path/to/any/directory/to/ignore
+    - /src/Sculpin/Core/Configuration/
 include_dirs:
-    - /path/to/any/directory/to/include
+    - /src/Sculpin/Core/Configuration/
 ignore_rules:
     - Structures/AddZero
 rulesets:
