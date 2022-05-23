@@ -1,4 +1,7 @@
 project_name: My Project Name
+project_rulesets:
+    - my_ruleset
+file_extensions: php,php3,phtml
 ignore_dirs:
     - /assets
     - /cache
@@ -6,7 +9,12 @@ ignore_dirs:
     - /data
     - /var
     - /vendor
-    - /path/to/any/directory/to/ignore
+    - /src/Sculpin/Core/Configuration/
 include_dirs:
-    - /src/Sculpin/Core/Configuration
-
+    - /src/Sculpin/Core/Configuration/
+ignore_rules:
+    - Structures/AddZero
+rulesets:
+  my_ruleset:
+    - Structures/AddZero
+    - Structures/MultiplyByOne
