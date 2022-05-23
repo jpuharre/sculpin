@@ -1,4 +1,7 @@
 project_name: My Project Name
+project_rulesets:
+    - my_ruleset
+file_extensions: php,php3,phtml
 ignore_dirs:
     - /assets
     - /cache
@@ -9,4 +12,9 @@ ignore_dirs:
     - /path/to/any/directory/to/ignore
 include_dirs:
     - /path/to/any/directory/to/include
-
+ignore_rules:
+    - Structures/AddZero
+rulesets:
+  my_ruleset:
+    - Structures/AddZero
+    - Structures/MultiplyByOne
