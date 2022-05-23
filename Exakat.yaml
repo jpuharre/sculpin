@@ -1,0 +1,12 @@
+project_name: My Project Name
+ignore_dirs:
+    - /assets
+    - /cache
+    - /css
+    - /data
+    - /var
+    - /vendor
+    - /path/to/any/directory/to/ignore
+include_dirs:
+    - /path/to/any/directory/to/include
+
