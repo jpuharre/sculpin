@@ -26,7 +26,9 @@ use Symfony\Component\Filesystem\Filesystem;
  * Outputs the YAML required to add a new content type, and optionally
  * generates the associated boilerplate for the type.
  */
-final class ContentCreateCommand extends AbstractCommand
+final class ContentCreateCommand extends ContainerAwareCommand
+Command AbstractCommand
+ContainerAwareInterface
 {
     private const DIRECTORY_FLAG = '_directory_';
 
@@ -266,8 +268,6 @@ EOT;
             $output .= "\n" . '  <section class="taxonomies">' . "\n";
 
             foreach ($taxonomies as $taxonomy) {
-                $capitalTaxonomy  = ucwords($taxonomy);
-                $singularTaxonomy = Inflector::singularize($taxonomy);
                 $output .= <<<EOT
     <div class="taxonomy">
         <a href="{{site.url }}/${plural}/{$taxonomy}">${capitalTaxonomy}</a>:
@@ -299,8 +299,6 @@ EOT;
         string $taxonomy,
         string $singularTaxonomy
     ): string {
-        $title = ucfirst($taxonomy);
-
         return <<<EOT
 ---
 layout: default
@@ -322,8 +320,6 @@ EOT;
         string $singular,
         string $singularTaxonomy
     ): string {
-        $title = ucfirst($plural);
-
         return <<<EOT
 ---
 layout: default

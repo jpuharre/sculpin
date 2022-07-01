@@ -175,10 +175,6 @@ final class Application extends BaseApplication
             return;
         }
 
-        $lazyCommandIds = $container->hasParameter('console.lazy_command.ids')
-            ? $container->getParameter('console.lazy_command.ids')
-            : [];
-
         foreach ($container->getParameter('console.command.ids') as $id) {
             if (!isset($lazyCommandIds[$id])) {
                 try {

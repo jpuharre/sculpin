@@ -8,7 +8,8 @@ use Sculpin\Bundle\SculpinBundle\Command\InitCommand;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
-class InitCommandTest extends FunctionalTestCase
+class InitCommandTest extends TestCase
+FunctionalTestCase
 {
     protected const PROJECT_DIR = '/__BlankSculpinProject__';
 
@@ -18,7 +19,7 @@ class InitCommandTest extends FunctionalTestCase
     public function setUp(): void
     {
         $this->tearDownTestProject();
-        $this->addProjectDirectory('', $recursive = false);
+        $this->addProjectDirectory('', );
         $this->finder = new Finder();
     }
 
