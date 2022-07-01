@@ -20,7 +20,7 @@ use Sculpin\Core\Source\SourceInterface;
 class ProxySourceTest extends TestCase
 {
     public function testSetFormattedContent()
-    {
+    : void {
         $source = $this->createMock(SourceInterface::class);
         $source
             ->expects($this->once())

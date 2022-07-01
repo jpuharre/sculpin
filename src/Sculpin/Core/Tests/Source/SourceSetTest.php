@@ -37,7 +37,7 @@ class SourceSetTest extends TestCase
     }
 
     public function testContainsSource()
-    {
+    : void {
         $source000 = $this->makeTestSource('TestSource:000');
         $source001 = $this->makeTestSource('TestSource:001');
         $source002 = $this->makeTestSource('TestSource:002');
@@ -56,7 +56,7 @@ class SourceSetTest extends TestCase
     }
 
     public function testMergeSource()
-    {
+    : void {
         $source000a = $this->makeTestSource('TestSource:000');
         $source000a
             ->expects($this->any())
@@ -87,7 +87,7 @@ class SourceSetTest extends TestCase
     }
 
     public function testAllSources()
-    {
+    : void {
         $source000 = $this->makeTestSource('TestSource:000');
         $source001 = $this->makeTestSource('TestSource:001');
         $source002 = $this->makeTestSource('TestSource:002');
@@ -102,7 +102,7 @@ class SourceSetTest extends TestCase
     }
 
     public function testUpdatedSources()
-    {
+    : void {
         $source000 = $this->makeTestSource('TestSource:000');
         $source001 = $this->makeTestSource('TestSource:001', false);
         $source002 = $this->makeTestSource('TestSource:002');
@@ -116,7 +116,7 @@ class SourceSetTest extends TestCase
     }
 
     public function testReset()
-    {
+    : void {
         $source000 = $this->makeTestSource('TestSource:000');
         $source001 = $this->makeTestSource('TestSource:001');
         $source002 = $this->makeTestSource('TestSource:002');

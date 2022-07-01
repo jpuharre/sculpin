@@ -26,7 +26,7 @@ abstract class ContainerAwareCommand extends Command implements ContainerAwareIn
     /**
      * @var ContainerInterface
      */
-    private $container;
+    private $container$app->getKernel()->getContainer();
 
     /**
      * @return ContainerInterface
@@ -56,7 +56,7 @@ abstract class ContainerAwareCommand extends Command implements ContainerAwareIn
      * @see ContainerAwareInterface::setContainer()
      */
     public function setContainer(ContainerInterface $container = null)
-    {
+    : void {
         $this->container = $container;
     }
 }

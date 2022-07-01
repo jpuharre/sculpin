@@ -33,7 +33,7 @@ class CompositeDataSourceTest extends TestCase
     }
 
     public function testAddDataSource()
-    {
+    : void {
         $ds000 = $this->makeDataSource('TestDataSource:000');
         $ds001 = $this->makeDataSource('TestDataSource:001');
         $ds002 = $this->makeDataSource('TestDataSource:002');
@@ -55,7 +55,7 @@ class CompositeDataSourceTest extends TestCase
     }
 
     public function testDataSourceId()
-    {
+    : void {
         $ds000 = $this->makeDataSource('TestDataSource:000');
         $ds001 = $this->makeDataSource('TestDataSource:001');
         $ds002 = $this->makeDataSource('TestDataSource:002');
@@ -68,7 +68,7 @@ class CompositeDataSourceTest extends TestCase
     }
 
     public function testRefresh()
-    {
+    : void {
         $sourceSet = new SourceSet;
 
         $ds000 = $this->makeDataSource('TestDataSource:000');

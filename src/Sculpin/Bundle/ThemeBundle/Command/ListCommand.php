@@ -20,13 +20,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ListCommand extends ContainerAwareCommand
+class ListCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
      */
     protected function configure()
-    {
+    : void {
         $this
             ->setName('theme:list')
             ->setDescription('List currently installed themes.')

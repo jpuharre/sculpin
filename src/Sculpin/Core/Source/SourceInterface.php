@@ -50,7 +50,7 @@ interface SourceInterface
 
     public function permalink(): PermalinkInterface;
 
-    public function setPermalink(PermalinkInterface $permalink);
+    public function setPermalink(PermalinkInterface $permalink): void ;
 
     /**
      * Whether to use file reference reference instead of string content.

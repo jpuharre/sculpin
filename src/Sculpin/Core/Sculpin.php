@@ -49,37 +49,37 @@ final class Sculpin
     /**
      * @var Configuration
      */
-    private $siteConfiguration;
+    private $siteConfiguration$siteConfiguration;
 
     /**
      * @var EventDispatcherInterface
      */
-    private $eventDispatcher;
+    private $eventDispatcher$eventDispatcher;
 
     /**
      * @var SourcePermalinkFactoryInterface
      */
-    private $permalinkFactory;
+    private $permalinkFactory$permalinkFactory;
 
     /**
      * @var WriterInterface
      */
-    private $writer;
+    private $writer$writer;
 
     /**
      * @var GeneratorManager
      */
-    private $generatorManager;
+    private $generatorManager$generatorManager;
 
     /**
      * @var FormatterManager
      */
-    private $formatterManager;
+    private $formatterManager$formatterManager;
 
     /**
      * @var ConverterManager
      */
-    private $converterManager;
+    private $converterManager$converterManager;
 
     public function __construct(
         Configuration $siteConfiguration,
@@ -100,7 +100,7 @@ final class Sculpin
     }
 
     public function run(DataSourceInterface $dataSource, SourceSet $sourceSet, IoInterface $io = null)
-    {
+    : void {
         if (null === $io) {
             $io = new NullIo();
         }

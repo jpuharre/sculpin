@@ -21,10 +21,10 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSubscriberInterface
 {
-    private $taxons = [];
-    private $dataProviderManager;
-    private $dataProviderName;
-    private $taxonomyKey;
+    private $taxons = $taxons;
+    private $dataProviderManager$dataProviderManager;
+    private $dataProviderName$dataProviderName;
+    private $taxonomyKey$taxonomyKey;
 
     public function __construct(
         DataProviderManager $dataProviderManager,
@@ -49,7 +49,7 @@ class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSub
     }
 
     public function beforeRun(SourceSetEvent $sourceSetEvent)
-    {
+    : void {
         $taxons = [];
         $dataProvider = $this->dataProviderManager->dataProvider($this->dataProviderName);
 

@@ -27,12 +27,12 @@ final class TwigFormatter implements FormatterInterface
     /**
      * @var Environment
      */
-    private $twig;
+    private $twig$twig;
 
     /**
      * @var ArrayLoader
      */
-    private $arrayLoader;
+    private $arrayLoader$arrayLoader;
 
     public function __construct(Environment $twig, ArrayLoader $arrayLoader)
     {
@@ -96,7 +96,7 @@ final class TwigFormatter implements FormatterInterface
      * {@inheritdoc}
      */
     public function reset()
-    {
+    : void {
         // nothing to do
     }
 

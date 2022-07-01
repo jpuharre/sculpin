@@ -21,7 +21,7 @@ class SourcePermalinkFactoryTest extends TestCase
      * @param Permalink $expectedPermalink
      */
     public function testCreate(string $defaultPermalink, SourceInterface $source, Permalink $expectedPermalink)
-    {
+    : void {
         $sourcePermalinkFactory = new SourcePermalinkFactory($defaultPermalink);
 
         $permalink = $sourcePermalinkFactory->create($source);

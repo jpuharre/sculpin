@@ -87,7 +87,7 @@ class FileSourceTest extends TestCase
      * @dataProvider provideTestParseYaml
      */
     public function testParseYaml($filename, $msg)
-    {
+    : void {
         $expectedOutput = $this->getErrorMessage($filename, $msg);
         ob_end_flush();
         ob_start();

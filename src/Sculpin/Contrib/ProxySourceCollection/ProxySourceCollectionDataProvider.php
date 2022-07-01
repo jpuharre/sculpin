@@ -27,13 +27,13 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ProxySourceCollectionDataProvider implements DataProviderInterface, EventSubscriberInterface
 {
-    private $formatterManager;
-    private $dataProviderName;
-    private $dataSingularName;
-    private $collection;
-    private $filter;
-    private $map;
-    private $factory;
+    private $formatterManager$formatterManager;
+    private $dataProviderName$dataProviderName;
+    private $dataSingularName$dataSingularName ?: Inflector::singularize($dataProviderName);
+    private $collection$collection ?: new ProxySourceCollection;
+    private $filter$filter ?: new NullFilter;
+    private $map$map ?: new NullMap;
+    private $factory$factory ?: new SimpleProxySourceItemFactory;
 
     public function __construct(
         FormatterManager $formatterManager,
@@ -70,7 +70,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
     }
 
     public function beforeRun(SourceSetEvent $sourceSetEvent)
-    {
+    : void {
         foreach ($sourceSetEvent->updatedSources() as $source) {
             if ($source->isGenerated()) {
                 // We want to skip generated sources in case someone is
@@ -125,7 +125,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
     }
 
     public function beforeRunPost(SourceSetEvent $sourceSetEvent)
-    {
+    : void {
         $anItemHasChanged = false;
         foreach ($this->collection as $item) {
             if ($item->hasChanged()) {
@@ -148,7 +148,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
     }
 
     public function afterConvert(ConvertEvent $convertEvent)
-    {
+    : void {
         $sourceId = $convertEvent->source()->sourceId();
 
         if (!isset($this->collection[$sourceId])) {

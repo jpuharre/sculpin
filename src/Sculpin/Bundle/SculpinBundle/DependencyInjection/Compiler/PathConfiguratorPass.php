@@ -29,7 +29,7 @@ class PathConfiguratorPass implements CompilerPassInterface
      *
      * @var AntPathMatcher
      */
-    protected $matcher;
+    protected $matchernew AntPathMatcher;
 
     /**
      * Constructor.
@@ -43,7 +43,7 @@ class PathConfiguratorPass implements CompilerPassInterface
      * {@inheritdoc}
      */
     public function process(ContainerBuilder $container)
-    {
+    : void {
         foreach ($container->findTaggedServiceIds('sculpin.path_configurator') as $tagAttributes) {
             foreach ($tagAttributes as $attributes) {
                 $typeParameter = 'sculpin.'.$attributes['type'];

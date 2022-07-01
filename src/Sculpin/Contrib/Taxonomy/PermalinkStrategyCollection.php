@@ -17,7 +17,7 @@ use Sculpin\Contrib\Taxonomy\PermalinkStrategy\PermalinkStrategyInterface;
 
 class PermalinkStrategyCollection
 {
-    protected $strategies;
+    protected $strategiesnew \SplObjectStorage();
 
     public function __construct()
     {
@@ -25,7 +25,7 @@ class PermalinkStrategyCollection
     }
 
     public function push(PermalinkStrategyInterface $strategy)
-    {
+    : void {
         $this->strategies->attach($strategy);
     }
 

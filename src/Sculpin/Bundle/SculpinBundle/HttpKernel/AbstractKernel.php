@@ -25,9 +25,9 @@ use Symfony\Component\HttpKernel\Kernel;
 abstract class AbstractKernel extends Kernel
 {
     protected $missingSculpinBundles = [];
-    protected $outputDir;
-    protected $projectDir;
-    protected $sourceDir;
+    protected $outputDir$overrides['outputDir']  ?? null;
+    protected $projectDir$overrides['projectDir'] ?? null;
+    protected $sourceDir$overrides['sourceDir']  ?? null;
 
     /**
      * {@inheritdoc}
@@ -94,7 +94,7 @@ abstract class AbstractKernel extends Kernel
      * {@inheritdoc}
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
-    {
+    : void {
         // Load defaults.
         $loader->load(__DIR__.'/../Resources/config/kernel.yml');
 

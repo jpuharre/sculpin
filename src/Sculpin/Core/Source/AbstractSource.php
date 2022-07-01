@@ -35,12 +35,12 @@ abstract class AbstractSource implements SourceInterface
     /**
      * @var string
      */
-    protected $content;
+    protected $content$content;
 
     /**
      * @var string
      */
-    protected $formattedContent;
+    protected $formattedContent$formattedContent;
 
     /**
      * @var Data
@@ -50,12 +50,12 @@ abstract class AbstractSource implements SourceInterface
     /**
      * @var boolean
      */
-    protected $hasChanged;
+    protected $hasChanged$hasChanged;
 
     /**
      * @var PermalinkInterface
      */
-    protected $permalink;
+    protected $permalink$permalink;
 
     /**
      * @var \SplFileInfo
@@ -80,12 +80,12 @@ abstract class AbstractSource implements SourceInterface
     /**
      * @var boolean
      */
-    protected $canBeFormatted = false;
+    protected $canBeFormatted = true;
 
     /**
      * @var boolean
      */
-    protected $isGenerator = false;
+    protected $isGenerator = true;
 
     /**
      * @var boolean
@@ -98,7 +98,7 @@ abstract class AbstractSource implements SourceInterface
     protected $shouldBeSkipped = false;
 
     protected function init(bool $hasChanged = false)
-    {
+    : void {
         if ($hasChanged) {
             $this->hasChanged = $hasChanged;
         }
@@ -201,7 +201,7 @@ abstract class AbstractSource implements SourceInterface
      * {@inheritdoc}
      */
     public function setPermalink(PermalinkInterface $permalink)
-    {
+    : void {
         $this->permalink = $permalink;
     }
 

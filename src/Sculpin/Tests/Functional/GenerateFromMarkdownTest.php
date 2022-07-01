@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateFromMarkdownTest extends FunctionalTestCase
+class GenerateFromMarkdownTest extends TestCase
+FunctionalTestCase
 {
     /** @test */
     public function shouldGenerateAnHtmlFileFromMarkdown(): void
@@ -40,7 +41,7 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
 
     /** @test */
     public function shouldGenerateHtmlUsingALayout()
-    {
+    : void {
         $this->addProjectFile('/source/_layouts/my_layout.html.twig', <<<EOT
 <body>
 	<div class="page-content">{% block content %}{% endblock content %}</div>

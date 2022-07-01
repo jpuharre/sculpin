@@ -64,13 +64,13 @@ class NullIo implements IoInterface
      * {@inheritDoc}
      */
     public function write($messages, bool $newline = true)
-    {
+    : void {
     }
 
     /**
      * {@inheritDoc}
      */
     public function overwrite($messages, bool $newline = true, ?int $size = 80)
-    {
+    : void {
     }
 }

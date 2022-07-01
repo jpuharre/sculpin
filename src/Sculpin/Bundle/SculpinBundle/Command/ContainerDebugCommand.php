@@ -31,7 +31,8 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author Ryan Weaver <ryan@thatsquality.com>
  */
-final class ContainerDebugCommand extends ContainerAwareCommand
+final class ContainerDebugCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
@@ -168,7 +169,7 @@ EOF
     }
 
     private function validateInput(InputInterface $input)
-    {
+    : void {
         $options = ['tags', 'tag', 'parameters', 'parameter'];
 
         $optionsCount = 0;
@@ -325,7 +326,7 @@ EOF
      * Renders detailed service information about one service
      */
     private function outputService(OutputInterface $output, string $serviceId)
-    {
+    : void {
         $definition = $this->resolveServiceDefinition($serviceId);
 
         $label = sprintf('Information for service <info>%s</info>', $serviceId);

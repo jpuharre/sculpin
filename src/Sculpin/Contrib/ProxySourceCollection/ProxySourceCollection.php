@@ -22,8 +22,8 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var ProxySourceItem[] $items
      */
-    protected $items = [];
-    protected $sorter;
+    protected $items = $items;
+    protected $sorter$sorter ?: new DefaultSorter;
 
     public function __construct(array $items = [], SorterInterface $sorter = null)
     {
@@ -33,7 +33,7 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
 
     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
-    {
+    : void {
         if (is_null($offset)) {
             $this->items[] = $value;
         } else {
@@ -49,7 +49,7 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
 
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
-    {
+    : void {
         unset($this->items[$offset]);
     }
 
@@ -61,7 +61,7 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
 
     #[\ReturnTypeWillChange]
     public function rewind()
-    {
+    : void {
         reset($this->items);
     }
 
@@ -96,7 +96,7 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
     }
 
     public function init()
-    {
+    : void {
         $this->sort();
 
         /**
@@ -130,7 +130,7 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
      * See: https://github.com/vanderlee/PHP-stable-sort-functions
      */
     public function sort()
-    {
+    : void {
         $index      = 0;
         $comparator = [$this->sorter, 'sort'];
 

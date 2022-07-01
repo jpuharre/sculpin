@@ -16,10 +16,11 @@ namespace Sculpin\Contrib\ProxySourceCollection;
 use Dflydev\DotAccessData\DataInterface;
 use Sculpin\Core\Source\ProxySource;
 
-class ProxySourceItem extends ProxySource implements \ArrayAccess
+class ProxySourceItem extends ProxySource implements SourceInterface
+\ArrayAccess
 {
-    private $previousItem;
-    private $nextItem;
+    private $previousItem$item;
+    private $nextItem$item;
 
     public function id()
     {
@@ -54,7 +55,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
     }
 
     public function setBlocks(array $blocks = null)
-    {
+    : void {
         $this->data()->set('blocks', $blocks ?: []);
     }
 
@@ -64,7 +65,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
     }
 
     public function setPreviousItem(ProxySourceItem $item = null)
-    {
+    : void {
         $lastPreviousItem = $this->previousItem;
         $this->previousItem = $item;
         if ($lastPreviousItem) {
@@ -87,7 +88,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
     }
 
     public function setNextItem(ProxySourceItem $item = null)
-    {
+    : void {
         $lastNextItem = $this->nextItem;
         $this->nextItem = $item;
         if ($lastNextItem) {
@@ -105,7 +106,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
     }
 
     public function reprocess()
-    {
+    : void {
         $this->setHasChanged();
     }
 
@@ -136,7 +137,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
 
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
-    {
+    : void {
         if (! method_exists($this, $offset)) {
             $data = $this->data();
             if ($data instanceof DataInterface) {

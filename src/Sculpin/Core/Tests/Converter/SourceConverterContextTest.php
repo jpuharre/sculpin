@@ -20,7 +20,7 @@ use Sculpin\Core\Source\SourceInterface;
 class SourceConverterContextTest extends TestCase
 {
     public function testContent()
-    {
+    : void {
         $source = $this->createMock(SourceInterface::class);
         $source
             ->expects($this->once())
@@ -33,7 +33,7 @@ class SourceConverterContextTest extends TestCase
     }
 
     public function testSetContent()
-    {
+    : void {
         $source = $this->createMock(SourceInterface::class);
         $source
             ->expects($this->once())

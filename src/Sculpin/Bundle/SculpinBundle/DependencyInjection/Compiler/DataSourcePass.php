@@ -26,7 +26,7 @@ final class DataSourcePass implements CompilerPassInterface
      * {@inheritdoc}
      */
     public function process(ContainerBuilder $container)
-    {
+    : void {
         if (false === $container->hasDefinition('sculpin.data_source')) {
             return;
         }
