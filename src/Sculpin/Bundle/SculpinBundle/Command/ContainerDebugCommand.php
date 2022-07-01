@@ -31,12 +31,13 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author Ryan Weaver <ryan@thatsquality.com>
  */
-final class ContainerDebugCommand extends ContainerAwareCommand
+final class ContainerDebugCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
      */
-    protected function configure(): void
+    function configure(): void
     {
         $this
             ->setName('container:debug')
@@ -113,7 +114,7 @@ EOF
      *
      * @throws \LogicException
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    function execute(InputInterface $input, OutputInterface $output)
     {
         $this->validateInput($input);
 
@@ -167,7 +168,7 @@ EOF
         return 0;
     }
 
-    private function validateInput(InputInterface $input)
+    function validateInput(InputInterface $input)
     {
         $options = ['tags', 'tag', 'parameters', 'parameter'];
 
@@ -190,7 +191,7 @@ EOF
         }
     }
 
-    private function outputServices(
+    function outputServices(
         OutputInterface $output,
         $serviceIds,
         $showPrivate = false,
@@ -310,7 +311,7 @@ EOF
         }
     }
 
-    private function buildArgumentsArray($serviceId, $className, array $tagAttributes = []): array
+    function buildArgumentsArray($serviceId, $className, array $tagAttributes = []): array
     {
         $arguments = [$serviceId];
         foreach ($tagAttributes as $tagAttribute) {
@@ -324,7 +325,7 @@ EOF
     /**
      * Renders detailed service information about one service
      */
-    private function outputService(OutputInterface $output, string $serviceId)
+    function outputService(OutputInterface $output, string $serviceId)
     {
         $definition = $this->resolveServiceDefinition($serviceId);
 
@@ -377,7 +378,7 @@ EOF
         }
     }
 
-    private function outputParameters(OutputInterface $output, array $parameters): void
+    function outputParameters(OutputInterface $output, array $parameters): void
     {
         $output->writeln($this->getHelper('formatter')->formatSection('container', 'List of parameters'));
 
@@ -427,7 +428,7 @@ EOF
      * @return Definition|Alias
      * @throws \Exception
      */
-    private function resolveServiceDefinition($serviceId)
+    function resolveServiceDefinition($serviceId)
     {
         $container = $this->getContainer();
         if ($container instanceof ContainerBuilder) {
@@ -453,7 +454,7 @@ EOF
      *
      * @throws \Exception
      */
-    private function outputTags(OutputInterface $output, bool $showPrivate = false): void
+    function outputTags(OutputInterface $output, bool $showPrivate = false): void
     {
         $container = $this->getContainer();
         if (! $container instanceof ContainerBuilder) {
@@ -492,7 +493,7 @@ EOF
         }
     }
 
-    private function formatParameter($value)
+    function formatParameter($value)
     {
         if (is_bool($value) || is_array($value) || (null === $value)) {
             return json_encode($value);

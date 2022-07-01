@@ -31,7 +31,7 @@ final class ConvertListener implements EventSubscriberInterface
      *
      * @var array
      */
-    private static $addPlaceholderRe = [
+    public static $addPlaceholderRe = [
         '/^({%\s+block\s+(\w+).+?%})$/m',  // {% %} style code
         '/^({%\s+endblock\s+%})$/m',       // {% %} style code
         '/^({{.+?}})$/m',                  // {{ }} style code
@@ -42,19 +42,19 @@ final class ConvertListener implements EventSubscriberInterface
      *
      * @var string
      */
-    private static $placeholder = "\n<div><!-- sculpin-hidden -->$1<!-- /sculpin-hidden --></div>\n";
+    public static $placeholder = "\n<div><!-- sculpin-hidden -->$1<!-- /sculpin-hidden --></div>\n";
 
     /**
      * Regex used to remove placeholder
      *
      * @var string
      */
-    private static $removePlaceholderRe = "/(\n?<div><!-- sculpin-hidden -->|<!-- \/sculpin-hidden --><\/div>\n|\n?&lt;div&gt;&lt;!-- sculpin-hidden --&gt;|&lt;!-- \/sculpin-hidden --&gt;&lt;\/div&gt;\n)/m"; // @codingStandardsIgnoreLine
+    public static $removePlaceholderRe = "/(\n?<div><!-- sculpin-hidden -->|<!-- \/sculpin-hidden --><\/div>\n|\n?&lt;div&gt;&lt;!-- sculpin-hidden --&gt;|&lt;!-- \/sculpin-hidden --&gt;&lt;\/div&gt;\n)/m"; // @codingStandardsIgnoreLine
 
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
+    static function getSubscribedEvents(): array
     {
         return [
             Sculpin::EVENT_BEFORE_CONVERT => 'beforeConvert',
@@ -65,7 +65,7 @@ final class ConvertListener implements EventSubscriberInterface
     /**
      * Called before conversion
      */
-    public function beforeConvert(ConvertEvent $convertEvent): void
+    function beforeConvert(ConvertEvent $convertEvent): void
     {
         if ($convertEvent->isHandledBy(SculpinMarkdownBundle::CONVERTER_NAME, SculpinTwigBundle::FORMATTER_NAME)) {
             $content = $convertEvent->source()->content();
@@ -84,7 +84,7 @@ final class ConvertListener implements EventSubscriberInterface
     /**
      * Called after conversion
      */
-    public function afterConvert(ConvertEvent $convertEvent): void
+    function afterConvert(ConvertEvent $convertEvent): void
     {
         if ($convertEvent->isHandledBy(SculpinMarkdownBundle::CONVERTER_NAME, SculpinTwigBundle::FORMATTER_NAME)) {
             $content = $convertEvent->source()->content();

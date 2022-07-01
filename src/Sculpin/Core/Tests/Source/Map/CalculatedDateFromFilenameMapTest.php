@@ -23,15 +23,15 @@ class CalculatedDateFromFilenameMapTest extends TestCase
     /**
      * @var CalculatedDateFromFilenameMap
      */
-    private $map;
+    public $map;
 
-    protected function setUp(): void
+    function setUp(): void
     {
         $this->map = new CalculatedDateFromFilenameMap();
     }
 
     /** @test */
-    public function itShouldNotModifyAnExistingCalculatedDate()
+    function itShouldNotModifyAnExistingCalculatedDate()
     {
         $source = $this->getSourceWithCalculatedDate($timestamp = 123456);
 
@@ -41,7 +41,7 @@ class CalculatedDateFromFilenameMapTest extends TestCase
     }
 
     /** @test */
-    public function itShouldSetTheCalculatedDateIfFound()
+    function itShouldSetTheCalculatedDateIfFound()
     {
         $source = $this->getSourceWithoutCalculatedDateAndPathname("2013-12-12-sculpin-is-great.markdown");
 
@@ -51,7 +51,7 @@ class CalculatedDateFromFilenameMapTest extends TestCase
     }
 
     /** @test */
-    public function itShouldIncludeTheTimeIfFound()
+    function itShouldIncludeTheTimeIfFound()
     {
         $source = $this->getSourceWithoutCalculatedDateAndPathname("2013-12-12-220212-sculpin-is-great.markdown");
 
@@ -61,7 +61,7 @@ class CalculatedDateFromFilenameMapTest extends TestCase
     }
 
     /** @test */
-    public function itShouldIgnoreTheTimeIfItsProbablyNotATime()
+    function itShouldIgnoreTheTimeIfItsProbablyNotATime()
     {
         $source = $this->getSourceWithoutCalculatedDateAndPathname(
             "2013-12-12-10-reasons-why-sculpin-is-great.markdown"
@@ -72,7 +72,7 @@ class CalculatedDateFromFilenameMapTest extends TestCase
         $this->assertEquals(strtotime("2013-12-12"), $source->data()->get('calculated_date'));
     }
 
-    protected function getSourceWithCalculatedDate($timestamp)
+    function getSourceWithCalculatedDate($timestamp)
     {
         return new MemorySource(
             uniqid(),
@@ -88,7 +88,7 @@ class CalculatedDateFromFilenameMapTest extends TestCase
         );
     }
 
-    protected function getSourceWithoutCalculatedDateAndPathname($path)
+    function getSourceWithoutCalculatedDateAndPathname($path)
     {
         return new MemorySource(
             uniqid(),

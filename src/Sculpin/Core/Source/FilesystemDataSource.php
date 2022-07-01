@@ -27,49 +27,49 @@ final class FilesystemDataSource implements DataSourceInterface
     /**
      * @var string
      */
-    private $sourceDir;
+    public $sourceDir;
 
     /**
      * @var string[]
      */
-    private $excludePaths;
+    public $excludePaths;
 
     /**
      * @var string[]
      */
-    private $ignorePaths;
+    public $ignorePaths;
 
     /**
      * @var string[]
      */
-    private $rawPaths;
+    public $rawPaths;
 
     /**
      * @var AntPathMatcher
      */
-    private $pathMatcher;
+    public $pathMatcher;
 
     /**
      * @var Analyzer
      */
-    private $analyzer;
+    public $analyzer;
 
     /**
      * @var DirectorySeparatorNormalizer
      */
-    private $directorySeparatorNormalizer;
+    public $directorySeparatorNormalizer;
 
     /**
      * @var string
      */
-    private $sinceTime;
+    public $sinceTime;
 
     /**
      * @param string[] $excludePaths Exclude paths
      * @param string[] $ignorePaths  Ignore paths
      * @param string[] $rawPaths     Raw paths
      */
-    public function __construct(
+    function __construct(
         string $sourceDir,
         array $excludePaths,
         array $ignorePaths,
@@ -91,7 +91,7 @@ final class FilesystemDataSource implements DataSourceInterface
     /**
      * {@inheritdoc}
      */
-    public function dataSourceId(): string
+    function dataSourceId(): string
     {
         return 'FilesystemDataSource:'.$this->sourceDir;
     }
@@ -99,7 +99,7 @@ final class FilesystemDataSource implements DataSourceInterface
     /**
      * {@inheritdoc}
      */
-    public function refresh(SourceSet $sourceSet): void
+    function refresh(SourceSet $sourceSet): void
     {
         $sinceTimeLast = $this->sinceTime;
 

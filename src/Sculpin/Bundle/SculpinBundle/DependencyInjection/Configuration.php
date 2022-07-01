@@ -24,7 +24,7 @@ final class Configuration implements ConfigurationInterface
     /**
     * {@inheritdoc}
     */
-    public function getConfigTreeBuilder(): TreeBuilder
+    function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('sculpin');
 

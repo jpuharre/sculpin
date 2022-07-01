@@ -20,7 +20,7 @@ use Sculpin\Core\Source\DataSourceInterface;
 
 class CompositeDataSourceTest extends TestCase
 {
-    public function makeDataSource($dataSourceId)
+    function makeDataSource($dataSourceId)
     {
         $dataSource = $this->createMock(DataSourceInterface::class);
 
@@ -32,7 +32,7 @@ class CompositeDataSourceTest extends TestCase
         return $dataSource;
     }
 
-    public function testAddDataSource()
+    function testAddDataSource()
     {
         $ds000 = $this->makeDataSource('TestDataSource:000');
         $ds001 = $this->makeDataSource('TestDataSource:001');
@@ -54,7 +54,7 @@ class CompositeDataSourceTest extends TestCase
         ], $dataSource->dataSources());
     }
 
-    public function testDataSourceId()
+    function testDataSourceId()
     {
         $ds000 = $this->makeDataSource('TestDataSource:000');
         $ds001 = $this->makeDataSource('TestDataSource:001');
@@ -67,7 +67,7 @@ class CompositeDataSourceTest extends TestCase
         $this->assertStringContainsString('TestDataSource:002', $dataSource->dataSourceId());
     }
 
-    public function testRefresh()
+    function testRefresh()
     {
         $sourceSet = new SourceSet;
 

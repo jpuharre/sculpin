@@ -28,33 +28,33 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     /**
      * @var FilesystemLoader
      */
-    private $filesystemLoader;
+    public $filesystemLoader;
 
     /**
      * @var string[]
      */
-    private $cachedCacheKey = [];
+    public $cachedCacheKey = [];
 
     /**
      * @var string[]
      */
-    private $cachedCacheKeyExtension = [];
+    public $cachedCacheKeyExtension = [];
 
     /**
      * @var \Throwable[]
      */
-    private $cachedCacheKeyException = [];
+    public $cachedCacheKeyException = [];
     /**
      * @var string[]
      */
-    private $extensions = [];
+    public $extensions = [];
 
     /**
      * @param string[] $sourcePaths
      * @param string[] $paths
      * @param string[] $extensions  List of file extensions for twig files
      */
-    public function __construct(string $sourceDir, array $sourcePaths, array $paths, array $extensions)
+    function __construct(string $sourceDir, array $sourcePaths, array $paths, array $extensions)
     {
         $mappedSourcePaths = array_map(function ($path) use ($sourceDir) {
             return $sourceDir.'/'.$path;
@@ -74,7 +74,7 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     /**
      * {@inheritdoc}
      */
-    public function getSourceContext($name): TwigSource
+    function getSourceContext($name): TwigSource
     {
         $this->getCacheKey($name);
 
@@ -86,7 +86,7 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     /**
      * {@inheritdoc}
      */
-    public function getCacheKey($name)
+    function getCacheKey($name)
     {
         if (isset($this->cachedCacheKey[$name])) {
             $extension = $this->cachedCacheKeyExtension[$name];
@@ -116,7 +116,7 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     /**
      * {@inheritdoc}
      */
-    public function isFresh($name, $time)
+    function isFresh($name, $time)
     {
         $this->getCacheKey($name);
 
@@ -128,7 +128,7 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     /**
      * {@inheritdoc}
      */
-    public function exists($name): bool
+    function exists($name): bool
     {
         try {
             $this->getCacheKey($name);
@@ -144,14 +144,14 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
+    static function getSubscribedEvents(): array
     {
         return [
             Sculpin::EVENT_BEFORE_RUN => 'beforeRun',
         ];
     }
 
-    public function beforeRun(SourceSetEvent $sourceSetEvent): void
+    function beforeRun(SourceSetEvent $sourceSetEvent): void
     {
         if ($sourceSetEvent->sourceSet()->newSources()) {
             $this->cachedCacheKey = [];

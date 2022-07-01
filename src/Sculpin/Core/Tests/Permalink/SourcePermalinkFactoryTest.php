@@ -20,7 +20,7 @@ class SourcePermalinkFactoryTest extends TestCase
      * @param SourceInterface $source
      * @param Permalink $expectedPermalink
      */
-    public function testCreate(string $defaultPermalink, SourceInterface $source, Permalink $expectedPermalink)
+    function testCreate(string $defaultPermalink, SourceInterface $source, Permalink $expectedPermalink)
     {
         $sourcePermalinkFactory = new SourcePermalinkFactory($defaultPermalink);
 
@@ -29,7 +29,7 @@ class SourcePermalinkFactoryTest extends TestCase
         $this->assertEquals($expectedPermalink, $permalink);
     }
 
-    public function provideCreateData()
+    function provideCreateData()
     {
         return [
             'none setting for permalink' => [
@@ -199,7 +199,7 @@ class SourcePermalinkFactoryTest extends TestCase
         ];
     }
 
-    private static function makeTestSource($relativePathname, array $configurationData = [])
+    static function makeTestSource($relativePathname, array $configurationData = [])
     {
         $configuration = new Configuration($configurationData);
 

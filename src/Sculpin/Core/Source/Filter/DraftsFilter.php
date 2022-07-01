@@ -17,14 +17,14 @@ use Sculpin\Core\Source\SourceInterface;
 
 class DraftsFilter implements FilterInterface
 {
-    private $publishDrafts;
+    public $publishDrafts;
 
-    public function __construct($publishDrafts = false)
+    function __construct($publishDrafts = false)
     {
         $this->publishDrafts = $publishDrafts;
     }
 
-    public function match(SourceInterface $source): bool
+    function match(SourceInterface $source): bool
     {
         if ($source->data()->get('draft')) {
             if (!$this->publishDrafts) {

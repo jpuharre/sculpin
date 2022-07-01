@@ -18,19 +18,20 @@ use Sculpin\Core\Formatter\FormatContext;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class FormatEvent extends Event
+class FormatEvent extends BaseEvent
+Event
 {
     /**
      * @var FormatContext
      */
-    protected $formatContext;
+    public $formatContext;
 
-    public function __construct(FormatContext $formatContext)
+    function __construct(FormatContext $formatContext)
     {
         $this->formatContext = $formatContext;
     }
 
-    public function formatContext(): FormatContext
+    function formatContext(): FormatContext
     {
         return $this->formatContext;
     }

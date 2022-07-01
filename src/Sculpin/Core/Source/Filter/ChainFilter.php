@@ -17,16 +17,16 @@ use Sculpin\Core\Source\SourceInterface;
 
 class ChainFilter implements FilterInterface
 {
-    private $filters = [];
-    private $or;
+    public $filters = [];
+    public $or;
 
-    public function __construct(array $filters = [], $or = false)
+    function __construct(array $filters = [], $or = false)
     {
         $this->filters = $filters;
         $this->or = $or;
     }
 
-    public function match(SourceInterface $source): bool
+    function match(SourceInterface $source): bool
     {
         $matched = false;
 
@@ -55,7 +55,7 @@ class ChainFilter implements FilterInterface
         return $matched;
     }
 
-    public function addFilter(FilterInterface $filter): void
+    function addFilter(FilterInterface $filter): void
     {
         $this->filters[] = $filter;
     }

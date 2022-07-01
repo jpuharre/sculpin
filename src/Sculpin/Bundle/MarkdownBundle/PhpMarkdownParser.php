@@ -15,7 +15,7 @@ class PhpMarkdownParser extends Markdown implements ParserInterface
     /**
      * {@inheritdoc}
      */
-    public function transform($content): string
+    function transform($content): string
     {
         return parent::transform($content);
     }

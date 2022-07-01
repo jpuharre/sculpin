@@ -27,29 +27,29 @@ final class ConfigFilesystemDataSource implements DataSourceInterface
     /**
      * @var string
      */
-    private $sourceDir;
+    public $sourceDir;
 
     /**
      * @var ConfigurationInterface
      */
-    private $siteConfiguration;
+    public $siteConfiguration;
 
     /**
      * @var SiteConfigurationFactory
      */
-    private $siteConfigurationFactory;
+    public $siteConfigurationFactory;
 
     /**
      * @var AntPathMatcher
      */
-    private $pathMatcher;
+    public $pathMatcher;
 
     /**
      * @var string
      */
-    private $sinceTime;
+    public $sinceTime;
 
-    public function __construct(
+    function __construct(
         string $sourceDir,
         ConfigurationInterface $siteConfiguration,
         SiteConfigurationFactory $siteConfigurationFactory,
@@ -65,7 +65,7 @@ final class ConfigFilesystemDataSource implements DataSourceInterface
     /**
      * {@inheritdoc}
      */
-    public function dataSourceId(): string
+    function dataSourceId(): string
     {
         // This is not really needed since we are not going to
         // ever create actual sources.
@@ -75,7 +75,7 @@ final class ConfigFilesystemDataSource implements DataSourceInterface
     /**
      * {@inheritdoc}
      */
-    public function refresh(SourceSet $sourceSet): void
+    function refresh(SourceSet $sourceSet): void
     {
         if (! is_dir($this->sourceDir)) {
             return;

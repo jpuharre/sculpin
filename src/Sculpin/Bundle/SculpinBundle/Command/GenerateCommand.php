@@ -35,17 +35,19 @@ use Twig\Error\SyntaxError;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class GenerateCommand extends AbstractCommand
+class GenerateCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     /**
      * @var bool
      */
-    protected $throwExceptions;
+    public $throwExceptions;
 
     /**
      * {@inheritdoc}
      */
-    protected function configure(): void
+    function configure(): void
     {
         $prefix = $this->isStandaloneSculpin() ? '' : 'sculpin:';
 
@@ -86,7 +88,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    function execute(InputInterface $input, OutputInterface $output)
     {
         $application = $this->getApplication();
         if ($application instanceof Application) {
@@ -159,7 +161,7 @@ EOT
      *
      * @param string $dir The directory to remove
      */
-    private function clean(InputInterface $input, OutputInterface $output, string $dir): void
+    function clean(InputInterface $input, OutputInterface $output, string $dir): void
     {
         $fileSystem = $this->getContainer()->get('filesystem');
 
@@ -186,7 +188,7 @@ EOT
     /**
      * @throws \Throwable
      */
-    protected function runSculpin(
+    function runSculpin(
         Sculpin $sculpin,
         DataSourceInterface $dataSource,
         SourceSet $sourceSet,

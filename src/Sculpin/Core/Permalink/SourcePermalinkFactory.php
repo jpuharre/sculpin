@@ -25,9 +25,9 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      *
      * @var string
      */
-    protected $defaultPermalink;
+    public $defaultPermalink;
 
-    public function __construct(string $defaultPermalink)
+    function __construct(string $defaultPermalink)
     {
         $this->defaultPermalink = $defaultPermalink;
     }
@@ -35,7 +35,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function create(SourceInterface $source): PermalinkInterface
+    function create(SourceInterface $source): PermalinkInterface
     {
         if ($source->canBeFormatted()) {
             $relativeFilePath = $this->generatePermalinkPathname($source);
@@ -68,7 +68,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
         return new Permalink($relativeFilePath, $relativeUrlPath);
     }
 
-    protected function generatePermalinkPathname(SourceInterface $source)
+    function generatePermalinkPathname(SourceInterface $source)
     {
         $pathname = $source->relativePathname();
         // Make sure that twig files end up as .html files.
@@ -170,7 +170,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      *
      * @return string Template for permalink
      */
-    private function getPermaLinkTemplate(SourceInterface $source): string
+    function getPermaLinkTemplate(SourceInterface $source): string
     {
         $permalink = $source->data()->get('permalink');
 
@@ -188,7 +188,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      *
      * @return mixed
      */
-    private function isDatePath(string $path): ?array
+    function isDatePath(string $path): ?array
     {
         if (preg_match(
             '/(\d{4})[\/\-]*(\d{2})[\/\-]*(\d{2})[\/\-]*(.+?)(\.[^\.]+|\.[^\.]+\.[^\.]+)$/',
@@ -211,7 +211,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      *
      * @return string
      */
-    private function normalize(string $param, string $space = '-'): string
+    function normalize(string $param, string $space = '-'): string
     {
         $param = trim($param);
         if (function_exists('iconv')) {

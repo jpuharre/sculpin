@@ -27,24 +27,24 @@ class GeneratorManager
     /**
      * @var EventDispatcherInterface
      */
-    protected $eventDispatcher;
+    public $eventDispatcher;
 
     /**
      * @var Configuration
      */
-    protected $siteConfiguration;
+    public $siteConfiguration;
 
     /**
      * @var DataProviderManager
      */
-    protected $dataProviderManager;
+    public $dataProviderManager;
 
     /**
      * @var array
      */
-    protected $generators = [];
+    public $generators = [];
 
-    public function __construct(
+    function __construct(
         EventDispatcherInterface $eventDispatcher,
         Configuration $siteConfiguration,
         DataProviderManager $dataProviderManager = null
@@ -54,7 +54,7 @@ class GeneratorManager
         $this->dataProviderManager = $dataProviderManager;
     }
 
-    public function registerGenerator($name, GeneratorInterface $generator): void
+    function registerGenerator($name, GeneratorInterface $generator): void
     {
         $this->generators[$name] = $generator;
     }
@@ -62,7 +62,7 @@ class GeneratorManager
     /**
      * @throws \InvalidArgumentException
      */
-    public function generate(SourceInterface $source, SourceSet $sourceSet): void
+    function generate(SourceInterface $source, SourceSet $sourceSet): void
     {
         $data = $source->data();
 
@@ -117,7 +117,7 @@ class GeneratorManager
      * Manager via constructor injection as some data providers might also rely
      * on formatter. Hurray for circular dependencies. :(
      */
-    public function setDataProviderManager(DataProviderManager $dataProviderManager = null): void
+    function setDataProviderManager(DataProviderManager $dataProviderManager = null): void
     {
         $this->dataProviderManager = $dataProviderManager;
     }

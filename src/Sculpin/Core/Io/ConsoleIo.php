@@ -28,34 +28,34 @@ final class ConsoleIo implements IoInterface
     /**
      * @var InputInterface
      */
-    private $input;
+    public $input;
 
     /**
      * @var OutputInterface
      */
-    private $output;
+    public $output;
 
     /**
      * The last message that has been output, to be able to overwrite it.
      *
      * @var string
      */
-    private $lastMessage;
+    public $lastMessage;
 
     /**
      * Time in seconds with fractions when debugging has been enabled.
      *
      * @var float
      */
-    private $startTime;
+    public $startTime;
 
-    public function __construct(InputInterface $input, OutputInterface $output)
+    function __construct(InputInterface $input, OutputInterface $output)
     {
         $this->input = $input;
         $this->output = $output;
     }
 
-    public function enableDebugging(float $startTime): void
+    function enableDebugging(float $startTime): void
     {
         $this->startTime = $startTime;
     }
@@ -63,7 +63,7 @@ final class ConsoleIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function isInteractive(): bool
+    function isInteractive(): bool
     {
         return $this->input->isInteractive();
     }
@@ -71,7 +71,7 @@ final class ConsoleIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function isDecorated(): bool
+    function isDecorated(): bool
     {
         return $this->output->isDecorated();
     }
@@ -79,7 +79,7 @@ final class ConsoleIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function isVerbose(): bool
+    function isVerbose(): bool
     {
         return $this->output->isVerbose();
     }
@@ -87,7 +87,7 @@ final class ConsoleIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function isVeryVerbose(): bool
+    function isVeryVerbose(): bool
     {
         return $this->output->isVeryVerbose();
     }
@@ -95,7 +95,7 @@ final class ConsoleIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function isDebug(): bool
+    function isDebug(): bool
     {
         return $this->output->isDebug();
     }
@@ -103,7 +103,7 @@ final class ConsoleIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function write($messages, bool $newline = true)
+    function write($messages, bool $newline = true)
     {
         if (null !== $this->startTime) {
             $messages = (array) $messages;
@@ -121,7 +121,7 @@ final class ConsoleIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function overwrite($messages, bool $newline = true, ?int $size = null)
+    function overwrite($messages, bool $newline = true, ?int $size = null)
     {
         // messages can be an array, let's convert it to string anyway
         $messages = join($newline ? "\n" : '', (array) $messages);

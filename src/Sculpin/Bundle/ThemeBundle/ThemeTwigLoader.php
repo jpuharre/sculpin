@@ -22,9 +22,9 @@ class ThemeTwigLoader implements LoaderInterface
     /**
      * @var ChainLoader
      */
-    private $chainLoader;
+    public $chainLoader;
 
-    public function __construct(ThemeRegistry $themeRegistry, array $extensions)
+    function __construct(ThemeRegistry $themeRegistry, array $extensions)
     {
         $loaders = [];
 
@@ -43,7 +43,7 @@ class ThemeTwigLoader implements LoaderInterface
         $this->chainLoader = new ChainLoader($loaders);
     }
 
-    private function findPaths(array $theme, array $paths = []): array
+    function findPaths(array $theme, array $paths = []): array
     {
         foreach (['_views', '_layouts', '_includes', '_partials'] as $type) {
             if (is_dir($viewPath = $theme['path'].'/'.$type)) {
@@ -57,7 +57,7 @@ class ThemeTwigLoader implements LoaderInterface
     /**
      * {@inheritdoc}
      */
-    public function getSourceContext($name)
+    function getSourceContext($name)
     {
         return $this->chainLoader->getSourceContext($name);
     }
@@ -65,7 +65,7 @@ class ThemeTwigLoader implements LoaderInterface
     /**
      * {@inheritdoc}
      */
-    public function exists($name): bool
+    function exists($name): bool
     {
         return $this->chainLoader->exists($name);
     }
@@ -73,7 +73,7 @@ class ThemeTwigLoader implements LoaderInterface
     /**
      * {@inheritdoc}
      */
-    public function getCacheKey($name): string
+    function getCacheKey($name): string
     {
         return $this->chainLoader->getCacheKey($name);
     }
@@ -81,7 +81,7 @@ class ThemeTwigLoader implements LoaderInterface
     /**
      * {@inheritdoc}
      */
-    public function isFresh($name, $time): bool
+    function isFresh($name, $time): bool
     {
         return $this->chainLoader->isFresh($name, $time);
     }

@@ -28,21 +28,21 @@ final class PaginationGenerator implements GeneratorInterface
     /**
      * @var DataProviderManager
      */
-    private $dataProviderManager;
+    public $dataProviderManager;
 
     /**
      * @var SourcePermalinkFactory
      */
-    private $permalinkFactory;
+    public $permalinkFactory;
 
     /**
      * Max per page (default)
      *
      * @var int
      */
-    private $maxPerPage;
+    public $maxPerPage;
 
-    public function __construct(
+    function __construct(
         DataProviderManager $dataProviderManager,
         SourcePermalinkFactory $permalinkFactory,
         int $maxPerPage
@@ -55,7 +55,7 @@ final class PaginationGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function generate(SourceInterface $source): array
+    function generate(SourceInterface $source): array
     {
         $data = null;
         $config = $source->data()->get('pagination') ?: [];

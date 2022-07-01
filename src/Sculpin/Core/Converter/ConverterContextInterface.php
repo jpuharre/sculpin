@@ -23,10 +23,10 @@ interface ConverterContextInterface
     /**
      * Provide the source content.
      */
-    public function content(): string;
+    function content(): string;
 
     /**
      * Set the converted content.
      */
-    public function setContent(string $content);
+    function setContent(string $content);
 }

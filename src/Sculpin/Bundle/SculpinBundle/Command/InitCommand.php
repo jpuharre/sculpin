@@ -22,18 +22,20 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Initialize default website configuration and structure.
  */
-final class InitCommand extends AbstractCommand
+final class InitCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
-    public const COMMAND_SUCCESS          = 0;
-    public const PROJECT_FOLDER_NOT_EMPTY = 101;
+    const COMMAND_SUCCESS          = 0;
+    const PROJECT_FOLDER_NOT_EMPTY = 101;
 
-    public const DEFAULT_SUBTITLE = 'A Static Site Powered By Sculpin';
-    public const DEFAULT_TITLE    = 'My Sculpin Site';
+    const DEFAULT_SUBTITLE = 'A Static Site Powered By Sculpin';
+    const DEFAULT_TITLE    = 'My Sculpin Site';
 
     /**
      * {@inheritdoc}
      */
-    protected function configure(): void
+    function configure(): void
     {
         $prefix = $this->isStandaloneSculpin() ? '' : 'sculpin:';
 
@@ -66,7 +68,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output): ?int
+    function execute(InputInterface $input, OutputInterface $output): ?int
     {
         $application = $this->getApplication();
         if ($application instanceof Application) {
@@ -108,7 +110,7 @@ EOT
         return self::COMMAND_SUCCESS;
     }
 
-    private function ensureCleanSlate(string $projectDir, OutputInterface $output): bool
+    function ensureCleanSlate(string $projectDir, OutputInterface $output): bool
     {
         $fs = new Filesystem();
         if ($fs->exists($projectDir . '/app')) {
@@ -126,7 +128,7 @@ EOT
         return true;
     }
 
-    private function createDefaultKernel(string $projectDir, OutputInterface $output): bool
+    function createDefaultKernel(string $projectDir, OutputInterface $output): bool
     {
         $contents = <<<EOF
 <?php
@@ -147,7 +149,7 @@ EOF;
         return true;
     }
 
-    private function createSiteKernelFile(string $projectDir, OutputInterface $output): bool
+    function createSiteKernelFile(string $projectDir, OutputInterface $output): bool
     {
         $contents = <<<EOF
 sculpin_content_types:
@@ -160,7 +162,7 @@ EOF;
         return true;
     }
 
-    private function createSiteConfigFile(
+    function createSiteConfigFile(
         string $projectDir,
         string $title,
         string $subTitle,
@@ -178,7 +180,7 @@ EOF;
         return true;
     }
 
-    private function createSourceFolder(string $projectDir, OutputInterface $output): bool
+    function createSourceFolder(string $projectDir, OutputInterface $output): bool
     {
         $fs = new Filesystem();
 
@@ -210,7 +212,7 @@ EOF
         return true;
     }
 
-    private function createFile(string $path, string $contents): void
+    function createFile(string $path, string $contents): void
     {
         $fs = new Filesystem();
         $fs->dumpFile($path, $contents);

@@ -21,12 +21,12 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSubscriberInterface
 {
-    private $taxons = [];
-    private $dataProviderManager;
-    private $dataProviderName;
-    private $taxonomyKey;
+    public $taxons = [];
+    public $dataProviderManager;
+    public $dataProviderName;
+    public $taxonomyKey;
 
-    public function __construct(
+    function __construct(
         DataProviderManager $dataProviderManager,
         $dataProviderName,
         $taxonomyKey
@@ -36,19 +36,19 @@ class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSub
         $this->taxonomyKey = $taxonomyKey;
     }
 
-    public function provideData(): array
+    function provideData(): array
     {
         return $this->taxons;
     }
 
-    public static function getSubscribedEvents()
+    static function getSubscribedEvents()
     {
         return [
             Sculpin::EVENT_BEFORE_RUN => 'beforeRun',
         ];
     }
 
-    public function beforeRun(SourceSetEvent $sourceSetEvent)
+    function beforeRun(SourceSetEvent $sourceSetEvent)
     {
         $taxons = [];
         $dataProvider = $this->dataProviderManager->dataProvider($this->dataProviderName);

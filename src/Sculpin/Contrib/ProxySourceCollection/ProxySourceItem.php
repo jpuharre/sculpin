@@ -16,54 +16,55 @@ namespace Sculpin\Contrib\ProxySourceCollection;
 use Dflydev\DotAccessData\DataInterface;
 use Sculpin\Core\Source\ProxySource;
 
-class ProxySourceItem extends ProxySource implements \ArrayAccess
+class ProxySourceItem extends ProxySource implements SourceInterface
+\ArrayAccess
 {
-    private $previousItem;
-    private $nextItem;
+    public $previousItem;
+    public $nextItem;
 
-    public function id()
+    function id()
     {
         return $this->sourceId();
     }
 
-    public function meta()
+    function meta()
     {
         return $this->data()->export();
     }
 
-    public function url(): string
+    function url(): string
     {
         return $this->permalink()->relativeUrlPath();
     }
 
-    public function date()
+    function date()
     {
         $calculatedDate = $this->data()->get('calculated_date');
 
         return $calculatedDate ?: $this->data()->get('date');
     }
 
-    public function title()
+    function title()
     {
         return $this->data()->get('title');
     }
 
-    public function blocks()
+    function blocks()
     {
         return $this->data()->get('blocks');
     }
 
-    public function setBlocks(array $blocks = null)
+    function setBlocks(array $blocks = null)
     {
         $this->data()->set('blocks', $blocks ?: []);
     }
 
-    public function previousItem()
+    function previousItem()
     {
         return $this->previousItem;
     }
 
-    public function setPreviousItem(ProxySourceItem $item = null)
+    function setPreviousItem(ProxySourceItem $item = null)
     {
         $lastPreviousItem = $this->previousItem;
         $this->previousItem = $item;
@@ -81,12 +82,12 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         }
     }
 
-    public function nextItem()
+    function nextItem()
     {
         return $this->nextItem;
     }
 
-    public function setNextItem(ProxySourceItem $item = null)
+    function setNextItem(ProxySourceItem $item = null)
     {
         $lastNextItem = $this->nextItem;
         $this->nextItem = $item;
@@ -104,13 +105,13 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         }
     }
 
-    public function reprocess()
+    function reprocess()
     {
         $this->setHasChanged();
     }
 
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
             throw new \InvalidArgumentException('Proxy source items cannot have values pushed onto them');
@@ -129,13 +130,13 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
     }
 
     #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    function offsetExists($offset)
     {
         return ! method_exists($this, $offset) && null !== $this->data()->get($offset);
     }
 
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    function offsetUnset($offset)
     {
         if (! method_exists($this, $offset)) {
             $data = $this->data();
@@ -146,7 +147,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
     }
 
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    function offsetGet($offset)
     {
         if (method_exists($this, $offset)) {
             return call_user_func([$this, $offset]);

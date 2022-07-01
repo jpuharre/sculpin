@@ -25,49 +25,49 @@ class Configuration extends BaseConfiguration
      *
      * @var array
      */
-    private $excludes = [];
+    public $excludes = [];
 
     /**
      * Ignore patterns
      *
      * @var array
      */
-    private $ignores = [];
+    public $ignores = [];
 
     /**
      * Raw patterns
      *
      * @var array
      */
-    private $raws = [];
+    public $raws = [];
 
     /**
      * Source directory
      *
      * @var string
      */
-    private $sourceDir;
+    public $sourceDir;
 
     /**
      * Output directory
      *
      * @var string
      */
-    private $outputDir;
+    public $outputDir;
 
     /**
      * Default permalink
      *
      * @var string
      */
-    private $permalink;
+    public $permalink;
 
     /**
      * Default formatter
      *
      * @var string
      */
-    private $defaultFormatter;
+    public $defaultFormatter;
 
     /**
      * Set excludes
@@ -78,7 +78,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setExcludes(array $excludes = []): self
+    function setExcludes(array $excludes = []): self
     {
         foreach ($excludes as $exclude) {
             $this->addExclude($exclude);
@@ -94,7 +94,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function addExclude(string $pattern): self
+    function addExclude(string $pattern): self
     {
         if (substr($pattern, 0, 2)=='./') {
             $pattern = substr($pattern, 2);
@@ -112,7 +112,7 @@ class Configuration extends BaseConfiguration
      *
      * @return array
      */
-    public function excludes(): array
+    function excludes(): array
     {
         return $this->excludes;
     }
@@ -126,7 +126,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setIgnores(array $ignores = []): self
+    function setIgnores(array $ignores = []): self
     {
         foreach ($ignores as $ignore) {
             $this->addIgnore($ignore);
@@ -142,7 +142,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function addIgnore(string $pattern): self
+    function addIgnore(string $pattern): self
     {
         if (substr($pattern, 0, 2)=='./') {
             $pattern = substr($pattern, 2);
@@ -160,7 +160,7 @@ class Configuration extends BaseConfiguration
      *
      * @return array
      */
-    public function ignores(): array
+    function ignores(): array
     {
         return $this->ignores;
     }
@@ -174,7 +174,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setRaws(array $raws = []): self
+    function setRaws(array $raws = []): self
     {
         foreach ($raws as $raw) {
             $this->addRaw($raw);
@@ -190,7 +190,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function addRaw(string $pattern): self
+    function addRaw(string $pattern): self
     {
         if (substr($pattern, 0, 2)=='./') {
             $pattern = substr($pattern, 2);
@@ -207,7 +207,7 @@ class Configuration extends BaseConfiguration
      *
      * @return array
      */
-    public function raws(): array
+    function raws(): array
     {
         return $this->raws;
     }
@@ -219,7 +219,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setSourceDir(string $sourceDir): self
+    function setSourceDir(string $sourceDir): self
     {
         $this->sourceDir = $sourceDir;
 
@@ -231,7 +231,7 @@ class Configuration extends BaseConfiguration
      *
      * @return string
      */
-    public function sourceDir(): string
+    function sourceDir(): string
     {
         return $this->sourceDir;
     }
@@ -243,7 +243,7 @@ class Configuration extends BaseConfiguration
      *
      * @return $this
      */
-    public function setOutputDir(string $outputDir): self
+    function setOutputDir(string $outputDir): self
     {
         $this->outputDir = $outputDir;
 
@@ -255,7 +255,7 @@ class Configuration extends BaseConfiguration
      *
      * @return string
      */
-    public function outputDir(): string
+    function outputDir(): string
     {
         return $this->outputDir;
     }
@@ -267,7 +267,7 @@ class Configuration extends BaseConfiguration
      *
      * @return $this
      */
-    public function setPermalink(string $permalink): self
+    function setPermalink(string $permalink): self
     {
         $this->permalink = $permalink;
 
@@ -279,7 +279,7 @@ class Configuration extends BaseConfiguration
      *
      * @return string
      */
-    public function permalink(): string
+    function permalink(): string
     {
         return $this->permalink;
     }
@@ -291,7 +291,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setDefaultFormatter(string $defaultFormatter): self
+    function setDefaultFormatter(string $defaultFormatter): self
     {
         $this->defaultFormatter = $defaultFormatter;
 
@@ -303,7 +303,7 @@ class Configuration extends BaseConfiguration
      *
      * @return string
      */
-    public function defaultFormatter(): string
+    function defaultFormatter(): string
     {
         return $this->defaultFormatter;
     }

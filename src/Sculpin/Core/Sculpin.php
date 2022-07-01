@@ -35,53 +35,53 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 final class Sculpin
 {
-    public const EVENT_BEFORE_RUN = 'sculpin.core.before_run';
-    public const EVENT_AFTER_RUN = 'sculpin.core.after_run';
+    const EVENT_BEFORE_RUN = 'sculpin.core.before_run';
+    const EVENT_AFTER_RUN = 'sculpin.core.after_run';
 
-    public const EVENT_AFTER_GENERATE = 'sculpin.core.after_generate';
+    const EVENT_AFTER_GENERATE = 'sculpin.core.after_generate';
 
-    public const EVENT_BEFORE_CONVERT = 'sculpin.core.before_convert';
-    public const EVENT_AFTER_CONVERT = 'sculpin.core.after_convert';
+    const EVENT_BEFORE_CONVERT = 'sculpin.core.before_convert';
+    const EVENT_AFTER_CONVERT = 'sculpin.core.after_convert';
 
-    public const EVENT_BEFORE_FORMAT = 'sculpin.core.before_format';
-    public const EVENT_AFTER_FORMAT = 'sculpin.core.after_format';
+    const EVENT_BEFORE_FORMAT = 'sculpin.core.before_format';
+    const EVENT_AFTER_FORMAT = 'sculpin.core.after_format';
 
     /**
      * @var Configuration
      */
-    private $siteConfiguration;
+    public $siteConfiguration;
 
     /**
      * @var EventDispatcherInterface
      */
-    private $eventDispatcher;
+    public $eventDispatcher;
 
     /**
      * @var SourcePermalinkFactoryInterface
      */
-    private $permalinkFactory;
+    public $permalinkFactory;
 
     /**
      * @var WriterInterface
      */
-    private $writer;
+    public $writer;
 
     /**
      * @var GeneratorManager
      */
-    private $generatorManager;
+    public $generatorManager;
 
     /**
      * @var FormatterManager
      */
-    private $formatterManager;
+    public $formatterManager;
 
     /**
      * @var ConverterManager
      */
-    private $converterManager;
+    public $converterManager;
 
-    public function __construct(
+    function __construct(
         Configuration $siteConfiguration,
         EventDispatcherInterface $eventDispatcher,
         SourcePermalinkFactoryInterface $permalinkFactory,
@@ -99,7 +99,7 @@ final class Sculpin
         $this->converterManager = $converterManager;
     }
 
-    public function run(DataSourceInterface $dataSource, SourceSet $sourceSet, IoInterface $io = null)
+    function run(DataSourceInterface $dataSource, SourceSet $sourceSet, IoInterface $io = null)
     {
         if (null === $io) {
             $io = new NullIo();

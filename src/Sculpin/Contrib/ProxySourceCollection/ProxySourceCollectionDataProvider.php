@@ -27,15 +27,15 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ProxySourceCollectionDataProvider implements DataProviderInterface, EventSubscriberInterface
 {
-    private $formatterManager;
-    private $dataProviderName;
-    private $dataSingularName;
-    private $collection;
-    private $filter;
-    private $map;
-    private $factory;
+    public $formatterManager;
+    public $dataProviderName;
+    public $dataSingularName;
+    public $collection;
+    public $filter;
+    public $map;
+    public $factory;
 
-    public function __construct(
+    function __construct(
         FormatterManager $formatterManager,
         $dataProviderName,
         $dataSingularName = null,
@@ -53,12 +53,12 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         $this->factory = $factory ?: new SimpleProxySourceItemFactory;
     }
 
-    public function provideData(): array
+    function provideData(): array
     {
         return iterator_to_array($this->collection);
     }
 
-    public static function getSubscribedEvents()
+    static function getSubscribedEvents()
     {
         return [
             Sculpin::EVENT_BEFORE_RUN => [
@@ -69,7 +69,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         ];
     }
 
-    public function beforeRun(SourceSetEvent $sourceSetEvent)
+    function beforeRun(SourceSetEvent $sourceSetEvent)
     {
         foreach ($sourceSetEvent->updatedSources() as $source) {
             if ($source->isGenerated()) {
@@ -124,7 +124,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         $this->collection->init();
     }
 
-    public function beforeRunPost(SourceSetEvent $sourceSetEvent)
+    function beforeRunPost(SourceSetEvent $sourceSetEvent)
     {
         $anItemHasChanged = false;
         foreach ($this->collection as $item) {
@@ -147,7 +147,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         }
     }
 
-    public function afterConvert(ConvertEvent $convertEvent)
+    function afterConvert(ConvertEvent $convertEvent)
     {
         $sourceId = $convertEvent->source()->sourceId();
 

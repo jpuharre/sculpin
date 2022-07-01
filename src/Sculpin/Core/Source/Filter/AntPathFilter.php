@@ -19,14 +19,14 @@ use Sculpin\Core\Util\DirectorySeparatorNormalizer;
 
 class AntPathFilter implements FilterInterface
 {
-    private $antPathMatcher;
-    private $patterns;
+    public $antPathMatcher;
+    public $patterns;
     /**
      * @var DirectorySeparatorNormalizer
      */
-    private $directorySeparatorNormalizer;
+    public $directorySeparatorNormalizer;
 
-    public function __construct(
+    function __construct(
         array $paths,
         AntPathMatcher $antPathMatcher = null,
         DirectorySeparatorNormalizer $directorySeparatorNormalizer = null
@@ -41,7 +41,7 @@ class AntPathFilter implements FilterInterface
         $this->directorySeparatorNormalizer = $directorySeparatorNormalizer ?: new DirectorySeparatorNormalizer;
     }
 
-    public function match(SourceInterface $source): bool
+    function match(SourceInterface $source): bool
     {
         $normalizedPath = $this->directorySeparatorNormalizer->normalize($source->relativePathname());
 

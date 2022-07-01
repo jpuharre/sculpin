@@ -12,19 +12,19 @@ class ThemeTwigExtension extends AbstractExtension
     /**
      * @var array|null
      */
-    private $theme;
+    public $theme;
 
     /**
      * @var string
      */
-    private $sourceDirectory;
+    public $sourceDirectory;
 
     /**
      * @var string
      */
-    private $themeDirectory;
+    public $themeDirectory;
 
-    public function __construct(ThemeRegistry $themeRegistry, string $sourceDirectory, string $themeDirectory)
+    function __construct(ThemeRegistry $themeRegistry, string $sourceDirectory, string $themeDirectory)
     {
         $this->theme = $themeRegistry->findActiveTheme();
         $this->sourceDirectory = $sourceDirectory;
@@ -34,7 +34,7 @@ class ThemeTwigExtension extends AbstractExtension
     /**
      * {@inheritdoc}
      */
-    public function getFunctions(): array
+    function getFunctions(): array
     {
         return [
             new TwigFunction('theme_path', [$this, 'themePath']),
@@ -46,7 +46,7 @@ class ThemeTwigExtension extends AbstractExtension
     /**
      * {@inheritdoc}
      */
-    public function getName(): string
+    function getName(): string
     {
         return 'theme';
     }
@@ -57,7 +57,7 @@ class ThemeTwigExtension extends AbstractExtension
      * Will always return a value. Default return value is the input unless the
      * file actually exists at a theme location.
      */
-    public function themePath(string $resource): string
+    function themePath(string $resource): string
     {
         if (null === $this->theme) {
             return $resource;
@@ -89,7 +89,7 @@ class ThemeTwigExtension extends AbstractExtension
      *
      * @return bool
      */
-    public function themePathExists(string $resource): bool
+    function themePathExists(string $resource): bool
     {
         if (file_exists($this->sourceDirectory.'/'.$resource)) {
             return true;
@@ -123,7 +123,7 @@ class ThemeTwigExtension extends AbstractExtension
      *
      * @return array
      */
-    public function themePaths(string $resource): array
+    function themePaths(string $resource): array
     {
         $paths = [];
 
@@ -150,7 +150,7 @@ class ThemeTwigExtension extends AbstractExtension
         return array_reverse($paths);
     }
 
-    private function findThemeResource(array $theme, string $resource): ?string
+    function findThemeResource(array $theme, string $resource): ?string
     {
         if (file_exists($theme['path'].'/'.$resource)) {
             return $this->themeDirectory.'/'.$theme['name'].'/'.$resource;

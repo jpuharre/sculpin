@@ -24,7 +24,7 @@ final class CustomMimeTypesRepositoryPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    function process(ContainerBuilder $container)
     {
         if (false === $container->hasDefinition('sculpin.custom_mime_types_repository')) {
             return;

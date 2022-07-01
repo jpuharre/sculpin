@@ -17,19 +17,19 @@ use Sculpin\Contrib\Taxonomy\PermalinkStrategy\PermalinkStrategyInterface;
 
 class PermalinkStrategyCollection
 {
-    protected $strategies;
+    public $strategies;
 
-    public function __construct()
+    function __construct()
     {
         $this->strategies = new \SplObjectStorage();
     }
 
-    public function push(PermalinkStrategyInterface $strategy)
+    function push(PermalinkStrategyInterface $strategy)
     {
         $this->strategies->attach($strategy);
     }
 
-    public function process($str)
+    function process($str)
     {
         foreach ($this->strategies as $strategy) {
             $str = $strategy->process($str);

@@ -24,9 +24,9 @@ class ProxySource implements SourceInterface
     /**
      * @var SourceInterface
      */
-    protected $source;
+    public $source;
 
-    public function __construct(SourceInterface $source)
+    function __construct(SourceInterface $source)
     {
         $this->source = $source;
     }
@@ -34,7 +34,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function sourceId(): string
+    function sourceId(): string
     {
         return $this->source->sourceId();
     }
@@ -42,7 +42,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function isRaw(): bool
+    function isRaw(): bool
     {
         return $this->source->isRaw();
     }
@@ -50,7 +50,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function canBeFormatted(): bool
+    function canBeFormatted(): bool
     {
         return $this->source->isRaw();
     }
@@ -58,7 +58,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function hasChanged(): bool
+    function hasChanged(): bool
     {
         return $this->source->hasChanged();
     }
@@ -66,7 +66,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setHasChanged(): void
+    function setHasChanged(): void
     {
         $this->source->setHasChanged();
     }
@@ -74,7 +74,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setHasNotChanged(): void
+    function setHasNotChanged(): void
     {
         $this->source->setHasNotChanged();
     }
@@ -82,7 +82,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function permalink(): PermalinkInterface
+    function permalink(): PermalinkInterface
     {
         return $this->source->permalink();
     }
@@ -90,7 +90,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setPermalink(PermalinkInterface $permalink): void
+    function setPermalink(PermalinkInterface $permalink): void
     {
         $this->source->setPermalink($permalink);
     }
@@ -98,7 +98,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function useFileReference(): bool
+    function useFileReference(): bool
     {
         return $this->source->useFileReference();
     }
@@ -106,7 +106,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function file(): \SplFileInfo
+    function file(): \SplFileInfo
     {
         return $this->source->file();
     }
@@ -114,7 +114,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function content(): string
+    function content(): string
     {
         return $this->source->content();
     }
@@ -122,7 +122,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setContent(?string $content = null): void
+    function setContent(?string $content = null): void
     {
         $this->source->setContent($content);
     }
@@ -130,7 +130,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function formattedContent(): string
+    function formattedContent(): string
     {
         return $this->source->formattedContent();
     }
@@ -138,7 +138,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setFormattedContent(?string $formattedContent = null): void
+    function setFormattedContent(?string $formattedContent = null): void
     {
         $this->source->setFormattedContent($formattedContent);
     }
@@ -146,7 +146,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function relativePathname(): string
+    function relativePathname(): string
     {
         return $this->source->relativePathname();
     }
@@ -154,7 +154,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function filename(): string
+    function filename(): string
     {
         return $this->source->filename();
     }
@@ -162,7 +162,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function data(): Configuration
+    function data(): Configuration
     {
         return $this->source->data();
     }
@@ -170,7 +170,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function isGenerator(): bool
+    function isGenerator(): bool
     {
         return $this->source->isGenerator();
     }
@@ -178,7 +178,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setIsGenerator(): void
+    function setIsGenerator(): void
     {
         $this->source->setIsGenerator();
     }
@@ -186,7 +186,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setIsNotGenerator(): void
+    function setIsNotGenerator(): void
     {
         $this->source->setIsNotGenerator();
     }
@@ -194,7 +194,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function isGenerated(): bool
+    function isGenerated(): bool
     {
         return $this->source->isGenerated();
     }
@@ -202,7 +202,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setIsGenerated(): void
+    function setIsGenerated(): void
     {
         $this->source->setIsGenerated();
     }
@@ -210,7 +210,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setIsNotGenerated(): void
+    function setIsNotGenerated(): void
     {
         $this->source->setIsNotGenerated();
     }
@@ -218,7 +218,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function shouldBeSkipped(): bool
+    function shouldBeSkipped(): bool
     {
         return $this->source->shouldBeSkipped();
     }
@@ -226,7 +226,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setShouldBeSkipped(): void
+    function setShouldBeSkipped(): void
     {
         $this->source->setShouldBeSkipped();
     }
@@ -234,7 +234,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setShouldNotBeSkipped(): void
+    function setShouldNotBeSkipped(): void
     {
         $this->source->setShouldNotBeSkipped();
     }
@@ -242,7 +242,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function forceReprocess(): void
+    function forceReprocess(): void
     {
         $this->source->forceReprocess();
     }
@@ -250,7 +250,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function url(): string
+    function url(): string
     {
         return $this->source->url();
     }
@@ -258,7 +258,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function duplicate($newSourceId): SourceInterface
+    function duplicate($newSourceId): SourceInterface
     {
         return $this->source->duplicate($newSourceId);
     }

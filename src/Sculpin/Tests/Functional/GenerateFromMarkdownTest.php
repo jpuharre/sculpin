@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateFromMarkdownTest extends FunctionalTestCase
+class GenerateFromMarkdownTest extends TestCase
+FunctionalTestCase
 {
     /** @test */
-    public function shouldGenerateAnHtmlFileFromMarkdown(): void
+    function shouldGenerateAnHtmlFileFromMarkdown(): void
     {
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello_world.md');
 
@@ -17,7 +18,7 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
     }
 
     /** @test */
-    public function shouldGenerateHtmlContentFromMarkdown(): void
+    function shouldGenerateHtmlContentFromMarkdown(): void
     {
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello_world.md');
 
@@ -29,7 +30,7 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
     }
 
     /** @test */
-    public function shouldGenerateIntoNestedDirectories(): void
+    function shouldGenerateIntoNestedDirectories(): void
     {
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello/world.md');
 
@@ -39,7 +40,7 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
     }
 
     /** @test */
-    public function shouldGenerateHtmlUsingALayout()
+    function shouldGenerateHtmlUsingALayout()
     {
         $this->addProjectFile('/source/_layouts/my_layout.html.twig', <<<EOT
 <body>
@@ -70,7 +71,7 @@ EOT
     }
 
     /** @test */
-    public function shouldRefreshGeneratedHtmlAfterFilesystemChange(): void
+    function shouldRefreshGeneratedHtmlAfterFilesystemChange(): void
     {
         $layoutFile    = '/source/_layouts/my_layout.html.twig';
         $pageFile      = '/source/my_page_with_layout.md';
@@ -166,7 +167,7 @@ EOT;
     }
 
     /** @test */
-    public function shouldPassThruFilesWithNoExtension(): void
+    function shouldPassThruFilesWithNoExtension(): void
     {
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello_world');
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello_world2');
@@ -181,7 +182,7 @@ EOT;
     }
 
     /** @test */
-    public function shouldSkipContentTypeFilesWithNoExtension(): void
+    function shouldSkipContentTypeFilesWithNoExtension(): void
     {
         $this->addProjectDirectory(__DIR__ . '/Fixture/source/_posts');
         $this->writeToProjectFile(
@@ -218,7 +219,7 @@ EOF
     }
 
     /** @test */
-    public function shouldSkipHiddenFilesSilently(): void
+    function shouldSkipHiddenFilesSilently(): void
     {
         $this->addProjectDirectory(__DIR__ . '/Fixture/source/_posts');
         $this->writeToProjectFile(

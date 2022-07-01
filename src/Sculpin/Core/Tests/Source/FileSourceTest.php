@@ -17,7 +17,7 @@ class FileSourceTest extends TestCase
      * mock analyzer for detectFromFilename, should return text/html
      */
 
-    public function makeTestSource($filename, $hasChanged = true)
+    function makeTestSource($filename, $hasChanged = true)
     {
         $source = new FileSource(
             $this->makeTestAnalyzer(),
@@ -30,7 +30,7 @@ class FileSourceTest extends TestCase
         return $source;
     }
 
-    public function makeTestAnalyzer()
+    function makeTestAnalyzer()
     {
         $analyzer = $this->createMock(Analyzer::class);
 
@@ -47,7 +47,7 @@ class FileSourceTest extends TestCase
         return $analyzer;
     }
 
-    public function makeTestInternetMediaType()
+    function makeTestInternetMediaType()
     {
         $type = $this->createMock(InternetMediaTypeInterface::class);
 
@@ -59,7 +59,7 @@ class FileSourceTest extends TestCase
         return $type;
     }
 
-    public function makeTestInternetMediaFactory()
+    function makeTestInternetMediaFactory()
     {
         $factory = $this->createMock(InternetMediaTypeFactory::class);
 
@@ -71,7 +71,7 @@ class FileSourceTest extends TestCase
         return $factory;
     }
 
-    public function makeTestDatasource()
+    function makeTestDatasource()
     {
         $datasource = $this->createMock(DataSourceInterface::class);
 
@@ -86,7 +86,7 @@ class FileSourceTest extends TestCase
     /**
      * @dataProvider provideTestParseYaml
      */
-    public function testParseYaml($filename, $msg)
+    function testParseYaml($filename, $msg)
     {
         $expectedOutput = $this->getErrorMessage($filename, $msg);
         ob_end_flush();
@@ -98,7 +98,7 @@ class FileSourceTest extends TestCase
         $this->assertEquals($expectedOutput, $output);
     }
 
-    public function provideTestParseYaml()
+    function provideTestParseYaml()
     {
         return [
             [__DIR__ . '/../Fixtures/valid/no-end-frontmatter.yml', ''],
@@ -119,7 +119,7 @@ class FileSourceTest extends TestCase
         ];
     }
 
-    public function getErrorMessage($filename, $msg)
+    function getErrorMessage($filename, $msg)
     {
         if ($msg == '') {
             return '';

@@ -21,14 +21,14 @@ interface FormatterInterface
     /**
      * Format the input blocks
      */
-    public function formatBlocks(FormatContext $formatContext): array;
+    function formatBlocks(FormatContext $formatContext): array;
 
     /**
      * Format an entire page
      *
      * @return string
      */
-    public function formatPage(FormatContext $formatContext): string;
+    function formatPage(FormatContext $formatContext): string;
 
     /**
      * Reset
@@ -37,5 +37,5 @@ interface FormatterInterface
      * (if applicable) or do anything else they need to do after having
      * run once.
      */
-    public function reset();
+    function reset();
 }

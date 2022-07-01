@@ -26,5 +26,5 @@ interface ConverterInterface
      * Usually, this means getting the content with ConverterContextInterface::content()
      * and then updating the context with ConverterContextInterface->setContent().
      */
-    public function convert(ConverterContextInterface $converterContext): void;
+    function convert(ConverterContextInterface $converterContext): void;
 }

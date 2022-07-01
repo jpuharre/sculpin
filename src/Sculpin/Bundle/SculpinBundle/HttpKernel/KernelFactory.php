@@ -21,7 +21,7 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 final class KernelFactory
 {
-    public static function create(InputInterface $input): Kernel
+    static function create(InputInterface $input): Kernel
     {
         $env = $input->getParameterOption(['--env', '-e'], getenv('SCULPIN_DEBUG') ?: 'dev');
         $debug = (

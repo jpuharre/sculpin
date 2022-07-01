@@ -22,9 +22,9 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  */
 final class TemplateResetter implements EventSubscriberInterface
 {
-    private $twig;
+    public $twig;
 
-    public function __construct(Environment $twig)
+    function __construct(Environment $twig)
     {
         $this->twig = $twig;
     }
@@ -32,7 +32,7 @@ final class TemplateResetter implements EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
+    static function getSubscribedEvents(): array
     {
         return [
             Sculpin::EVENT_BEFORE_RUN => 'beforeRun',
@@ -44,7 +44,7 @@ final class TemplateResetter implements EventSubscriberInterface
      *
      * @param SourceSetEvent $sourceSetEvent Source Set Event
      */
-    public function beforeRun(SourceSetEvent $sourceSetEvent): void
+    function beforeRun(SourceSetEvent $sourceSetEvent): void
     {
         $updated = $sourceSetEvent->updatedSources();
         if ($updated) {

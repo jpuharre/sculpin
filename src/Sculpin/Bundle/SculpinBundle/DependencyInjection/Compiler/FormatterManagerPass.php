@@ -25,7 +25,7 @@ final class FormatterManagerPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    function process(ContainerBuilder $container)
     {
         if (false === $container->hasDefinition('sculpin.formatter_manager')) {
             return;

@@ -17,16 +17,16 @@ use Sculpin\Contrib\ProxySourceCollection\ProxySourceItem;
 
 class MetaSorter implements SorterInterface
 {
-    private $key;
-    private $reversed;
+    public $key;
+    public $reversed;
 
-    public function __construct($key = null, $direction = 'desc')
+    function __construct($key = null, $direction = 'desc')
     {
         $this->setKey($key);
         $this->setReversed($direction);
     }
 
-    private function setKey($key = null)
+    function setKey($key = null)
     {
         if (null === $key) {
             throw new \InvalidArgumentException('Key must be specified');
@@ -34,7 +34,7 @@ class MetaSorter implements SorterInterface
 
         $this->key = $key;
     }
-    private function setReversed($direction)
+    function setReversed($direction)
     {
         switch (strtolower($direction)) {
             case 'asc':
@@ -52,7 +52,7 @@ class MetaSorter implements SorterInterface
         }
     }
 
-    public function sort(ProxySourceItem $a, ProxySourceItem $b)
+    function sort(ProxySourceItem $a, ProxySourceItem $b)
     {
         if ($this->reversed) {
             return strnatcmp($b[$this->key], $a[$this->key]);

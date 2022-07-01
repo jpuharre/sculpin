@@ -27,14 +27,14 @@ final class TwigFormatter implements FormatterInterface
     /**
      * @var Environment
      */
-    private $twig;
+    public $twig;
 
     /**
      * @var ArrayLoader
      */
-    private $arrayLoader;
+    public $arrayLoader;
 
-    public function __construct(Environment $twig, ArrayLoader $arrayLoader)
+    function __construct(Environment $twig, ArrayLoader $arrayLoader)
     {
         $this->twig = $twig;
         $this->arrayLoader = $arrayLoader;
@@ -48,7 +48,7 @@ final class TwigFormatter implements FormatterInterface
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function formatBlocks(FormatContext $formatContext): array
+    function formatBlocks(FormatContext $formatContext): array
     {
         $this->arrayLoader->setTemplate(
             $formatContext->templateId(),
@@ -68,7 +68,7 @@ final class TwigFormatter implements FormatterInterface
         return $blocks;
     }
 
-    public function findAllBlocks(Template $template, array $context): array
+    function findAllBlocks(Template $template, array $context): array
     {
         return $template->getBlockNames($context);
     }
@@ -80,7 +80,7 @@ final class TwigFormatter implements FormatterInterface
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function formatPage(FormatContext $formatContext): string
+    function formatPage(FormatContext $formatContext): string
     {
         $this->arrayLoader->setTemplate(
             $formatContext->templateId(),
@@ -95,12 +95,12 @@ final class TwigFormatter implements FormatterInterface
     /**
      * {@inheritdoc}
      */
-    public function reset()
+    function reset()
     {
         // nothing to do
     }
 
-    private function massageTemplate(FormatContext $formatContext)
+    function massageTemplate(FormatContext $formatContext)
     {
         $template = $formatContext->template();
         if ($layout = $formatContext->data()->get('layout')) {

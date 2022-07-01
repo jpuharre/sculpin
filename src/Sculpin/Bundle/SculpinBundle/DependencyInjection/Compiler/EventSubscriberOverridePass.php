@@ -24,7 +24,7 @@ final class EventSubscriberOverridePass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container): void
+    function process(ContainerBuilder $container): void
     {
         $services = $container->findTaggedServiceIds('kernel.event_subscriber');
         foreach ($services as $id => $tags) {

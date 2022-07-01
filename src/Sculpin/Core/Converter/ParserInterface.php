@@ -9,5 +9,5 @@ namespace Sculpin\Core\Converter;
  */
 interface ParserInterface
 {
-    public function transform(string $content): string;
+    function transform(string $content): string;
 }

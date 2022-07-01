@@ -21,17 +21,17 @@ class SourceSet
     /**
      * @var SourceInterface[]
      */
-    protected $sources = [];
+    public $sources = [];
 
     /**
      * @var SourceInterface[]
      */
-    protected $newSources = [];
+    public $newSources = [];
 
     /**
      * @param SourceInterface[] $sources
      */
-    public function __construct(array $sources = [])
+    function __construct(array $sources = [])
     {
         foreach ($sources as $source) {
             $this->sources[$source->sourceId()] = $source;
@@ -40,7 +40,7 @@ class SourceSet
     /**
      * Whether this set contains the specified source.
      */
-    public function containsSource(SourceInterface $source): bool
+    function containsSource(SourceInterface $source): bool
     {
         return array_key_exists($source->sourceId(), $this->sources);
     }
@@ -48,7 +48,7 @@ class SourceSet
     /**
      * Add this source to the list, tracking whether its a new or existing source.
      */
-    public function mergeSource(SourceInterface $source): void
+    function mergeSource(SourceInterface $source): void
     {
         if (array_key_exists($source->sourceId(), $this->sources)) {
             unset($this->sources[$source->sourceId()]);
@@ -61,7 +61,7 @@ class SourceSet
     /**
      * @return SourceInterface[]
      */
-    public function allSources(): array
+    function allSources(): array
     {
         return $this->sources;
     }
@@ -71,7 +71,7 @@ class SourceSet
      *
      * @return SourceInterface[]
      */
-    public function updatedSources(): array
+    function updatedSources(): array
     {
         return array_filter($this->sources, function (SourceInterface $source) {
             return $source->hasChanged();
@@ -81,7 +81,7 @@ class SourceSet
     /**
      * @return SourceInterface[]
      */
-    public function newSources(): array
+    function newSources(): array
     {
         return $this->newSources;
     }
@@ -91,7 +91,7 @@ class SourceSet
      *
      * Should be called after each loop while watching.
      */
-    public function reset(): void
+    function reset(): void
     {
         foreach ($this->sources as $source) {
             $source->setHasNotChanged();

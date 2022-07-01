@@ -19,7 +19,7 @@ use Sculpin\Core\Source\SourceInterface;
 
 class SourceSetTest extends TestCase
 {
-    public function makeTestSource($sourceId, $hasChanged = true)
+    function makeTestSource($sourceId, $hasChanged = true)
     {
         $source = $this->createMock(SourceInterface::class);
 
@@ -36,7 +36,7 @@ class SourceSetTest extends TestCase
         return $source;
     }
 
-    public function testContainsSource()
+    function testContainsSource()
     {
         $source000 = $this->makeTestSource('TestSource:000');
         $source001 = $this->makeTestSource('TestSource:001');
@@ -55,7 +55,7 @@ class SourceSetTest extends TestCase
         $this->assertTrue($sourceSet->containsSource($source002));
     }
 
-    public function testMergeSource()
+    function testMergeSource()
     {
         $source000a = $this->makeTestSource('TestSource:000');
         $source000a
@@ -86,7 +86,7 @@ class SourceSetTest extends TestCase
         $this->assertEquals('b', $internalSources['TestSource:000']->content());
     }
 
-    public function testAllSources()
+    function testAllSources()
     {
         $source000 = $this->makeTestSource('TestSource:000');
         $source001 = $this->makeTestSource('TestSource:001');
@@ -101,7 +101,7 @@ class SourceSetTest extends TestCase
         ], $sourceSet->allSources());
     }
 
-    public function testUpdatedSources()
+    function testUpdatedSources()
     {
         $source000 = $this->makeTestSource('TestSource:000');
         $source001 = $this->makeTestSource('TestSource:001', false);
@@ -115,7 +115,7 @@ class SourceSetTest extends TestCase
         ], $sourceSet->updatedSources());
     }
 
-    public function testReset()
+    function testReset()
     {
         $source000 = $this->makeTestSource('TestSource:000');
         $source001 = $this->makeTestSource('TestSource:001');

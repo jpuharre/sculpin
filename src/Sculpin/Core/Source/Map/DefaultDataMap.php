@@ -17,14 +17,14 @@ use Sculpin\Core\Source\SourceInterface;
 
 class DefaultDataMap implements MapInterface
 {
-    private $defaults;
+    public $defaults;
 
-    public function __construct(array $defaults = [])
+    function __construct(array $defaults = [])
     {
         $this->defaults = $defaults;
     }
 
-    public function process(SourceInterface $source): void
+    function process(SourceInterface $source): void
     {
         foreach ($this->defaults as $name => $value) {
             if (!$source->data()->get($name) && $value) {

@@ -24,14 +24,14 @@ final class FilesystemWriter implements WriterInterface
     /**
      * @var Filesystem
      */
-    private $filesystem;
+    public $filesystem;
 
     /**
      * @var string
      */
-    private $outputDir;
+    public $outputDir;
 
-    public function __construct(Filesystem $filesystem, string $outputDir)
+    function __construct(Filesystem $filesystem, string $outputDir)
     {
         $this->filesystem = $filesystem;
         $this->outputDir  = $outputDir;
@@ -42,7 +42,7 @@ final class FilesystemWriter implements WriterInterface
      *
      * @throws IOException
      */
-    public function write(OutputInterface $output): void
+    function write(OutputInterface $output): void
     {
         $outputPath = $this->outputDir.'/'.$output->permalink()->relativeFilePath();
         if ($output->hasFileReference()) {
@@ -58,7 +58,7 @@ final class FilesystemWriter implements WriterInterface
      *
      * @param string    $outputDir  path to desired output directory
      */
-    public function setOutputDir(string $outputDir): void
+    function setOutputDir(string $outputDir): void
     {
         $this->outputDir = $outputDir;
     }
@@ -68,7 +68,7 @@ final class FilesystemWriter implements WriterInterface
      *
      * @return string
      */
-    public function getOutputDir(): string
+    function getOutputDir(): string
     {
         return $this->outputDir;
     }

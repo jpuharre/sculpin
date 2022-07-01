@@ -19,13 +19,13 @@ use Sculpin\Core\Source\SourceInterface;
 
 class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
 {
-    private $dataProviderManager;
-    private $dataProviderName;
-    private $injectedTaxonKey;
-    private $injectedTaxonItemsKey;
-    private $permalinkStrategyCollection;
+    public $dataProviderManager;
+    public $dataProviderName;
+    public $injectedTaxonKey;
+    public $injectedTaxonItemsKey;
+    public $permalinkStrategyCollection;
 
-    public function __construct(
+    function __construct(
         DataProviderManager $dataProviderManager,
         $dataProviderName,
         $injectedTaxonKey,
@@ -39,7 +39,7 @@ class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
         $this->permalinkStrategyCollection = $permalinkStrategyCollection;
     }
 
-    public function generate(SourceInterface $source): array
+    function generate(SourceInterface $source): array
     {
         $dataProvider = $this->dataProviderManager->dataProvider($this->dataProviderName);
         $taxons = $dataProvider->provideData();

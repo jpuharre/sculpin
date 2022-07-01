@@ -18,5 +18,5 @@ namespace Sculpin\Core\Output;
  */
 interface WriterInterface
 {
-    public function write(OutputInterface $output): void;
+    function write(OutputInterface $output): void;
 }

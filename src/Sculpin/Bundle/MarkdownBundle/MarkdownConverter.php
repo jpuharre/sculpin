@@ -32,14 +32,14 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
     /**
      * @var ParserInterface
      */
-    private $markdown;
+    public $markdown;
 
     /**
      * File name extensions that are handled as markdown.
      *
      * @var string[]
      */
-    private $extensions = [];
+    public $extensions = [];
 
     /**
      * Constructor.
@@ -47,7 +47,7 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
      * @param ParserInterface $markdown
      * @param string[]        $extensions file name extensions that are handled as markdown
      */
-    public function __construct(ParserInterface $markdown, array $extensions = [])
+    function __construct(ParserInterface $markdown, array $extensions = [])
     {
         $this->markdown = $markdown;
         if ($this->markdown instanceof Markdown) {
@@ -59,7 +59,7 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
     /**
      * {@inheritdoc}
      */
-    public function convert(ConverterContextInterface $converterContext): void
+    function convert(ConverterContextInterface $converterContext): void
     {
         $converterContext->setContent($this->markdown->transform($converterContext->content()));
     }
@@ -67,7 +67,7 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
+    static function getSubscribedEvents(): array
     {
         return [
             Sculpin::EVENT_BEFORE_RUN => 'beforeRun',
@@ -79,7 +79,7 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
      *
      * @internal
      */
-    public function beforeRun(SourceSetEvent $sourceSetEvent): void
+    function beforeRun(SourceSetEvent $sourceSetEvent): void
     {
         /** @var SourceInterface $source */
         foreach ($sourceSetEvent->updatedSources() as $source) {
@@ -100,7 +100,7 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
      *
      * @param string $headerText raw markdown input for the header name
      */
-    public function generateHeaderId(string $headerText): string
+    function generateHeaderId(string $headerText): string
     {
 
         // $headerText is completely raw markdown input. We need to strip it

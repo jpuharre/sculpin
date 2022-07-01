@@ -18,7 +18,7 @@ final class PermalinkStrategyCollectionFactory
     /**
      * @param string|array $taxonomy
      */
-    public static function create($taxonomy): PermalinkStrategyCollection
+    static function create($taxonomy): PermalinkStrategyCollection
     {
         $collection = new PermalinkStrategyCollection();
         if (is_string($taxonomy)) {

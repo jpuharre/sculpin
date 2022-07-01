@@ -25,7 +25,7 @@ final class DataProviderManagerPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    function process(ContainerBuilder $container)
     {
         if (false === $container->hasDefinition('sculpin.data_provider_manager')) {
             return;

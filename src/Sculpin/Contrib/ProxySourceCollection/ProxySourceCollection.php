@@ -22,17 +22,17 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
     /**
      * @var ProxySourceItem[] $items
      */
-    protected $items = [];
-    protected $sorter;
+    public $items = [];
+    public $sorter;
 
-    public function __construct(array $items = [], SorterInterface $sorter = null)
+    function __construct(array $items = [], SorterInterface $sorter = null)
     {
         $this->items = $items;
         $this->sorter = $sorter ?: new DefaultSorter;
     }
 
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
             $this->items[] = $value;
@@ -42,60 +42,60 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
     }
 
     #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    function offsetExists($offset)
     {
         return isset($this->items[$offset]);
     }
 
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    function offsetUnset($offset)
     {
         unset($this->items[$offset]);
     }
 
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    function offsetGet($offset)
     {
         return isset($this->items[$offset]) ? $this->items[$offset] : null;
     }
 
     #[\ReturnTypeWillChange]
-    public function rewind()
+    function rewind()
     {
         reset($this->items);
     }
 
     #[\ReturnTypeWillChange]
-    public function current()
+    function current()
     {
         return current($this->items);
     }
 
     #[\ReturnTypeWillChange]
-    public function key()
+    function key()
     {
         return key($this->items);
     }
 
     #[\ReturnTypeWillChange]
-    public function next()
+    function next()
     {
         return next($this->items);
     }
 
     #[\ReturnTypeWillChange]
-    public function valid()
+    function valid()
     {
         return $this->current() !== false;
     }
 
     #[\ReturnTypeWillChange]
-    public function count()
+    function count()
     {
         return count($this->items);
     }
 
-    public function init()
+    function init()
     {
         $this->sort();
 
@@ -117,7 +117,7 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
         }
     }
 
-    public function first()
+    function first()
     {
         $keys = array_keys($this->items);
 
@@ -129,7 +129,7 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
      *
      * See: https://github.com/vanderlee/PHP-stable-sort-functions
      */
-    public function sort()
+    function sort()
     {
         $index      = 0;
         $comparator = [$this->sorter, 'sort'];

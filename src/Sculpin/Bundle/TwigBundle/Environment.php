@@ -23,7 +23,7 @@ class Environment extends \Twig\Environment
      *
      * Hacky workaround to expose invalidation.
      */
-    public function invalidateLoadedTemplates(): void
+    function invalidateLoadedTemplates(): void
     {
         try {
             $me     = new \ReflectionClass($this);

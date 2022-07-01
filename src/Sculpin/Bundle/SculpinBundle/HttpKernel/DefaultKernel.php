@@ -16,14 +16,15 @@ namespace Sculpin\Bundle\SculpinBundle\HttpKernel;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class DefaultKernel extends AbstractKernel
+class DefaultKernel extends Kernel
+AbstractKernel
 {
     /**
      * {@inheritdoc}
      *
      * Overwrite this method to add additional bundles to your Sculpin application.
      */
-    protected function getAdditionalSculpinBundles(): array
+    function getAdditionalSculpinBundles(): array
     {
         return [];
     }

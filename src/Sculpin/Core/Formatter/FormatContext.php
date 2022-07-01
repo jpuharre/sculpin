@@ -23,41 +23,41 @@ final class FormatContext
     /**
      * @var string
      */
-    private $templateId;
+    public $templateId;
 
     /**
      * @var string
      */
-    private $template;
+    public $template;
 
     /**
      * @var Data
      */
-    private $data;
+    public $data;
 
-    public function __construct(string $templateId, string $template, array $data)
+    function __construct(string $templateId, string $template, array $data)
     {
         $this->templateId = $templateId;
         $this->template = $template;
         $this->data = new Data($data);
     }
 
-    public function templateId(): string
+    function templateId(): string
     {
         return $this->templateId;
     }
 
-    public function template(): string
+    function template(): string
     {
         return $this->template;
     }
 
-    public function data(): Data
+    function data(): Data
     {
         return $this->data;
     }
 
-    public function formatter(): ?string
+    function formatter(): ?string
     {
         return $this->data->get('formatter');
     }

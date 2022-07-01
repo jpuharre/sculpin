@@ -23,9 +23,9 @@ class DataProviderManager
      *
      * @var array
      */
-    protected $dataProviders = [];
+    public $dataProviders = [];
 
-    public function registerDataProvider(string $name, DataProviderInterface $dataProvider): void
+    function registerDataProvider(string $name, DataProviderInterface $dataProvider): void
     {
         $this->dataProviders[$name] = $dataProvider;
     }
@@ -35,7 +35,7 @@ class DataProviderManager
      *
      * @return string[]
      */
-    public function dataProviders(): array
+    function dataProviders(): array
     {
         return array_keys($this->dataProviders);
     }
@@ -45,7 +45,7 @@ class DataProviderManager
      *
      * @throws \InvalidArgumentException
      */
-    public function dataProvider(string $name): DataProviderInterface
+    function dataProvider(string $name): DataProviderInterface
     {
         if (isset($this->dataProviders[$name])) {
             return $this->dataProviders[$name];

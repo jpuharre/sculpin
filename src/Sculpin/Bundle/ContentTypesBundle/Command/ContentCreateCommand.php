@@ -26,14 +26,16 @@ use Symfony\Component\Filesystem\Filesystem;
  * Outputs the YAML required to add a new content type, and optionally
  * generates the associated boilerplate for the type.
  */
-final class ContentCreateCommand extends AbstractCommand
+final class ContentCreateCommand extends ContainerAwareCommand
+Command AbstractCommand
+ContainerAwareInterface
 {
-    private const DIRECTORY_FLAG = '_directory_';
+    const DIRECTORY_FLAG = '_directory_';
 
     /**
      * {@inheritdoc}
      */
-    protected function configure(): void
+    function configure(): void
     {
         $prefix = $this->isStandaloneSculpin() ? '' : 'sculpin:';
 
@@ -85,7 +87,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    function execute(InputInterface $input, OutputInterface $output)
     {
         $pluralType   = $input->getArgument('type');
         $singularType = Inflector::singularize($pluralType);
@@ -138,7 +140,7 @@ EOT
         return 0;
     }
 
-    private function generateBoilerplateManifest(string $plural, string $singular, array $taxonomies = []): array
+    function generateBoilerplateManifest(string $plural, string $singular, array $taxonomies = []): array
     {
         $app = $this->getApplication();
         if (!$app instanceof Application) {
@@ -182,7 +184,7 @@ EOT
         return $manifest;
     }
 
-    private function getOutputMessage(string $type, string $singularType, array $taxonomies = []): string
+    function getOutputMessage(string $type, string $singularType, array $taxonomies = []): string
     {
         $outputMessage = <<<EOT
 
@@ -211,7 +213,7 @@ EOT;
         return $outputMessage;
     }
 
-    private function getIndexTemplate(string $plural, string $singular)
+    function getIndexTemplate(string $plural, string $singular)
     {
         $title = ucfirst($plural);
 
@@ -244,7 +246,7 @@ use: [$plural]
 EOT;
     }
 
-    private function getViewTemplate(string $plural, array $taxonomies = []): string
+    function getViewTemplate(string $plural, array $taxonomies = []): string
     {
         $output = <<<EOT
 {% extends 'default' %}
@@ -294,7 +296,7 @@ EOT;
         return $output;
     }
 
-    private function getTaxonomyIndexTemplate(
+    function getTaxonomyIndexTemplate(
         string $plural,
         string $taxonomy,
         string $singularTaxonomy
@@ -317,7 +319,7 @@ use: [${plural}_${taxonomy}]
 EOT;
     }
 
-    private function getTaxonomyViewTemplate(
+    function getTaxonomyViewTemplate(
         string $plural,
         string $singular,
         string $singularTaxonomy

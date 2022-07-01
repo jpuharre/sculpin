@@ -36,14 +36,14 @@ final class Application extends BaseApplication
     /**
      * @var KernelInterface
      */
-    private $kernel;
+    public $kernel;
 
     /**
      * @var \Throwable[]
      */
-    private $registrationErrors = [];
+    public $registrationErrors = [];
 
-    public function __construct(KernelInterface $kernel)
+    function __construct(KernelInterface $kernel)
     {
         $this->kernel = $kernel;
 
@@ -87,7 +87,7 @@ final class Application extends BaseApplication
     /**
      * {@inheritDoc}
      */
-    public function run(InputInterface $input = null, OutputInterface $output = null): int
+    function run(InputInterface $input = null, OutputInterface $output = null): int
     {
         if (null === $output) {
             $styles = [
@@ -104,7 +104,7 @@ final class Application extends BaseApplication
     /**
      * {@inheritdoc}
      */
-    public function doRun(InputInterface $input, OutputInterface $output): int
+    function doRun(InputInterface $input, OutputInterface $output): int
     {
         if (!$input->hasParameterOption('--safe')) {
             // In safe mode enable no commands
@@ -124,7 +124,7 @@ final class Application extends BaseApplication
         return $exitCode;
     }
 
-    public function getMissingSculpinBundlesMessages(): array
+    function getMissingSculpinBundlesMessages(): array
     {
         if (!$this->kernel instanceof AbstractKernel) {
             return [];
@@ -150,12 +150,12 @@ final class Application extends BaseApplication
      *
      * @return KernelInterface
      */
-    public function getKernel(): KernelInterface
+    function getKernel(): KernelInterface
     {
         return $this->kernel;
     }
 
-    private function registerCommands(): void
+    function registerCommands(): void
     {
         $this->kernel->boot();
 
@@ -192,7 +192,7 @@ final class Application extends BaseApplication
         }
     }
 
-    private function renderRegistrationErrors(InputInterface $input, OutputInterface $output): void
+    function renderRegistrationErrors(InputInterface $input, OutputInterface $output): void
     {
         if ($output instanceof ConsoleOutputInterface) {
             $output = $output->getErrorOutput();

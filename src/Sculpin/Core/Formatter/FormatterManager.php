@@ -28,29 +28,29 @@ class FormatterManager
     /**
      * @var EventDispatcherInterface
      */
-    protected $eventDispatcher;
+    public $eventDispatcher;
 
     /**
      * @var Configuration
      */
-    protected $siteConfiguration;
+    public $siteConfiguration;
 
     /**
      * @var DataProviderManager
      */
-    protected $dataProviderManager;
+    public $dataProviderManager;
 
     /**
      * @var array
      */
-    protected $formatters = [];
+    public $formatters = [];
 
     /**
      * @var string
      */
-    protected $defaultFormatter;
+    public $defaultFormatter;
 
-    public function __construct(
+    function __construct(
         EventDispatcherInterface $eventDispatcher,
         Configuration $siteConfiguration,
         DataProviderManager $dataProviderManager = null
@@ -60,7 +60,7 @@ class FormatterManager
         $this->dataProviderManager = $dataProviderManager;
     }
 
-    protected function buildBaseFormatContext(array $context): Configuration
+    function buildBaseFormatContext(array $context): Configuration
     {
         $baseContext = new Configuration([
             'site' => $this->siteConfiguration->export(),
@@ -88,7 +88,7 @@ class FormatterManager
         return $baseContext;
     }
 
-    public function buildFormatContext(string $templateId, string $template, array $context): FormatContext
+    function buildFormatContext(string $templateId, string $template, array $context): FormatContext
     {
         $baseContext = $this->buildBaseFormatContext($context);
 
@@ -101,7 +101,7 @@ class FormatterManager
         return new FormatContext($templateId, $template, $baseContext->export());
     }
 
-    public function registerFormatter(string $name, FormatterInterface $formatter): void
+    function registerFormatter(string $name, FormatterInterface $formatter): void
     {
         $this->formatters[$name] = $formatter;
 
@@ -110,12 +110,12 @@ class FormatterManager
         }
     }
 
-    public function formatter(string $name): FormatterInterface
+    function formatter(string $name): FormatterInterface
     {
         return $this->formatters[$name];
     }
 
-    public function formatPage(string $templateId, string $template, array $context): string
+    function formatPage(string $templateId, string $template, array $context): string
     {
         $formatContext = $this->buildFormatContext($templateId, $template, $context);
 
@@ -129,7 +129,7 @@ class FormatterManager
         return $response;
     }
 
-    public function formatSourcePage(SourceInterface $source): string
+    function formatSourcePage(SourceInterface $source): string
     {
         return $this->formatPage(
             $source->sourceId(),
@@ -138,7 +138,7 @@ class FormatterManager
         );
     }
 
-    public function formatBlocks(string $templateId, string $template, array $context): array
+    function formatBlocks(string $templateId, string $template, array $context): array
     {
         $formatContext = $this->buildFormatContext($templateId, $template, $context);
 
@@ -152,7 +152,7 @@ class FormatterManager
         return $response;
     }
 
-    public function formatSourceBlocks(SourceInterface $source): array
+    function formatSourceBlocks(SourceInterface $source): array
     {
         return $this->formatBlocks(
             $source->sourceId(),
@@ -161,7 +161,7 @@ class FormatterManager
         );
     }
 
-    public function defaultFormatter(): string
+    function defaultFormatter(): string
     {
         return $this->defaultFormatter;
     }
@@ -175,7 +175,7 @@ class FormatterManager
      *
      * @param DataProviderManager $dataProviderManager Data Provider Manager
      */
-    public function setDataProviderManager(DataProviderManager $dataProviderManager = null): void
+    function setDataProviderManager(DataProviderManager $dataProviderManager = null): void
     {
         $this->dataProviderManager = $dataProviderManager;
     }

@@ -29,7 +29,7 @@ class SculpinContentTypesExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration;
         $config = $this->processConfiguration($configuration, $configs);
@@ -268,17 +268,17 @@ class SculpinContentTypesExtension extends Extension
         }
     }
 
-    private static function generatePlaceholder(string $value): string
+    static function generatePlaceholder(string $value): string
     {
         return '%'.$value.'%';
     }
 
-    private static function generateId(string $value): string
+    static function generateId(string $value): string
     {
         return implode('.', ['sculpin_content_types', $value]);
     }
 
-    private static function generateTypesId(string $type, string $value)
+    static function generateTypesId(string $type, string $value)
     {
         return implode('.', ['sculpin_content_types.types', $type, $value]);
     }

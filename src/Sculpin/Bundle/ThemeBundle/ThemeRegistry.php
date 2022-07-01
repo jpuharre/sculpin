@@ -18,18 +18,18 @@ use Symfony\Component\Yaml\Yaml;
 
 class ThemeRegistry
 {
-    private $finderFactory;
-    private $directory;
-    private $activeTheme;
+    public $finderFactory;
+    public $directory;
+    public $activeTheme;
 
-    public function __construct($finderFactory, string $directory, ?string $activeTheme = null)
+    function __construct($finderFactory, string $directory, ?string $activeTheme = null)
     {
         $this->finderFactory = $finderFactory;
         $this->directory = $directory;
         $this->activeTheme = $activeTheme;
     }
 
-    public function listThemes(): array
+    function listThemes(): array
     {
         if (! file_exists($this->directory)) {
             return [];
@@ -56,7 +56,7 @@ class ThemeRegistry
         return $themes;
     }
 
-    public function findActiveTheme(): ?array
+    function findActiveTheme(): ?array
     {
         $themes = $this->listThemes();
 

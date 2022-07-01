@@ -25,9 +25,9 @@ class SourceConverterContext implements ConverterContextInterface
     /**
      * @var SourceInterface
      */
-    private $source;
+    public $source;
 
-    public function __construct(SourceInterface $source)
+    function __construct(SourceInterface $source)
     {
         $this->source = $source;
     }
@@ -35,7 +35,7 @@ class SourceConverterContext implements ConverterContextInterface
     /**
      * {@inheritdoc}
      */
-    public function content(): string
+    function content(): string
     {
         return $this->source->content();
     }
@@ -43,7 +43,7 @@ class SourceConverterContext implements ConverterContextInterface
     /**
      * {@inheritdoc}
      */
-    public function setContent(string $content): void
+    function setContent(string $content): void
     {
         $this->source->setContent($content);
     }

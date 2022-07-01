@@ -23,30 +23,30 @@ interface OutputInterface
     /**
      * Unique ID
      */
-    public function outputId(): string;
+    function outputId(): string;
 
     /**
      * Pathname (relative)
      */
-    public function pathname(): string;
+    function pathname(): string;
 
     /**
      * Suggested permalink
      */
-    public function permalink(): PermalinkInterface;
+    function permalink(): PermalinkInterface;
 
     /**
      * Whether this output has a file reference.
      */
-    public function hasFileReference(): bool;
+    function hasFileReference(): bool;
 
     /**
      * File reference. (if hasFileReference)
      */
-    public function file() :?\SplFileInfo;
+    function file() :?\SplFileInfo;
 
     /**
      * Formatted content (if not hasFileReference)
      */
-    public function formattedContent(): ?string;
+    function formattedContent(): ?string;
 }
