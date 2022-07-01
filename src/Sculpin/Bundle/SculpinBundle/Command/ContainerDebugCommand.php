@@ -31,7 +31,8 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author Ryan Weaver <ryan@thatsquality.com>
  */
-final class ContainerDebugCommand extends ContainerAwareCommand
+final class ContainerDebugCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
