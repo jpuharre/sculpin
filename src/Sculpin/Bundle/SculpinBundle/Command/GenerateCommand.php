@@ -35,7 +35,9 @@ use Twig\Error\SyntaxError;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class GenerateCommand extends AbstractCommand
+class GenerateCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     /**
      * @var bool
@@ -193,7 +195,7 @@ EOT
         IoInterface $io
     ) {
         $messages = [];
-        $errPrint = function (\Throwable $e) {
+        $errPrint = static function (\Throwable $e) {
             return $e->getMessage().PHP_EOL.' at '.str_replace(getcwd().DIRECTORY_SEPARATOR, '', $e->getFile());
         };
 

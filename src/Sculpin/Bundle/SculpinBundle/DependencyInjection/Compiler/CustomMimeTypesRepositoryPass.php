@@ -52,7 +52,7 @@ final class CustomMimeTypesRepositoryPass implements CompilerPassInterface
         }
 
         foreach ($data as $type => $extensions) {
-            $data[$type] = array_filter($extensions, function ($var) {
+            $data[$type] = array_filter($extensions, static function ($var) {
                 return strlen($var) > 0;
             });
         }

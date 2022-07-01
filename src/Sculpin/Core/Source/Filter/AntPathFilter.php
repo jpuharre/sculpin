@@ -34,7 +34,7 @@ class AntPathFilter implements FilterInterface
         if (null === $antPathMatcher) {
             $antPathMatcher = new AntPathMatcher;
         }
-        $this->patterns = array_map(function ($path) use ($antPathMatcher) {
+        $this->patterns = array_map(static function ($path) use ($antPathMatcher) {
             return $antPathMatcher->isPattern($path) ? $path : $path.'/**';
         }, $paths);
         $this->antPathMatcher = $antPathMatcher;

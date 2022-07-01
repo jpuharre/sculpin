@@ -66,7 +66,7 @@ final class HttpServer
             $this->loop
         );
 
-        $httpServer = new ReactHttpServer($this->loop, function (ServerRequestInterface $request) use (
+        $httpServer = new ReactHttpServer($this->loop, static function (ServerRequestInterface $request) use (
             $repository,
             $docroot,
             $output

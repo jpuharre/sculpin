@@ -56,7 +56,7 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
      */
     public function __construct(string $sourceDir, array $sourcePaths, array $paths, array $extensions)
     {
-        $mappedSourcePaths = array_map(function ($path) use ($sourceDir) {
+        $mappedSourcePaths = array_map(static function ($path) use ($sourceDir) {
             return $sourceDir.'/'.$path;
         }, $sourcePaths);
 
@@ -66,7 +66,7 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
         );
 
         $this->filesystemLoader = new FilesystemLoader($allPaths);
-        $this->extensions = array_map(function ($ext) {
+        $this->extensions = array_map(static function ($ext) {
             return $ext?'.'.$ext:$ext;
         }, $extensions);
     }

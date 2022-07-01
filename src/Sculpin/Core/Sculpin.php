@@ -111,7 +111,7 @@ final class Sculpin
 
         $this->eventDispatcher->dispatch(self::EVENT_BEFORE_RUN, new SourceSetEvent($sourceSet));
 
-        if ($updatedSources = array_filter($sourceSet->updatedSources(), function (SourceInterface $source) {
+        if ($updatedSources = array_filter($sourceSet->updatedSources(), static function (SourceInterface $source) {
             return !$source->isGenerated();
         })) {
             if (!$found) {

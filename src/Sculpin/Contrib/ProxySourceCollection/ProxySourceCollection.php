@@ -140,7 +140,7 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
         }
         unset($item);
 
-        uasort($this->items, function ($a, $b) use ($comparator) {
+        uasort($this->items, static function ($a, $b) use ($comparator) {
             $result = $comparator($a[1], $b[1]);
 
             // use the index to prevent undefined behaviour when comparator reports items are "equal"

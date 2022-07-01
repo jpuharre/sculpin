@@ -31,7 +31,8 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author Ryan Weaver <ryan@thatsquality.com>
  */
-final class ContainerDebugCommand extends ContainerAwareCommand
+final class ContainerDebugCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
@@ -241,14 +242,14 @@ EOF
             }
         }
         $format = '%-'.$maxName.'s ';
-        $format .= implode("", array_map(function ($length) {
+        $format .= implode("", array_map(static function ($length) {
             return "%-{$length}s ";
         }, $maxTags));
         $format .=  '%s';
 
         // the title field needs extra space to make up for comment tags
         $format1 = '%-'.($maxName + 19).'s ';
-        $format1 .= implode("", array_map(function ($length) {
+        $format1 .= implode("", array_map(static function ($length) {
             return '%-'.($length + 19).'s ';
         }, $maxTags));
         $format1 .= '%s';
@@ -345,7 +346,7 @@ EOF
                             '    - %-30s (%s)',
                             $tagName,
                             implode(', ', array_map(
-                                function ($key, $value) {
+                                static function ($key, $value) {
                                     return sprintf('<info>%s</info>: %s', $key, $value);
                                 },
                                 array_keys($singleTagData),
