@@ -14,7 +14,7 @@ declare(strict_types=1);
 set_time_limit(0);
 
 if (function_exists('ini_set')) {
-    @ini_set('display_errors', '1');
+    ini_set('display_errors', '1');
 
     $memoryInBytes = function ($value): int {
         $unit = strtolower(substr($value, -1, 1));
@@ -36,7 +36,7 @@ if (function_exists('ini_set')) {
     $memoryLimit = trim(ini_get('memory_limit'));
     // Increase memory_limit if it is lower than 512M
     if ($memoryLimit != -1 && $memoryInBytes($memoryLimit) < 512 * 1024 * 1024) {
-        @ini_set('memory_limit', '512M');
+        ini_set('memory_limit', '512M');
     }
     unset($memoryInBytes, $memoryLimit);
 }
