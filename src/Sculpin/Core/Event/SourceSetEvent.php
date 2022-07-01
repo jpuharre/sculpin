@@ -19,7 +19,8 @@ use Sculpin\Core\Source\SourceSet;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-final class SourceSetEvent extends Event
+final class SourceSetEvent extends BaseEvent
+Event
 {
     /**
      * @var SourceSet

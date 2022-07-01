@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateFromMarkdownTest extends FunctionalTestCase
+class GenerateFromMarkdownTest extends TestCase
+FunctionalTestCase
 {
     /** @test */
     public function shouldGenerateAnHtmlFileFromMarkdown(): void

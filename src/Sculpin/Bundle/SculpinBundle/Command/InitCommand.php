@@ -22,7 +22,9 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Initialize default website configuration and structure.
  */
-final class InitCommand extends AbstractCommand
+final class InitCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     public const COMMAND_SUCCESS          = 0;
     public const PROJECT_FOLDER_NOT_EMPTY = 101;

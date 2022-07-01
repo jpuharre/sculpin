@@ -20,7 +20,8 @@ use Sculpin\Core\Source\SourceInterface;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-final class ConvertEvent extends Event
+final class ConvertEvent extends BaseEvent
+Event
 {
     /**
      * @var SourceInterface

@@ -19,7 +19,8 @@ use Sculpin\Core\Console\Command\ContainerAwareCommand;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-abstract class AbstractCommand extends ContainerAwareCommand
+abstract class AbstractCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * Test to see if Sculpin is running in standalone mode.

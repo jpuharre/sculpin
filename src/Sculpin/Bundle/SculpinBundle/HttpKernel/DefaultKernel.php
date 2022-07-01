@@ -16,7 +16,8 @@ namespace Sculpin\Bundle\SculpinBundle\HttpKernel;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class DefaultKernel extends AbstractKernel
+class DefaultKernel extends Kernel
+AbstractKernel
 {
     /**
      * {@inheritdoc}

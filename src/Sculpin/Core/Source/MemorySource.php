@@ -19,6 +19,7 @@ use Dflydev\DotAccessConfiguration\Configuration as Data;
  * @author Beau Simensen <beau@dflydev.com>
  */
 class MemorySource extends AbstractSource
+SourceInterface
 {
     public function __construct(
         string $sourceId,

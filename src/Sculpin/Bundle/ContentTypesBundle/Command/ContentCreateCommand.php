@@ -26,7 +26,9 @@ use Symfony\Component\Filesystem\Filesystem;
  * Outputs the YAML required to add a new content type, and optionally
  * generates the associated boilerplate for the type.
  */
-final class ContentCreateCommand extends AbstractCommand
+final class ContentCreateCommand extends ContainerAwareCommand
+Command AbstractCommand
+ContainerAwareInterface
 {
     private const DIRECTORY_FLAG = '_directory_';
 

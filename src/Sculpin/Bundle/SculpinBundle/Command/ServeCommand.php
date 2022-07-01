@@ -21,8 +21,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ServeCommand extends AbstractCommand
-{
+class ServeCommand extends ContainerAwareCommand
+AbstractCommand
+ContainerAwareInterface
+Command {
     /**
      * {@inheritdoc}
      */

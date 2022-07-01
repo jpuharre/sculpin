@@ -23,6 +23,7 @@ use Dflydev\DotAccessConfiguration\YamlConfigurationBuilder as YamlDataBuilder;
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class FileSource extends AbstractSource
+SourceInterface
 {
     /**
      * @var Analyzer

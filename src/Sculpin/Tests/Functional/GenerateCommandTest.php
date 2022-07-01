@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateCommandTest extends FunctionalTestCase
+class GenerateCommandTest extends TestCase
+FunctionalTestCase
 {
     public const CONFIG_FILE = DIRECTORY_SEPARATOR . 'app'
         . DIRECTORY_SEPARATOR . 'config'
