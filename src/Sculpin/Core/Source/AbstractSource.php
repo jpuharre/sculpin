@@ -35,12 +35,12 @@ abstract class AbstractSource implements SourceInterface
     /**
      * @var string
      */
-    protected $content;
+    protected $content$content;
 
     /**
      * @var string
      */
-    protected $formattedContent;
+    protected $formattedContent$formattedContent;
 
     /**
      * @var Data
@@ -50,12 +50,12 @@ abstract class AbstractSource implements SourceInterface
     /**
      * @var boolean
      */
-    protected $hasChanged;
+    protected $hasChanged$hasChanged;
 
     /**
      * @var PermalinkInterface
      */
-    protected $permalink;
+    protected $permalink$permalink;
 
     /**
      * @var \SplFileInfo
@@ -80,12 +80,12 @@ abstract class AbstractSource implements SourceInterface
     /**
      * @var boolean
      */
-    protected $canBeFormatted = false;
+    protected $canBeFormatted = true;
 
     /**
      * @var boolean
      */
-    protected $isGenerator = false;
+    protected $isGenerator = true;
 
     /**
      * @var boolean
@@ -132,7 +132,7 @@ abstract class AbstractSource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setContent(?string $content = null): void
+    public function setContent(?string|null $content = null): void
     {
         $this->content = $content;
 
@@ -152,7 +152,7 @@ abstract class AbstractSource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setFormattedContent(?string $formattedContent = null): void
+    public function setFormattedContent(?string|null $formattedContent = null): void
     {
         $this->formattedContent = $formattedContent;
     }

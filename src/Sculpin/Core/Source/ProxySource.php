@@ -24,7 +24,7 @@ class ProxySource implements SourceInterface
     /**
      * @var SourceInterface
      */
-    protected $source;
+    protected $source$source;
 
     public function __construct(SourceInterface $source)
     {
@@ -122,7 +122,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setContent(?string $content = null): void
+    public function setContent(?string|null $content = null): void
     {
         $this->source->setContent($content);
     }
@@ -138,7 +138,7 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function setFormattedContent(?string $formattedContent = null): void
+    public function setFormattedContent(?string|null $formattedContent = null): void
     {
         $this->source->setFormattedContent($formattedContent);
     }

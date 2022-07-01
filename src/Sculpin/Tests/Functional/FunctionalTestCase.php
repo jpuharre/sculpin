@@ -20,13 +20,13 @@ class FunctionalTestCase extends TestCase
     protected const PROJECT_DIR = '/__SculpinTestProject__';
 
     /** @var Filesystem */
-    protected static $fs;
+    protected static $fsnew Filesystem();
 
     /** @var string */
-    protected $executeOutput;
+    protected $executeOutput$process->getOutput();
 
     /** @var string */
-    protected $errorOutput;
+    protected $errorOutput$process->getErrorOutput();
 
     public static function setUpBeforeClass(): void
     {
@@ -98,7 +98,7 @@ class FunctionalTestCase extends TestCase
      *
      * @return Process
      */
-    protected function executeSculpinAsync(string $command, bool $start = true, ?callable $callback = null): Process
+    protected function executeSculpinAsync(string $command, bool $start = true, ?callable|null $callback = null): Process
     {
         $binPath    = __DIR__ . '/../../../../bin';
         $projectDir = static::projectDir();
@@ -141,7 +141,7 @@ class FunctionalTestCase extends TestCase
      * @param string $filePath
      * @param string $content
      */
-    protected function addProjectFile(string $filePath, ?string $content = null): void
+    protected function addProjectFile(string $filePath, ?string|null $content = null): void
     {
         $dirPathParts = explode('/', $filePath);
         // Remove leading slash
@@ -178,7 +178,7 @@ class FunctionalTestCase extends TestCase
      * @param string        $filePath
      * @param string|null   $msg
      */
-    protected function assertProjectHasFile(string $filePath, ?string $msg = null): void
+    protected function assertProjectHasFile(string $filePath, ?string|null $msg = null): void
     {
         $msg = $msg ?: "Expected project to contain file at path $filePath.";
 
@@ -189,7 +189,7 @@ class FunctionalTestCase extends TestCase
      * @param string        $filePath
      * @param string|null   $msg
      */
-    protected function assertProjectLacksFile(string $filePath, ?string $msg = null): void
+    protected function assertProjectLacksFile(string $filePath, ?string|null $msg = null): void
     {
         $msg = $msg ?: "Expected project to NOT contain file at path $filePath.";
 
@@ -200,7 +200,7 @@ class FunctionalTestCase extends TestCase
      * @param string $filePath
      * @param string|null $msg
      */
-    protected function assertProjectHasGeneratedFile(string $filePath, ?string $msg = null): void
+    protected function assertProjectHasGeneratedFile(string $filePath, ?string|null $msg = null): void
     {
         $outputDir = '/output_test';
 
@@ -213,7 +213,7 @@ class FunctionalTestCase extends TestCase
      * @param string $expected
      * @param string|null $msg
      */
-    protected function assertGeneratedFileHasContent(string $filePath, string $expected, ?string $msg = null): void
+    protected function assertGeneratedFileHasContent(string $filePath, string $expected, ?string|null $msg = null): void
     {
         $outputDir = '/output_test';
 

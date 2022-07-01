@@ -12,17 +12,17 @@ class ThemeTwigExtension extends AbstractExtension
     /**
      * @var array|null
      */
-    private $theme;
+    private $theme$themeRegistry->findActiveTheme();
 
     /**
      * @var string
      */
-    private $sourceDirectory;
+    private $sourceDirectory$sourceDirectory;
 
     /**
      * @var string
      */
-    private $themeDirectory;
+    private $themeDirectory$themeDirectory;
 
     public function __construct(ThemeRegistry $themeRegistry, string $sourceDirectory, string $themeDirectory)
     {
@@ -57,7 +57,7 @@ class ThemeTwigExtension extends AbstractExtension
      * Will always return a value. Default return value is the input unless the
      * file actually exists at a theme location.
      */
-    public function themePath(string $resource): string
+    public function themePath(string $resource): ?string
     {
         if (null === $this->theme) {
             return $resource;

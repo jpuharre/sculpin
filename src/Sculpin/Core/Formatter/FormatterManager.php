@@ -28,17 +28,17 @@ class FormatterManager
     /**
      * @var EventDispatcherInterface
      */
-    protected $eventDispatcher;
+    protected $eventDispatcher$eventDispatcher;
 
     /**
      * @var Configuration
      */
-    protected $siteConfiguration;
+    protected $siteConfiguration$siteConfiguration;
 
     /**
      * @var DataProviderManager
      */
-    protected $dataProviderManager;
+    protected $dataProviderManager$dataProviderManager;
 
     /**
      * @var array
@@ -48,7 +48,7 @@ class FormatterManager
     /**
      * @var string
      */
-    protected $defaultFormatter;
+    protected $defaultFormatter$name;
 
     public function __construct(
         EventDispatcherInterface $eventDispatcher,
@@ -88,7 +88,7 @@ class FormatterManager
         return $baseContext;
     }
 
-    public function buildFormatContext(string $templateId, string $template, array $context): FormatContext
+    public function buildFormatContext(string $templateId, string $template, array $context): ?FormatContext
     {
         $baseContext = $this->buildBaseFormatContext($context);
 
@@ -115,7 +115,7 @@ class FormatterManager
         return $this->formatters[$name];
     }
 
-    public function formatPage(string $templateId, string $template, array $context): string
+    public function formatPage(string $templateId, string $template, array $context): ?string
     {
         $formatContext = $this->buildFormatContext($templateId, $template, $context);
 
@@ -138,7 +138,7 @@ class FormatterManager
         );
     }
 
-    public function formatBlocks(string $templateId, string $template, array $context): array
+    public function formatBlocks(string $templateId, string $template, array $context): ?array
     {
         $formatContext = $this->buildFormatContext($templateId, $template, $context);
 

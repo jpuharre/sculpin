@@ -21,12 +21,12 @@ final class DirectorySeparatorNormalizer
     /**
      * @var string
      */
-    private $preferredDirectorySeparator;
+    private $preferredDirectorySeparator$preferredDirectorySeparator;
 
     /**
      * @var string
      */
-    private $directorySeparator;
+    private $directorySeparator$directorySeparator;
 
     public function __construct(string $preferredDirectorySeparator = '/')
     {
@@ -49,7 +49,7 @@ final class DirectorySeparatorNormalizer
     /**
      * Normalize filesystem paths to a preferred $separator.
      */
-    public function normalize(?string $path): ?string
+    public function normalize(?string|null $path): ?string
     {
         if ($this->preferredDirectorySeparator === $this->directorySeparator) {
             return $path;

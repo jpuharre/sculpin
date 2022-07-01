@@ -60,5 +60,5 @@ interface IoInterface
      * @param bool         $newline  Whether to add a newline or not
      * @param integer      $size     The size to overwrite (defaults to the whole last line)
      */
-    public function overwrite($messages, bool $newline = true, ?int $size = null);
+    public function overwrite($messages, bool $newline = true, ?int|null $size = null);
 }

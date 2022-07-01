@@ -67,14 +67,14 @@ interface SourceInterface
      */
     public function content(): ?string;
 
-    public function setContent(?string $content = null): void;
+    public function setContent(?string|null $content = null): void;
 
     /**
      * Formatted content (if not useFileReference)
      */
     public function formattedContent(): ?string;
 
-    public function setFormattedContent(?string $formattedContent = null): void;
+    public function setFormattedContent(?string|null $formattedContent = null): void;
 
     public function relativePathname(): string;
 

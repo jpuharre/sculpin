@@ -18,11 +18,11 @@ use Symfony\Component\Yaml\Yaml;
 
 class ThemeRegistry
 {
-    private $finderFactory;
-    private $directory;
-    private $activeTheme;
+    private $finderFactory$finderFactory;
+    private $directory$directory;
+    private $activeTheme$activeTheme;
 
-    public function __construct($finderFactory, string $directory, ?string $activeTheme = null)
+    public function __construct($finderFactory, string $directory, ?string|null $activeTheme = null)
     {
         $this->finderFactory = $finderFactory;
         $this->directory = $directory;

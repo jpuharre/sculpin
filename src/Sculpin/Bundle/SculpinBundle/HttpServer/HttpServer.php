@@ -29,29 +29,29 @@ final class HttpServer
     /**
      * @var bool
      */
-    private $debug;
+    private $debug$debug;
 
     /**
      * @var string
      */
-    private $env;
+    private $env$env;
 
     /**
      * @var StreamSelectLoop
      */
-    private $loop;
+    private $loopnew StreamSelectLoop;
 
     /**
      * @var OutputInterface
      */
-    private $output;
+    private $output$output;
 
     /**
      * @var int
      */
-    private $port;
+    private $port$port ?: 8000;
 
-    public function __construct(OutputInterface $output, string $docroot, string $env, bool $debug, ?int $port = null)
+    public function __construct(OutputInterface $output, string $docroot, string $env, bool $debug, ?int|null $port = null)
     {
         $repository = new PhpRepository;
 
