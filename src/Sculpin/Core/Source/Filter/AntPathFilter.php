@@ -17,7 +17,10 @@ use dflydev\util\antPathMatcher\AntPathMatcher;
 use Sculpin\Core\Source\SourceInterface;
 use Sculpin\Core\Util\DirectorySeparatorNormalizer;
 
-class AntPathFilter implements FilterInterface
+    /**
+    * Name : AntPathFilter
+    */
+    class AntPathFilter implements FilterInterface
 {
     private $antPathMatcher;
     private $patterns;
@@ -26,6 +29,15 @@ class AntPathFilter implements FilterInterface
      */
     private $directorySeparatorNormalizer;
 
+    /**
+    * Name : __construct
+    *
+    * array $paths
+    * null|AntPathMatcher $antPathMatcher
+    * null|DirectorySeparatorNormalizer $directorySeparatorNormalizer
+    * @return mixed
+    *
+    */
     public function __construct(
         array $paths,
         AntPathMatcher $antPathMatcher = null,
@@ -41,6 +53,13 @@ class AntPathFilter implements FilterInterface
         $this->directorySeparatorNormalizer = $directorySeparatorNormalizer ?: new DirectorySeparatorNormalizer;
     }
 
+    /**
+    * Name : match
+    *
+    * SourceInterface $source
+    * @return bool
+    *
+    */
     public function match(SourceInterface $source): bool
     {
         $normalizedPath = $this->directorySeparatorNormalizer->normalize($source->relativePathname());

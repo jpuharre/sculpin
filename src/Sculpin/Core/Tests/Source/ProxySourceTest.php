@@ -17,8 +17,18 @@ use PHPUnit\Framework\TestCase;
 use Sculpin\Core\Source\ProxySource;
 use Sculpin\Core\Source\SourceInterface;
 
-class ProxySourceTest extends TestCase
+    /**
+    * Name : ProxySourceTest
+    */
+    class ProxySourceTest extends TestCase
 {
+    /**
+    * Name : testSetFormattedContent
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function testSetFormattedContent()
     {
         $source = $this->createMock(SourceInterface::class);

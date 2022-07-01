@@ -21,7 +21,10 @@ use React\Http\Server as ReactHttpServer;
 use React\Socket\Server as ReactSocketServer;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
+    /**
+    * Name : HttpServer
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class HttpServer
@@ -51,6 +54,17 @@ final class HttpServer
      */
     private $port;
 
+    /**
+    * Name : __construct
+    *
+    * OutputInterface $output
+    * string $docroot
+    * string $env
+    * bool $debug
+    * ?|int $port
+    * @return mixed
+    *
+    */
     public function __construct(OutputInterface $output, string $docroot, string $env, bool $debug, ?int $port = null)
     {
         $repository = new PhpRepository;
@@ -106,6 +120,14 @@ final class HttpServer
     }
 
     /**
+    * Name : addPeriodicTimer
+    *
+    * int $interval
+    * callable $callback
+    * @return void
+    *
+    */
+    /**
      * Add a periodic timer
      *
      * @param int      $interval Interval
@@ -116,6 +138,13 @@ final class HttpServer
         $this->loop->addPeriodicTimer($interval, $callback);
     }
 
+    /**
+    * Name : run
+    *
+    *  
+    * @return void
+    *
+    */
     /**
      * Run server
      */
@@ -136,6 +165,15 @@ final class HttpServer
         $this->loop->run();
     }
 
+    /**
+    * Name : logRequest
+    *
+    * OutputInterface $output
+    * int $responseCode
+    * ServerRequestInterface $request
+    * @return void
+    *
+    */
     /**
      * Log a request
      *

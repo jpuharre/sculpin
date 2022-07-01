@@ -15,8 +15,18 @@ namespace Sculpin\Core\Source\Map;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class NullMap implements MapInterface
+    /**
+    * Name : NullMap
+    */
+    class NullMap implements MapInterface
 {
+    /**
+    * Name : process
+    *
+    * SourceInterface $source
+    * @return void
+    *
+    */
     public function process(SourceInterface $source): void
     {
         // NOOP

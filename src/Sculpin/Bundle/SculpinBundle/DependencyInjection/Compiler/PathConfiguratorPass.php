@@ -17,7 +17,10 @@ use dflydev\util\antPathMatcher\AntPathMatcher;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/**
+    /**
+    * Name : PathConfiguratorPass
+    */
+    /**
  * Path Configurator pass
  *
  * @author Beau Simensen <beau@dflydev.com>
@@ -32,6 +35,13 @@ class PathConfiguratorPass implements CompilerPassInterface
     protected $matcher;
 
     /**
+    * Name : __construct
+    *
+    *  
+    * @return mixed
+    *
+    */
+    /**
      * Constructor.
      */
     public function __construct()
@@ -39,6 +49,13 @@ class PathConfiguratorPass implements CompilerPassInterface
         $this->matcher = new AntPathMatcher;
     }
 
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -68,6 +85,13 @@ class PathConfiguratorPass implements CompilerPassInterface
         }
     }
 
+    /**
+    * Name : antify
+    *
+    * mixed $paths
+    * @return mixed
+    *
+    */
     protected function antify($paths)
     {
         $matcher = $this->matcher;

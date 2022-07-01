@@ -28,7 +28,10 @@ use Symfony\Component\Debug\Exception\FatalThrowableError;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\HttpKernel\KernelInterface;
 
-/**
+    /**
+    * Name : Application
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class Application extends BaseApplication
@@ -43,6 +46,13 @@ final class Application extends BaseApplication
      */
     private $registrationErrors = [];
 
+    /**
+    * Name : __construct
+    *
+    * KernelInterface $kernel
+    * @return mixed
+    *
+    */
     public function __construct(KernelInterface $kernel)
     {
         $this->kernel = $kernel;
@@ -85,6 +95,14 @@ final class Application extends BaseApplication
     }
 
     /**
+    * Name : run
+    *
+    * null|InputInterface $input
+    * null|OutputInterface $output
+    * @return int
+    *
+    */
+    /**
      * {@inheritDoc}
      */
     public function run(InputInterface $input = null, OutputInterface $output = null): int
@@ -101,6 +119,14 @@ final class Application extends BaseApplication
         return parent::run($input, $output);
     }
 
+    /**
+    * Name : doRun
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return int
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -124,6 +150,13 @@ final class Application extends BaseApplication
         return $exitCode;
     }
 
+    /**
+    * Name : getMissingSculpinBundlesMessages
+    *
+    *  
+    * @return array
+    *
+    */
     public function getMissingSculpinBundlesMessages(): array
     {
         if (!$this->kernel instanceof AbstractKernel) {
@@ -146,6 +179,13 @@ final class Application extends BaseApplication
     }
 
     /**
+    * Name : getKernel
+    *
+    *  
+    * @return KernelInterface
+    *
+    */
+    /**
      * Get Kernel
      *
      * @return KernelInterface
@@ -155,6 +195,13 @@ final class Application extends BaseApplication
         return $this->kernel;
     }
 
+    /**
+    * Name : registerCommands
+    *
+    *  
+    * @return void
+    *
+    */
     private function registerCommands(): void
     {
         $this->kernel->boot();
@@ -192,6 +239,14 @@ final class Application extends BaseApplication
         }
     }
 
+    /**
+    * Name : renderRegistrationErrors
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return void
+    *
+    */
     private function renderRegistrationErrors(InputInterface $input, OutputInterface $output): void
     {
         if ($output instanceof ConsoleOutputInterface) {

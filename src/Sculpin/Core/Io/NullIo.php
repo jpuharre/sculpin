@@ -13,13 +13,23 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Io;
 
-/**
+    /**
+    * Name : NullIo
+    */
+    /**
  * IOInterface that is not interactive and never writes the output
  *
  * @author Christophe Coevoet <stof@notk.org>
  */
 class NullIo implements IoInterface
 {
+    /**
+    * Name : isInteractive
+    *
+    *  
+    * @return bool
+    *
+    */
     /**
      * {@inheritDoc}
      */
@@ -29,6 +39,13 @@ class NullIo implements IoInterface
     }
 
     /**
+    * Name : isVerbose
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * {@inheritDoc}
      */
     public function isVerbose(): bool
@@ -36,6 +53,13 @@ class NullIo implements IoInterface
         return false;
     }
 
+    /**
+    * Name : isVeryVerbose
+    *
+    *  
+    * @return bool
+    *
+    */
     /**
      * {@inheritDoc}
      */
@@ -45,6 +69,13 @@ class NullIo implements IoInterface
     }
 
     /**
+    * Name : isDebug
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * {@inheritDoc}
      */
     public function isDebug(): bool
@@ -52,6 +83,13 @@ class NullIo implements IoInterface
         return false;
     }
 
+    /**
+    * Name : isDecorated
+    *
+    *  
+    * @return bool
+    *
+    */
     /**
      * {@inheritDoc}
      */
@@ -61,12 +99,29 @@ class NullIo implements IoInterface
     }
 
     /**
+    * Name : write
+    *
+    * mixed $messages
+    * bool $newline
+    * @return mixed
+    *
+    */
+    /**
      * {@inheritDoc}
      */
     public function write($messages, bool $newline = true)
     {
     }
 
+    /**
+    * Name : overwrite
+    *
+    * mixed $messages
+    * bool $newline
+    * ?|int $size
+    * @return mixed
+    *
+    */
     /**
      * {@inheritDoc}
      */

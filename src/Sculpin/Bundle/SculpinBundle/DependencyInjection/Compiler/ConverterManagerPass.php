@@ -17,11 +17,21 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Reference;
 
-/**
+    /**
+    * Name : ConverterManagerPass
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class ConverterManagerPass implements CompilerPassInterface
 {
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

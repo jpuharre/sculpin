@@ -13,11 +13,21 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\DataProvider;
 
-/**
+    /**
+    * Name : DataProviderInterface
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 interface DataProviderInterface
 {
+    /**
+    * Name : provideData
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * Provide data.
      *

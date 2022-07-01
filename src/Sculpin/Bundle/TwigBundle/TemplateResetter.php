@@ -17,18 +17,35 @@ use Sculpin\Core\Event\SourceSetEvent;
 use Sculpin\Core\Sculpin;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
+    /**
+    * Name : TemplateResetter
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class TemplateResetter implements EventSubscriberInterface
 {
     private $twig;
 
+    /**
+    * Name : __construct
+    *
+    * Environment $twig
+    * @return mixed
+    *
+    */
     public function __construct(Environment $twig)
     {
         $this->twig = $twig;
     }
 
+    /**
+    * Name : getSubscribedEvents
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -39,6 +56,13 @@ final class TemplateResetter implements EventSubscriberInterface
         ];
     }
 
+    /**
+    * Name : beforeRun
+    *
+    * SourceSetEvent $sourceSetEvent
+    * @return void
+    *
+    */
     /**
      * Invalidate templates if any of the sources have been updated.
      *

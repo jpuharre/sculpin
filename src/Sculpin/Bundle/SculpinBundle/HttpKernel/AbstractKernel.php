@@ -19,7 +19,10 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\Kernel;
 
-/**
+    /**
+    * Name : AbstractKernel
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 abstract class AbstractKernel extends Kernel
@@ -29,6 +32,15 @@ abstract class AbstractKernel extends Kernel
     protected $projectDir;
     protected $sourceDir;
 
+    /**
+    * Name : __construct
+    *
+    * string $environment
+    * bool $debug
+    * array $overrides
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -46,6 +58,13 @@ abstract class AbstractKernel extends Kernel
     }
 
     /**
+    * Name : getKernelParameters
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     protected function getKernelParameters(): array
@@ -61,6 +80,13 @@ abstract class AbstractKernel extends Kernel
         ]);
     }
 
+    /**
+    * Name : registerBundles
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -91,6 +117,13 @@ abstract class AbstractKernel extends Kernel
     }
 
     /**
+    * Name : registerContainerConfiguration
+    *
+    * LoaderInterface $loader
+    * @return mixed
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function registerContainerConfiguration(LoaderInterface $loader)
@@ -106,6 +139,13 @@ abstract class AbstractKernel extends Kernel
     }
 
     /**
+    * Name : boot
+    *
+    *  
+    * @return void
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function boot(): void
@@ -119,6 +159,13 @@ abstract class AbstractKernel extends Kernel
         $this->container->compile();
     }
 
+    /**
+    * Name : buildContainer
+    *
+    *  
+    * @return ContainerBuilder
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -141,6 +188,13 @@ abstract class AbstractKernel extends Kernel
     }
 
     /**
+    * Name : initializeContainer
+    *
+    *  
+    * @return void
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     protected function initializeContainer(): void
@@ -150,6 +204,13 @@ abstract class AbstractKernel extends Kernel
         $this->container = $container;
     }
 
+    /**
+    * Name : getMissingSculpinBundles
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * Get Sculpin bundles that were requested but were not found
      *
@@ -166,6 +227,13 @@ abstract class AbstractKernel extends Kernel
         return $this->missingSculpinBundles;
     }
 
+    /**
+    * Name : getAdditionalSculpinBundles
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * Get additional Sculpin bundles to register.
      *

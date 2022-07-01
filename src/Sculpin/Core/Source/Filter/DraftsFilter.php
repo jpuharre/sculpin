@@ -15,15 +15,32 @@ namespace Sculpin\Core\Source\Filter;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class DraftsFilter implements FilterInterface
+    /**
+    * Name : DraftsFilter
+    */
+    class DraftsFilter implements FilterInterface
 {
     private $publishDrafts;
 
+    /**
+    * Name : __construct
+    *
+    * mixed $publishDrafts
+    * @return mixed
+    *
+    */
     public function __construct($publishDrafts = false)
     {
         $this->publishDrafts = $publishDrafts;
     }
 
+    /**
+    * Name : match
+    *
+    * SourceInterface $source
+    * @return bool
+    *
+    */
     public function match(SourceInterface $source): bool
     {
         if ($source->data()->get('draft')) {

@@ -6,10 +6,21 @@ namespace Sculpin\Tests\Functional;
 
 use Symfony\Component\Finder\Finder;
 
-class EventListenerExtensionTest extends FunctionalTestCase
+    /**
+    * Name : EventListenerExtensionTest
+    */
+    class EventListenerExtensionTest extends TestCase
+FunctionalTestCase
 {
     protected const PROJECT_DIR = '/__EventListenerFixture__';
 
+    /**
+    * Name : setUp
+    *
+    *  
+    * @return void
+    *
+    */
     public function setUp(): void
     {
         $outputDir = $this->projectDir() . '/output_test';
@@ -18,6 +29,13 @@ class EventListenerExtensionTest extends FunctionalTestCase
         }
     }
 
+    /**
+    * Name : testEventListenerExtensionBundle
+    *
+    *  
+    * @return void
+    *
+    */
     public function testEventListenerExtensionBundle(): void
     {
         $expectedFile = 'sculpin.core.after_run.event';

@@ -17,13 +17,23 @@ use Sculpin\Bundle\ContentTypesBundle\DependencyInjection\Compiler\MapPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
+    /**
+    * Name : SculpinContentTypesBundle
+    */
+    /**
  * Sculpin Content Types Bundle.
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinContentTypesBundle extends Bundle
 {
+    /**
+    * Name : build
+    *
+    * ContainerBuilder $container
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

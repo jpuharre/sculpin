@@ -16,7 +16,10 @@ namespace Sculpin\Core\Output;
 use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
 
-/**
+    /**
+    * Name : FilesystemWriter
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class FilesystemWriter implements WriterInterface
@@ -31,12 +34,27 @@ final class FilesystemWriter implements WriterInterface
      */
     private $outputDir;
 
+    /**
+    * Name : __construct
+    *
+    * Filesystem $filesystem
+    * string $outputDir
+    * @return mixed
+    *
+    */
     public function __construct(Filesystem $filesystem, string $outputDir)
     {
         $this->filesystem = $filesystem;
         $this->outputDir  = $outputDir;
     }
 
+    /**
+    * Name : write
+    *
+    * OutputInterface $output
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      *
@@ -54,6 +72,13 @@ final class FilesystemWriter implements WriterInterface
     }
 
     /**
+    * Name : setOutputDir
+    *
+    * string $outputDir
+    * @return void
+    *
+    */
+    /**
      * Set or override output directory
      *
      * @param string    $outputDir  path to desired output directory
@@ -63,6 +88,13 @@ final class FilesystemWriter implements WriterInterface
         $this->outputDir = $outputDir;
     }
 
+    /**
+    * Name : getOutputDir
+    *
+    *  
+    * @return string
+    *
+    */
     /**
      * Retrieve the output directory
      *

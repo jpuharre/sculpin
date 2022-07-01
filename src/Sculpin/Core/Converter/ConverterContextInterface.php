@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Converter;
 
-/**
+    /**
+    * Name : ConverterContextInterface
+    */
+    /**
  * The converter context provides the content that needs to be converted.
  *
  * @author Beau Simensen <beau@dflydev.com>
@@ -21,10 +24,24 @@ namespace Sculpin\Core\Converter;
 interface ConverterContextInterface
 {
     /**
+    * Name : content
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * Provide the source content.
      */
     public function content(): string;
 
+    /**
+    * Name : setContent
+    *
+    * string $content
+    * @return mixed
+    *
+    */
     /**
      * Set the converted content.
      */

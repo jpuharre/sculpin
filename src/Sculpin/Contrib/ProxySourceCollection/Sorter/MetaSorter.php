@@ -15,17 +15,35 @@ namespace Sculpin\Contrib\ProxySourceCollection\Sorter;
 
 use Sculpin\Contrib\ProxySourceCollection\ProxySourceItem;
 
-class MetaSorter implements SorterInterface
+    /**
+    * Name : MetaSorter
+    */
+    class MetaSorter implements SorterInterface
 {
     private $key;
     private $reversed;
 
+    /**
+    * Name : __construct
+    *
+    * null|mixed $key
+    * mixed $direction
+    * @return mixed
+    *
+    */
     public function __construct($key = null, $direction = 'desc')
     {
         $this->setKey($key);
         $this->setReversed($direction);
     }
 
+    /**
+    * Name : setKey
+    *
+    * null|mixed $key
+    * @return mixed
+    *
+    */
     private function setKey($key = null)
     {
         if (null === $key) {
@@ -34,6 +52,13 @@ class MetaSorter implements SorterInterface
 
         $this->key = $key;
     }
+    /**
+    * Name : setReversed
+    *
+    * mixed $direction
+    * @return mixed
+    *
+    */
     private function setReversed($direction)
     {
         switch (strtolower($direction)) {
@@ -52,6 +77,14 @@ class MetaSorter implements SorterInterface
         }
     }
 
+    /**
+    * Name : sort
+    *
+    * ProxySourceItem $a
+    * ProxySourceItem $b
+    * @return mixed
+    *
+    */
     public function sort(ProxySourceItem $a, ProxySourceItem $b)
     {
         if ($this->reversed) {

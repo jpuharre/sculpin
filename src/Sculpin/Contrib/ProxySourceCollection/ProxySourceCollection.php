@@ -17,7 +17,10 @@ use Sculpin\Contrib\ProxySourceCollection\Sorter\DefaultSorter;
 use Sculpin\Contrib\ProxySourceCollection\Sorter\SorterInterface;
 use StableSort\StableSort;
 
-class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
+    /**
+    * Name : ProxySourceCollection
+    */
+    class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
 {
     /**
      * @var ProxySourceItem[] $items
@@ -25,12 +28,28 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
     protected $items = [];
     protected $sorter;
 
+    /**
+    * Name : __construct
+    *
+    * array $items
+    * null|SorterInterface $sorter
+    * @return mixed
+    *
+    */
     public function __construct(array $items = [], SorterInterface $sorter = null)
     {
         $this->items = $items;
         $this->sorter = $sorter ?: new DefaultSorter;
     }
 
+    /**
+    * Name : offsetSet
+    *
+    * mixed $offset
+    * mixed $value
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
@@ -41,60 +60,130 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
         }
     }
 
+    /**
+    * Name : offsetExists
+    *
+    * mixed $offset
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return isset($this->items[$offset]);
     }
 
+    /**
+    * Name : offsetUnset
+    *
+    * mixed $offset
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->items[$offset]);
     }
 
+    /**
+    * Name : offsetGet
+    *
+    * mixed $offset
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return isset($this->items[$offset]) ? $this->items[$offset] : null;
     }
 
+    /**
+    * Name : rewind
+    *
+    *  
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function rewind()
     {
         reset($this->items);
     }
 
+    /**
+    * Name : current
+    *
+    *  
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function current()
     {
         return current($this->items);
     }
 
+    /**
+    * Name : key
+    *
+    *  
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function key()
     {
         return key($this->items);
     }
 
+    /**
+    * Name : next
+    *
+    *  
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function next()
     {
         return next($this->items);
     }
 
+    /**
+    * Name : valid
+    *
+    *  
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function valid()
     {
         return $this->current() !== false;
     }
 
+    /**
+    * Name : count
+    *
+    *  
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function count()
     {
         return count($this->items);
     }
 
+    /**
+    * Name : init
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function init()
     {
         $this->sort();
@@ -117,6 +206,13 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
         }
     }
 
+    /**
+    * Name : first
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function first()
     {
         $keys = array_keys($this->items);
@@ -124,6 +220,13 @@ class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
         return $this->items[$keys[0]];
     }
 
+    /**
+    * Name : sort
+    *
+    *  
+    * @return mixed
+    *
+    */
     /**
      * Sorts proxy source items using the StableSort algorithm from Martijn van der Lee
      *

@@ -19,7 +19,10 @@ use Twig\Environment;
 use Twig\Loader\ArrayLoader;
 use Twig\Template;
 
-/**
+    /**
+    * Name : TwigFormatter
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class TwigFormatter implements FormatterInterface
@@ -34,12 +37,27 @@ final class TwigFormatter implements FormatterInterface
      */
     private $arrayLoader;
 
+    /**
+    * Name : __construct
+    *
+    * Environment $twig
+    * ArrayLoader $arrayLoader
+    * @return mixed
+    *
+    */
     public function __construct(Environment $twig, ArrayLoader $arrayLoader)
     {
         $this->twig = $twig;
         $this->arrayLoader = $arrayLoader;
     }
 
+    /**
+    * Name : formatBlocks
+    *
+    * FormatContext $formatContext
+    * @return array
+    *
+    */
     /**
      * {@inheritdoc}
      *
@@ -68,11 +86,26 @@ final class TwigFormatter implements FormatterInterface
         return $blocks;
     }
 
+    /**
+    * Name : findAllBlocks
+    *
+    * Template $template
+    * array $context
+    * @return array
+    *
+    */
     public function findAllBlocks(Template $template, array $context): array
     {
         return $template->getBlockNames($context);
     }
 
+    /**
+    * Name : formatPage
+    *
+    * FormatContext $formatContext
+    * @return string
+    *
+    */
     /**
      * {@inheritdoc}
      *
@@ -93,6 +126,13 @@ final class TwigFormatter implements FormatterInterface
     }
 
     /**
+    * Name : reset
+    *
+    *  
+    * @return mixed
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function reset()
@@ -100,6 +140,13 @@ final class TwigFormatter implements FormatterInterface
         // nothing to do
     }
 
+    /**
+    * Name : massageTemplate
+    *
+    * FormatContext $formatContext
+    * @return mixed
+    *
+    */
     private function massageTemplate(FormatContext $formatContext)
     {
         $template = $formatContext->template();

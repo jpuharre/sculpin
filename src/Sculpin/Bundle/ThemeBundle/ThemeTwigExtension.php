@@ -7,7 +7,10 @@ namespace Sculpin\Bundle\ThemeBundle;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class ThemeTwigExtension extends AbstractExtension
+    /**
+    * Name : ThemeTwigExtension
+    */
+    class ThemeTwigExtension extends AbstractExtension
 {
     /**
      * @var array|null
@@ -24,6 +27,15 @@ class ThemeTwigExtension extends AbstractExtension
      */
     private $themeDirectory;
 
+    /**
+    * Name : __construct
+    *
+    * ThemeRegistry $themeRegistry
+    * string $sourceDirectory
+    * string $themeDirectory
+    * @return mixed
+    *
+    */
     public function __construct(ThemeRegistry $themeRegistry, string $sourceDirectory, string $themeDirectory)
     {
         $this->theme = $themeRegistry->findActiveTheme();
@@ -31,6 +43,13 @@ class ThemeTwigExtension extends AbstractExtension
         $this->themeDirectory = $themeDirectory;
     }
 
+    /**
+    * Name : getFunctions
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -44,6 +63,13 @@ class ThemeTwigExtension extends AbstractExtension
     }
 
     /**
+    * Name : getName
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function getName(): string
@@ -51,6 +77,13 @@ class ThemeTwigExtension extends AbstractExtension
         return 'theme';
     }
 
+    /**
+    * Name : themePath
+    *
+    * string $resource
+    * @return string
+    *
+    */
     /**
      * Generate a URL for a Theme's resource
      *
@@ -83,6 +116,13 @@ class ThemeTwigExtension extends AbstractExtension
     }
 
     /**
+    * Name : themePathExists
+    *
+    * string $resource
+    * @return bool
+    *
+    */
+    /**
      * Check to see if a given Theme resource exists anywhere on disk
      *
      * @param string $resource
@@ -114,6 +154,13 @@ class ThemeTwigExtension extends AbstractExtension
         return false;
     }
 
+    /**
+    * Name : themePaths
+    *
+    * string $resource
+    * @return array
+    *
+    */
     /**
      * Generate a collection of URLs for a Theme's resource
      *
@@ -150,6 +197,14 @@ class ThemeTwigExtension extends AbstractExtension
         return array_reverse($paths);
     }
 
+    /**
+    * Name : findThemeResource
+    *
+    * array $theme
+    * string $resource
+    * @return ?|string
+    *
+    */
     private function findThemeResource(array $theme, string $resource): ?string
     {
         if (file_exists($theme['path'].'/'.$resource)) {

@@ -15,7 +15,17 @@ namespace Sculpin\Core\Source\Map;
 
 use Sculpin\Core\Source\SourceInterface;
 
-interface MapInterface
+    /**
+    * Name : MapInterface
+    */
+    interface MapInterface
 {
+    /**
+    * Name : process
+    *
+    * SourceInterface $source
+    * @return void
+    *
+    */
     public function process(SourceInterface $source): void;
 }

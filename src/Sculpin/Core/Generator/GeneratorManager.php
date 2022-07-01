@@ -19,7 +19,10 @@ use Sculpin\Core\Source\SourceInterface;
 use Sculpin\Core\Source\SourceSet;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-/**
+    /**
+    * Name : GeneratorManager
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class GeneratorManager
@@ -44,6 +47,15 @@ class GeneratorManager
      */
     protected $generators = [];
 
+    /**
+    * Name : __construct
+    *
+    * EventDispatcherInterface $eventDispatcher
+    * Configuration $siteConfiguration
+    * null|DataProviderManager $dataProviderManager
+    * @return mixed
+    *
+    */
     public function __construct(
         EventDispatcherInterface $eventDispatcher,
         Configuration $siteConfiguration,
@@ -54,11 +66,27 @@ class GeneratorManager
         $this->dataProviderManager = $dataProviderManager;
     }
 
+    /**
+    * Name : registerGenerator
+    *
+    * mixed $name
+    * GeneratorInterface $generator
+    * @return void
+    *
+    */
     public function registerGenerator($name, GeneratorInterface $generator): void
     {
         $this->generators[$name] = $generator;
     }
 
+    /**
+    * Name : generate
+    *
+    * SourceInterface $source
+    * SourceSet $sourceSet
+    * @return void
+    *
+    */
     /**
      * @throws \InvalidArgumentException
      */
@@ -110,6 +138,13 @@ class GeneratorManager
         }
     }
 
+    /**
+    * Name : setDataProviderManager
+    *
+    * null|DataProviderManager $dataProviderManager
+    * @return void
+    *
+    */
     /**
      * Set Data Provider Manager.
      *

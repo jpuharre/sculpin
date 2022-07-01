@@ -4,8 +4,19 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateFromMarkdownTest extends FunctionalTestCase
+    /**
+    * Name : GenerateFromMarkdownTest
+    */
+    class GenerateFromMarkdownTest extends TestCase
+FunctionalTestCase
 {
+    /**
+    * Name : shouldGenerateAnHtmlFileFromMarkdown
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldGenerateAnHtmlFileFromMarkdown(): void
     {
@@ -16,6 +27,13 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
         $this->assertProjectHasGeneratedFile('/hello_world/index.html');
     }
 
+    /**
+    * Name : shouldGenerateHtmlContentFromMarkdown
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldGenerateHtmlContentFromMarkdown(): void
     {
@@ -28,6 +46,13 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
         $this->assertStringContainsString('Hello World', $crawler->filter('h1')->text());
     }
 
+    /**
+    * Name : shouldGenerateIntoNestedDirectories
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldGenerateIntoNestedDirectories(): void
     {
@@ -38,6 +63,13 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
         $this->assertProjectHasGeneratedFile('/hello/world/index.html');
     }
 
+    /**
+    * Name : shouldGenerateHtmlUsingALayout
+    *
+    *  
+    * @return mixed
+    *
+    */
     /** @test */
     public function shouldGenerateHtmlUsingALayout()
     {
@@ -69,6 +101,13 @@ EOT
         $this->assertStringContainsString('Hello World', $pageContentEl->text());
     }
 
+    /**
+    * Name : shouldRefreshGeneratedHtmlAfterFilesystemChange
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldRefreshGeneratedHtmlAfterFilesystemChange(): void
     {
@@ -165,6 +204,13 @@ EOT;
         $process->stop(0);
     }
 
+    /**
+    * Name : shouldPassThruFilesWithNoExtension
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldPassThruFilesWithNoExtension(): void
     {
@@ -180,6 +226,13 @@ EOT;
         $this->assertGeneratedFileHasContent('/hello_world2', '# Hello World');
     }
 
+    /**
+    * Name : shouldSkipContentTypeFilesWithNoExtension
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldSkipContentTypeFilesWithNoExtension(): void
     {
@@ -217,6 +270,13 @@ EOF
         );
     }
 
+    /**
+    * Name : shouldSkipHiddenFilesSilently
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldSkipHiddenFilesSilently(): void
     {

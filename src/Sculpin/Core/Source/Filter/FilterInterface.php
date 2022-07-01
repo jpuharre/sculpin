@@ -15,7 +15,17 @@ namespace Sculpin\Core\Source\Filter;
 
 use Sculpin\Core\Source\SourceInterface;
 
-interface FilterInterface
+    /**
+    * Name : FilterInterface
+    */
+    interface FilterInterface
 {
+    /**
+    * Name : match
+    *
+    * SourceInterface $source
+    * @return bool
+    *
+    */
     public function match(SourceInterface $source): bool;
 }

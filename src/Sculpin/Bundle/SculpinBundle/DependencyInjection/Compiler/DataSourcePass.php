@@ -17,11 +17,21 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-/**
+    /**
+    * Name : DataSourcePass
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class DataSourcePass implements CompilerPassInterface
 {
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

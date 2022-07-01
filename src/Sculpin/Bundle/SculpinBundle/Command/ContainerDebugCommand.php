@@ -26,13 +26,24 @@ use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 
-/**
+    /**
+    * Name : ContainerDebugCommand
+    */
+    /**
  * A console command for retrieving information about services
  *
  * @author Ryan Weaver <ryan@thatsquality.com>
  */
-final class ContainerDebugCommand extends ContainerAwareCommand
+final class ContainerDebugCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
+    /**
+    * Name : configure
+    *
+    *  
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -109,6 +120,14 @@ EOF
     }
 
     /**
+    * Name : execute
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return mixed
+    *
+    */
+    /**
      * {@inheritdoc}
      *
      * @throws \LogicException
@@ -167,6 +186,13 @@ EOF
         return 0;
     }
 
+    /**
+    * Name : validateInput
+    *
+    * InputInterface $input
+    * @return mixed
+    *
+    */
     private function validateInput(InputInterface $input)
     {
         $options = ['tags', 'tag', 'parameters', 'parameter'];
@@ -190,6 +216,16 @@ EOF
         }
     }
 
+    /**
+    * Name : outputServices
+    *
+    * OutputInterface $output
+    * mixed $serviceIds
+    * mixed $showPrivate
+    * mixed $showTagAttributes
+    * @return void
+    *
+    */
     private function outputServices(
         OutputInterface $output,
         $serviceIds,
@@ -310,6 +346,15 @@ EOF
         }
     }
 
+    /**
+    * Name : buildArgumentsArray
+    *
+    * mixed $serviceId
+    * mixed $className
+    * array $tagAttributes
+    * @return array
+    *
+    */
     private function buildArgumentsArray($serviceId, $className, array $tagAttributes = []): array
     {
         $arguments = [$serviceId];
@@ -321,6 +366,14 @@ EOF
         return $arguments;
     }
 
+    /**
+    * Name : outputService
+    *
+    * OutputInterface $output
+    * string $serviceId
+    * @return mixed
+    *
+    */
     /**
      * Renders detailed service information about one service
      */
@@ -377,6 +430,14 @@ EOF
         }
     }
 
+    /**
+    * Name : outputParameters
+    *
+    * OutputInterface $output
+    * array $parameters
+    * @return void
+    *
+    */
     private function outputParameters(OutputInterface $output, array $parameters): void
     {
         $output->writeln($this->getHelper('formatter')->formatSection('container', 'List of parameters'));
@@ -419,6 +480,13 @@ EOF
     }
 
     /**
+    * Name : resolveServiceDefinition
+    *
+    * mixed $serviceId
+    * @return mixed
+    *
+    */
+    /**
      * Given an array of service IDs, this returns the array of corresponding
      * Definition and Alias objects that those ids represent.
      *
@@ -445,6 +513,14 @@ EOF
         return $container->get($serviceId);
     }
 
+    /**
+    * Name : outputTags
+    *
+    * OutputInterface $output
+    * bool $showPrivate
+    * @return void
+    *
+    */
     /**
      * Renders list of tagged services grouped by tag
      *
@@ -492,6 +568,13 @@ EOF
         }
     }
 
+    /**
+    * Name : formatParameter
+    *
+    * mixed $value
+    * @return mixed
+    *
+    */
     private function formatParameter($value)
     {
         if (is_bool($value) || is_array($value) || (null === $value)) {

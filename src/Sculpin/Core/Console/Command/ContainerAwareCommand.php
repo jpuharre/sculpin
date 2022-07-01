@@ -18,7 +18,10 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-/**
+    /**
+    * Name : ContainerAwareCommand
+    */
+    /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
 abstract class ContainerAwareCommand extends Command implements ContainerAwareInterface
@@ -28,6 +31,13 @@ abstract class ContainerAwareCommand extends Command implements ContainerAwareIn
      */
     private $container;
 
+    /**
+    * Name : getContainer
+    *
+    *  
+    * @return ContainerInterface
+    *
+    */
     /**
      * @return ContainerInterface
      *
@@ -48,6 +58,13 @@ abstract class ContainerAwareCommand extends Command implements ContainerAwareIn
         return $this->container;
     }
 
+    /**
+    * Name : setContainer
+    *
+    * null|ContainerInterface $container
+    * @return mixed
+    *
+    */
     /**
      * Set Container.
      *

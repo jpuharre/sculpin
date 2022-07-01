@@ -17,7 +17,10 @@ use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
+    /**
+    * Name : ConsoleIo
+    */
+    /**
  * Console I/O implementation.
  *
  * @author François Pluchino <francois.pluchino@opendisplay.com>
@@ -49,17 +52,39 @@ final class ConsoleIo implements IoInterface
      */
     private $startTime;
 
+    /**
+    * Name : __construct
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return mixed
+    *
+    */
     public function __construct(InputInterface $input, OutputInterface $output)
     {
         $this->input = $input;
         $this->output = $output;
     }
 
+    /**
+    * Name : enableDebugging
+    *
+    * float $startTime
+    * @return void
+    *
+    */
     public function enableDebugging(float $startTime): void
     {
         $this->startTime = $startTime;
     }
 
+    /**
+    * Name : isInteractive
+    *
+    *  
+    * @return bool
+    *
+    */
     /**
      * {@inheritDoc}
      */
@@ -69,6 +94,13 @@ final class ConsoleIo implements IoInterface
     }
 
     /**
+    * Name : isDecorated
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * {@inheritDoc}
      */
     public function isDecorated(): bool
@@ -76,6 +108,13 @@ final class ConsoleIo implements IoInterface
         return $this->output->isDecorated();
     }
 
+    /**
+    * Name : isVerbose
+    *
+    *  
+    * @return bool
+    *
+    */
     /**
      * {@inheritDoc}
      */
@@ -85,6 +124,13 @@ final class ConsoleIo implements IoInterface
     }
 
     /**
+    * Name : isVeryVerbose
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * {@inheritDoc}
      */
     public function isVeryVerbose(): bool
@@ -93,6 +139,13 @@ final class ConsoleIo implements IoInterface
     }
 
     /**
+    * Name : isDebug
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * {@inheritDoc}
      */
     public function isDebug(): bool
@@ -100,6 +153,14 @@ final class ConsoleIo implements IoInterface
         return $this->output->isDebug();
     }
 
+    /**
+    * Name : write
+    *
+    * mixed $messages
+    * bool $newline
+    * @return mixed
+    *
+    */
     /**
      * {@inheritDoc}
      */
@@ -118,6 +179,15 @@ final class ConsoleIo implements IoInterface
         $this->lastMessage = join($newline ? "\n" : '', (array) $messages);
     }
 
+    /**
+    * Name : overwrite
+    *
+    * mixed $messages
+    * bool $newline
+    * ?|int $size
+    * @return mixed
+    *
+    */
     /**
      * {@inheritDoc}
      */

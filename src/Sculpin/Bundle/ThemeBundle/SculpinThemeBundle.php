@@ -15,7 +15,10 @@ namespace Sculpin\Bundle\ThemeBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
+    /**
+    * Name : SculpinThemeBundle
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinThemeBundle extends Bundle

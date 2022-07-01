@@ -25,7 +25,10 @@ use Sculpin\Core\Source\Map\MapInterface;
 use Sculpin\Core\Source\Map\NullMap;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class ProxySourceCollectionDataProvider implements DataProviderInterface, EventSubscriberInterface
+    /**
+    * Name : ProxySourceCollectionDataProvider
+    */
+    class ProxySourceCollectionDataProvider implements DataProviderInterface, EventSubscriberInterface
 {
     private $formatterManager;
     private $dataProviderName;
@@ -35,6 +38,19 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
     private $map;
     private $factory;
 
+    /**
+    * Name : __construct
+    *
+    * FormatterManager $formatterManager
+    * mixed $dataProviderName
+    * null|mixed $dataSingularName
+    * null|ProxySourceCollection $collection
+    * null|FilterInterface $filter
+    * null|MapInterface $map
+    * null|ProxySourceItemFactoryInterface $factory
+    * @return mixed
+    *
+    */
     public function __construct(
         FormatterManager $formatterManager,
         $dataProviderName,
@@ -53,11 +69,25 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         $this->factory = $factory ?: new SimpleProxySourceItemFactory;
     }
 
+    /**
+    * Name : provideData
+    *
+    *  
+    * @return array
+    *
+    */
     public function provideData(): array
     {
         return iterator_to_array($this->collection);
     }
 
+    /**
+    * Name : getSubscribedEvents
+    *
+    *  
+    * @return mixed
+    *
+    */
     public static function getSubscribedEvents()
     {
         return [
@@ -69,6 +99,13 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         ];
     }
 
+    /**
+    * Name : beforeRun
+    *
+    * SourceSetEvent $sourceSetEvent
+    * @return mixed
+    *
+    */
     public function beforeRun(SourceSetEvent $sourceSetEvent)
     {
         foreach ($sourceSetEvent->updatedSources() as $source) {
@@ -124,6 +161,13 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         $this->collection->init();
     }
 
+    /**
+    * Name : beforeRunPost
+    *
+    * SourceSetEvent $sourceSetEvent
+    * @return mixed
+    *
+    */
     public function beforeRunPost(SourceSetEvent $sourceSetEvent)
     {
         $anItemHasChanged = false;
@@ -147,6 +191,13 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         }
     }
 
+    /**
+    * Name : afterConvert
+    *
+    * ConvertEvent $convertEvent
+    * @return mixed
+    *
+    */
     public function afterConvert(ConvertEvent $convertEvent)
     {
         $sourceId = $convertEvent->source()->sourceId();

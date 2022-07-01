@@ -19,7 +19,10 @@ use dflydev\util\antPathMatcher\AntPathMatcher;
 use Sculpin\Core\SiteConfiguration\SiteConfigurationFactory;
 use Symfony\Component\Finder\SplFileInfo;
 
-/**
+    /**
+    * Name : ConfigFilesystemDataSource
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class ConfigFilesystemDataSource implements DataSourceInterface
@@ -49,6 +52,16 @@ final class ConfigFilesystemDataSource implements DataSourceInterface
      */
     private $sinceTime;
 
+    /**
+    * Name : __construct
+    *
+    * string $sourceDir
+    * ConfigurationInterface $siteConfiguration
+    * SiteConfigurationFactory $siteConfigurationFactory
+    * null|AntPathMatcher $pathMatcher
+    * @return mixed
+    *
+    */
     public function __construct(
         string $sourceDir,
         ConfigurationInterface $siteConfiguration,
@@ -63,6 +76,13 @@ final class ConfigFilesystemDataSource implements DataSourceInterface
     }
 
     /**
+    * Name : dataSourceId
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function dataSourceId(): string
@@ -72,6 +92,13 @@ final class ConfigFilesystemDataSource implements DataSourceInterface
         return 'ConfigFilesystemDataSource:'.$this->sourceDir;
     }
 
+    /**
+    * Name : refresh
+    *
+    * SourceSet $sourceSet
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

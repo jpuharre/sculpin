@@ -17,8 +17,19 @@ use PHPUnit\Framework\TestCase;
 use Sculpin\Core\Source\SourceSet;
 use Sculpin\Core\Source\SourceInterface;
 
-class SourceSetTest extends TestCase
+    /**
+    * Name : SourceSetTest
+    */
+    class SourceSetTest extends TestCase
 {
+    /**
+    * Name : makeTestSource
+    *
+    * mixed $sourceId
+    * mixed $hasChanged
+    * @return mixed
+    *
+    */
     public function makeTestSource($sourceId, $hasChanged = true)
     {
         $source = $this->createMock(SourceInterface::class);
@@ -36,6 +47,13 @@ class SourceSetTest extends TestCase
         return $source;
     }
 
+    /**
+    * Name : testContainsSource
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function testContainsSource()
     {
         $source000 = $this->makeTestSource('TestSource:000');
@@ -55,6 +73,13 @@ class SourceSetTest extends TestCase
         $this->assertTrue($sourceSet->containsSource($source002));
     }
 
+    /**
+    * Name : testMergeSource
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function testMergeSource()
     {
         $source000a = $this->makeTestSource('TestSource:000');
@@ -86,6 +111,13 @@ class SourceSetTest extends TestCase
         $this->assertEquals('b', $internalSources['TestSource:000']->content());
     }
 
+    /**
+    * Name : testAllSources
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function testAllSources()
     {
         $source000 = $this->makeTestSource('TestSource:000');
@@ -101,6 +133,13 @@ class SourceSetTest extends TestCase
         ], $sourceSet->allSources());
     }
 
+    /**
+    * Name : testUpdatedSources
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function testUpdatedSources()
     {
         $source000 = $this->makeTestSource('TestSource:000');
@@ -115,6 +154,13 @@ class SourceSetTest extends TestCase
         ], $sourceSet->updatedSources());
     }
 
+    /**
+    * Name : testReset
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function testReset()
     {
         $source000 = $this->makeTestSource('TestSource:000');

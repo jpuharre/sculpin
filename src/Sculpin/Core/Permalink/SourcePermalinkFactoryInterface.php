@@ -15,11 +15,21 @@ namespace Sculpin\Core\Permalink;
 
 use Sculpin\Core\Source\SourceInterface;
 
-/**
+    /**
+    * Name : SourcePermalinkFactoryInterface
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 interface SourcePermalinkFactoryInterface
 {
+    /**
+    * Name : create
+    *
+    * SourceInterface $source
+    * @return PermalinkInterface
+    *
+    */
     /**
      * Create a Permalink for a Source.
      */

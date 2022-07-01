@@ -20,7 +20,10 @@ use Sculpin\Core\Sculpin;
 use Sculpin\Core\Source\SourceInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-/**
+    /**
+    * Name : FormatterManager
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class FormatterManager
@@ -50,6 +53,15 @@ class FormatterManager
      */
     protected $defaultFormatter;
 
+    /**
+    * Name : __construct
+    *
+    * EventDispatcherInterface $eventDispatcher
+    * Configuration $siteConfiguration
+    * null|DataProviderManager $dataProviderManager
+    * @return mixed
+    *
+    */
     public function __construct(
         EventDispatcherInterface $eventDispatcher,
         Configuration $siteConfiguration,
@@ -60,6 +72,13 @@ class FormatterManager
         $this->dataProviderManager = $dataProviderManager;
     }
 
+    /**
+    * Name : buildBaseFormatContext
+    *
+    * array $context
+    * @return Configuration
+    *
+    */
     protected function buildBaseFormatContext(array $context): Configuration
     {
         $baseContext = new Configuration([
@@ -88,6 +107,15 @@ class FormatterManager
         return $baseContext;
     }
 
+    /**
+    * Name : buildFormatContext
+    *
+    * string $templateId
+    * string $template
+    * array $context
+    * @return FormatContext
+    *
+    */
     public function buildFormatContext(string $templateId, string $template, array $context): FormatContext
     {
         $baseContext = $this->buildBaseFormatContext($context);
@@ -101,6 +129,14 @@ class FormatterManager
         return new FormatContext($templateId, $template, $baseContext->export());
     }
 
+    /**
+    * Name : registerFormatter
+    *
+    * string $name
+    * FormatterInterface $formatter
+    * @return void
+    *
+    */
     public function registerFormatter(string $name, FormatterInterface $formatter): void
     {
         $this->formatters[$name] = $formatter;
@@ -110,11 +146,27 @@ class FormatterManager
         }
     }
 
+    /**
+    * Name : formatter
+    *
+    * string $name
+    * @return FormatterInterface
+    *
+    */
     public function formatter(string $name): FormatterInterface
     {
         return $this->formatters[$name];
     }
 
+    /**
+    * Name : formatPage
+    *
+    * string $templateId
+    * string $template
+    * array $context
+    * @return string
+    *
+    */
     public function formatPage(string $templateId, string $template, array $context): string
     {
         $formatContext = $this->buildFormatContext($templateId, $template, $context);
@@ -129,6 +181,13 @@ class FormatterManager
         return $response;
     }
 
+    /**
+    * Name : formatSourcePage
+    *
+    * SourceInterface $source
+    * @return string
+    *
+    */
     public function formatSourcePage(SourceInterface $source): string
     {
         return $this->formatPage(
@@ -138,6 +197,15 @@ class FormatterManager
         );
     }
 
+    /**
+    * Name : formatBlocks
+    *
+    * string $templateId
+    * string $template
+    * array $context
+    * @return array
+    *
+    */
     public function formatBlocks(string $templateId, string $template, array $context): array
     {
         $formatContext = $this->buildFormatContext($templateId, $template, $context);
@@ -152,6 +220,13 @@ class FormatterManager
         return $response;
     }
 
+    /**
+    * Name : formatSourceBlocks
+    *
+    * SourceInterface $source
+    * @return array
+    *
+    */
     public function formatSourceBlocks(SourceInterface $source): array
     {
         return $this->formatBlocks(
@@ -161,11 +236,25 @@ class FormatterManager
         );
     }
 
+    /**
+    * Name : defaultFormatter
+    *
+    *  
+    * @return string
+    *
+    */
     public function defaultFormatter(): string
     {
         return $this->defaultFormatter;
     }
 
+    /**
+    * Name : setDataProviderManager
+    *
+    * null|DataProviderManager $dataProviderManager
+    * @return void
+    *
+    */
     /**
      * Set Data Provider Manager.
      *

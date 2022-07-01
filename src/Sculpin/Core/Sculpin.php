@@ -28,7 +28,10 @@ use Sculpin\Core\Source\SourceInterface;
 use Sculpin\Core\Source\SourceSet;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-/**
+    /**
+    * Name : Sculpin
+    */
+    /**
  * Main entry point to interact with the Sculpin system.
  *
  * @author Beau Simensen <beau@dflydev.com>
@@ -81,6 +84,19 @@ final class Sculpin
      */
     private $converterManager;
 
+    /**
+    * Name : __construct
+    *
+    * Configuration $siteConfiguration
+    * EventDispatcherInterface $eventDispatcher
+    * SourcePermalinkFactoryInterface $permalinkFactory
+    * WriterInterface $writer
+    * GeneratorManager $generatorManager
+    * FormatterManager $formatterManager
+    * ConverterManager $converterManager
+    * @return mixed
+    *
+    */
     public function __construct(
         Configuration $siteConfiguration,
         EventDispatcherInterface $eventDispatcher,
@@ -99,6 +115,15 @@ final class Sculpin
         $this->converterManager = $converterManager;
     }
 
+    /**
+    * Name : run
+    *
+    * DataSourceInterface $dataSource
+    * SourceSet $sourceSet
+    * null|IoInterface $io
+    * @return mixed
+    *
+    */
     public function run(DataSourceInterface $dataSource, SourceSet $sourceSet, IoInterface $io = null)
     {
         if (null === $io) {

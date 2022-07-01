@@ -7,17 +7,35 @@ namespace Sculpin\Bundle\TwigBundle;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
 
-class WebpackEncoreHelper extends AbstractExtension implements GlobalsInterface
+    /**
+    * Name : WebpackEncoreHelper
+    */
+    class WebpackEncoreHelper extends AbstractExtension implements GlobalsInterface
 {
     protected $sourceDir;
     protected $manifest;
 
+    /**
+    * Name : __construct
+    *
+    * string $sourceDir
+    * ?|string $manifest
+    * @return mixed
+    *
+    */
     public function __construct(string $sourceDir, ?string $manifest)
     {
         $this->sourceDir = $sourceDir;
         $this->manifest = $manifest;
     }
 
+    /**
+    * Name : getGlobals
+    *
+    *  
+    * @return array
+    *
+    */
     public function getGlobals(): array
     {
         $manifestContents = $this->getManifestContents();
@@ -41,6 +59,13 @@ class WebpackEncoreHelper extends AbstractExtension implements GlobalsInterface
         ];
     }
 
+    /**
+    * Name : getManifestContents
+    *
+    *  
+    * @return string
+    *
+    */
     private function getManifestContents(): string
     {
         $path = $this->sourceDir . DIRECTORY_SEPARATOR . $this->manifest;

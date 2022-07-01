@@ -16,11 +16,21 @@ namespace Sculpin\Bundle\PostsBundle\DependencyInjection;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-/**
+    /**
+    * Name : Configuration
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class Configuration implements ConfigurationInterface
 {
+    /**
+    * Name : getConfigTreeBuilder
+    *
+    *  
+    * @return TreeBuilder
+    *
+    */
     /**
     * {@inheritdoc}
     */

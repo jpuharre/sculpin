@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Util;
 
-/**
+    /**
+    * Name : DirectorySeparatorNormalizer
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class DirectorySeparatorNormalizer
@@ -28,12 +31,26 @@ final class DirectorySeparatorNormalizer
      */
     private $directorySeparator;
 
+    /**
+    * Name : __construct
+    *
+    * string $preferredDirectorySeparator
+    * @return mixed
+    *
+    */
     public function __construct(string $preferredDirectorySeparator = '/')
     {
         $this->preferredDirectorySeparator = $preferredDirectorySeparator;
         $this->directorySeparator = DIRECTORY_SEPARATOR;
     }
 
+    /**
+    * Name : setDirectorySeparator
+    *
+    * string $directorySeparator
+    * @return self
+    *
+    */
     /**
      * Set directory separator.
      *
@@ -46,6 +63,13 @@ final class DirectorySeparatorNormalizer
         return $this;
     }
 
+    /**
+    * Name : normalize
+    *
+    * ?|string $path
+    * @return ?|string
+    *
+    */
     /**
      * Normalize filesystem paths to a preferred $separator.
      */

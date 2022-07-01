@@ -16,11 +16,22 @@ namespace Sculpin\Bundle\SculpinBundle\Command;
 use Sculpin\Bundle\StandaloneBundle\SculpinStandaloneBundle;
 use Sculpin\Core\Console\Command\ContainerAwareCommand;
 
-/**
+    /**
+    * Name : AbstractCommand
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-abstract class AbstractCommand extends ContainerAwareCommand
+abstract class AbstractCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
+    /**
+    * Name : isStandaloneSculpin
+    *
+    *  
+    * @return bool
+    *
+    */
     /**
      * Test to see if Sculpin is running in standalone mode.
      */

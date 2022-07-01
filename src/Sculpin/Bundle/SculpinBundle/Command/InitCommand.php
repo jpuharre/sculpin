@@ -19,10 +19,15 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
-/**
+    /**
+    * Name : InitCommand
+    */
+    /**
  * Initialize default website configuration and structure.
  */
-final class InitCommand extends AbstractCommand
+final class InitCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     public const COMMAND_SUCCESS          = 0;
     public const PROJECT_FOLDER_NOT_EMPTY = 101;
@@ -30,6 +35,13 @@ final class InitCommand extends AbstractCommand
     public const DEFAULT_SUBTITLE = 'A Static Site Powered By Sculpin';
     public const DEFAULT_TITLE    = 'My Sculpin Site';
 
+    /**
+    * Name : configure
+    *
+    *  
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -63,6 +75,14 @@ EOT
             );
     }
 
+    /**
+    * Name : execute
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return ?|int
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -108,6 +128,14 @@ EOT
         return self::COMMAND_SUCCESS;
     }
 
+    /**
+    * Name : ensureCleanSlate
+    *
+    * string $projectDir
+    * OutputInterface $output
+    * @return bool
+    *
+    */
     private function ensureCleanSlate(string $projectDir, OutputInterface $output): bool
     {
         $fs = new Filesystem();
@@ -126,6 +154,14 @@ EOT
         return true;
     }
 
+    /**
+    * Name : createDefaultKernel
+    *
+    * string $projectDir
+    * OutputInterface $output
+    * @return bool
+    *
+    */
     private function createDefaultKernel(string $projectDir, OutputInterface $output): bool
     {
         $contents = <<<EOF
@@ -147,6 +183,14 @@ EOF;
         return true;
     }
 
+    /**
+    * Name : createSiteKernelFile
+    *
+    * string $projectDir
+    * OutputInterface $output
+    * @return bool
+    *
+    */
     private function createSiteKernelFile(string $projectDir, OutputInterface $output): bool
     {
         $contents = <<<EOF
@@ -160,6 +204,16 @@ EOF;
         return true;
     }
 
+    /**
+    * Name : createSiteConfigFile
+    *
+    * string $projectDir
+    * string $title
+    * string $subTitle
+    * OutputInterface $output
+    * @return bool
+    *
+    */
     private function createSiteConfigFile(
         string $projectDir,
         string $title,
@@ -178,6 +232,14 @@ EOF;
         return true;
     }
 
+    /**
+    * Name : createSourceFolder
+    *
+    * string $projectDir
+    * OutputInterface $output
+    * @return bool
+    *
+    */
     private function createSourceFolder(string $projectDir, OutputInterface $output): bool
     {
         $fs = new Filesystem();
@@ -210,6 +272,14 @@ EOF
         return true;
     }
 
+    /**
+    * Name : createFile
+    *
+    * string $path
+    * string $contents
+    * @return void
+    *
+    */
     private function createFile(string $path, string $contents): void
     {
         $fs = new Filesystem();

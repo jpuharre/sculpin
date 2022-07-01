@@ -19,7 +19,10 @@ use dflydev\util\antPathMatcher\AntPathMatcher;
 use Sculpin\Core\Util\DirectorySeparatorNormalizer;
 use Symfony\Component\Finder\SplFileInfo;
 
-/**
+    /**
+    * Name : FilesystemDataSource
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class FilesystemDataSource implements DataSourceInterface
@@ -65,6 +68,19 @@ final class FilesystemDataSource implements DataSourceInterface
     private $sinceTime;
 
     /**
+    * Name : __construct
+    *
+    * string $sourceDir
+    * array $excludePaths
+    * array $ignorePaths
+    * array $rawPaths
+    * null|AntPathMatcher $matcher
+    * null|Analyzer $analyzer
+    * null|DirectorySeparatorNormalizer $directorySeparatorNormalizer
+    * @return mixed
+    *
+    */
+    /**
      * @param string[] $excludePaths Exclude paths
      * @param string[] $ignorePaths  Ignore paths
      * @param string[] $rawPaths     Raw paths
@@ -89,6 +105,13 @@ final class FilesystemDataSource implements DataSourceInterface
     }
 
     /**
+    * Name : dataSourceId
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function dataSourceId(): string
@@ -96,6 +119,13 @@ final class FilesystemDataSource implements DataSourceInterface
         return 'FilesystemDataSource:'.$this->sourceDir;
     }
 
+    /**
+    * Name : refresh
+    *
+    * SourceSet $sourceSet
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

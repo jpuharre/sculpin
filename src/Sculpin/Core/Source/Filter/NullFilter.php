@@ -15,8 +15,18 @@ namespace Sculpin\Core\Source\Filter;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class NullFilter implements FilterInterface
+    /**
+    * Name : NullFilter
+    */
+    class NullFilter implements FilterInterface
 {
+    /**
+    * Name : match
+    *
+    * SourceInterface $source
+    * @return bool
+    *
+    */
     public function match(SourceInterface $source): bool
     {
         return false;

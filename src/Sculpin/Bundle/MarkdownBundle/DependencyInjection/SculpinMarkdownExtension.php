@@ -18,11 +18,22 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-/**
+    /**
+    * Name : SculpinMarkdownExtension
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinMarkdownExtension extends Extension
 {
+    /**
+    * Name : load
+    *
+    * array $configs
+    * ContainerBuilder $container
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

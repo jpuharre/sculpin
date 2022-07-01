@@ -1,7 +1,18 @@
 <?php
 
-class SculpinKernel extends \Sculpin\Bundle\SculpinBundle\HttpKernel\AbstractKernel
+    /**
+    * Name : SculpinKernel
+    */
+    class SculpinKernel extends Kernel
+\Sculpin\Bundle\SculpinBundle\HttpKernel\AbstractKernel
 {
+    /**
+    * Name : getAdditionalSculpinBundles
+    *
+    *  
+    * @return array
+    *
+    */
     protected function getAdditionalSculpinBundles(): array
     {
         return [

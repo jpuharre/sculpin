@@ -13,10 +13,20 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Output;
 
-/**
+    /**
+    * Name : WriterInterface
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 interface WriterInterface
 {
+    /**
+    * Name : write
+    *
+    * OutputInterface $output
+    * @return void
+    *
+    */
     public function write(OutputInterface $output): void;
 }

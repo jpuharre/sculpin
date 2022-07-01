@@ -19,7 +19,10 @@ use Sculpin\Core\Event\ConvertEvent;
 use Sculpin\Core\Sculpin;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
+    /**
+    * Name : ConvertListener
+    */
+    /**
  * Hide some twig instructions from markdown parser.
  *
  * @author Beau Simensen <beau@dflydev.com>
@@ -52,6 +55,13 @@ final class ConvertListener implements EventSubscriberInterface
     private static $removePlaceholderRe = "/(\n?<div><!-- sculpin-hidden -->|<!-- \/sculpin-hidden --><\/div>\n|\n?&lt;div&gt;&lt;!-- sculpin-hidden --&gt;|&lt;!-- \/sculpin-hidden --&gt;&lt;\/div&gt;\n)/m"; // @codingStandardsIgnoreLine
 
     /**
+    * Name : getSubscribedEvents
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public static function getSubscribedEvents(): array
@@ -62,6 +72,13 @@ final class ConvertListener implements EventSubscriberInterface
         ];
     }
 
+    /**
+    * Name : beforeConvert
+    *
+    * ConvertEvent $convertEvent
+    * @return void
+    *
+    */
     /**
      * Called before conversion
      */
@@ -81,6 +98,13 @@ final class ConvertListener implements EventSubscriberInterface
         }
     }
 
+    /**
+    * Name : afterConvert
+    *
+    * ConvertEvent $convertEvent
+    * @return void
+    *
+    */
     /**
      * Called after conversion
      */

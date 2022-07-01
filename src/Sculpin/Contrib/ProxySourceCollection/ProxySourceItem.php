@@ -16,26 +16,58 @@ namespace Sculpin\Contrib\ProxySourceCollection;
 use Dflydev\DotAccessData\DataInterface;
 use Sculpin\Core\Source\ProxySource;
 
-class ProxySourceItem extends ProxySource implements \ArrayAccess
+    /**
+    * Name : ProxySourceItem
+    */
+    class ProxySourceItem extends ProxySource implements SourceInterface
+\ArrayAccess
 {
     private $previousItem;
     private $nextItem;
 
+    /**
+    * Name : id
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function id()
     {
         return $this->sourceId();
     }
 
+    /**
+    * Name : meta
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function meta()
     {
         return $this->data()->export();
     }
 
+    /**
+    * Name : url
+    *
+    *  
+    * @return string
+    *
+    */
     public function url(): string
     {
         return $this->permalink()->relativeUrlPath();
     }
 
+    /**
+    * Name : date
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function date()
     {
         $calculatedDate = $this->data()->get('calculated_date');
@@ -43,26 +75,61 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         return $calculatedDate ?: $this->data()->get('date');
     }
 
+    /**
+    * Name : title
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function title()
     {
         return $this->data()->get('title');
     }
 
+    /**
+    * Name : blocks
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function blocks()
     {
         return $this->data()->get('blocks');
     }
 
+    /**
+    * Name : setBlocks
+    *
+    * null|array $blocks
+    * @return mixed
+    *
+    */
     public function setBlocks(array $blocks = null)
     {
         $this->data()->set('blocks', $blocks ?: []);
     }
 
+    /**
+    * Name : previousItem
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function previousItem()
     {
         return $this->previousItem;
     }
 
+    /**
+    * Name : setPreviousItem
+    *
+    * null|ProxySourceItem $item
+    * @return mixed
+    *
+    */
     public function setPreviousItem(ProxySourceItem $item = null)
     {
         $lastPreviousItem = $this->previousItem;
@@ -81,11 +148,25 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         }
     }
 
+    /**
+    * Name : nextItem
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function nextItem()
     {
         return $this->nextItem;
     }
 
+    /**
+    * Name : setNextItem
+    *
+    * null|ProxySourceItem $item
+    * @return mixed
+    *
+    */
     public function setNextItem(ProxySourceItem $item = null)
     {
         $lastNextItem = $this->nextItem;
@@ -104,11 +185,26 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         }
     }
 
+    /**
+    * Name : reprocess
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function reprocess()
     {
         $this->setHasChanged();
     }
 
+    /**
+    * Name : offsetSet
+    *
+    * mixed $offset
+    * mixed $value
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
@@ -128,12 +224,26 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         }
     }
 
+    /**
+    * Name : offsetExists
+    *
+    * mixed $offset
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
     {
         return ! method_exists($this, $offset) && null !== $this->data()->get($offset);
     }
 
+    /**
+    * Name : offsetUnset
+    *
+    * mixed $offset
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
@@ -145,6 +255,13 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         }
     }
 
+    /**
+    * Name : offsetGet
+    *
+    * mixed $offset
+    * @return mixed
+    *
+    */
     #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {

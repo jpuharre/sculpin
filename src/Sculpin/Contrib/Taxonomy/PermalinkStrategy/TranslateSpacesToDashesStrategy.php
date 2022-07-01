@@ -13,8 +13,18 @@ declare(strict_types=1);
 
 namespace Sculpin\Contrib\Taxonomy\PermalinkStrategy;
 
-class TranslateSpacesToDashesStrategy implements PermalinkStrategyInterface
+    /**
+    * Name : TranslateSpacesToDashesStrategy
+    */
+    class TranslateSpacesToDashesStrategy implements PermalinkStrategyInterface
 {
+    /**
+    * Name : process
+    *
+    * mixed $str
+    * @return mixed
+    *
+    */
     public function process($str)
     {
         return str_replace(' ', '-', $str);

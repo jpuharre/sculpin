@@ -16,21 +16,39 @@ namespace Sculpin\Core\Event;
 use Sculpin\Core\Source\SourceInterface;
 use Sculpin\Core\Source\SourceSet;
 
-/**
+    /**
+    * Name : SourceSetEvent
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-final class SourceSetEvent extends Event
+final class SourceSetEvent extends BaseEvent
+Event
 {
     /**
      * @var SourceSet
      */
     private $sourceSet;
 
+    /**
+    * Name : __construct
+    *
+    * SourceSet $sourceSet
+    * @return mixed
+    *
+    */
     public function __construct(SourceSet $sourceSet)
     {
         $this->sourceSet = $sourceSet;
     }
 
+    /**
+    * Name : allSources
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * @return SourceInterface[]
      */
@@ -40,6 +58,13 @@ final class SourceSetEvent extends Event
     }
 
     /**
+    * Name : updatedSources
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * @return SourceInterface[]
      */
     public function updatedSources(): array
@@ -47,6 +72,13 @@ final class SourceSetEvent extends Event
         return $this->sourceSet->updatedSources();
     }
 
+    /**
+    * Name : sourceSet
+    *
+    *  
+    * @return SourceSet
+    *
+    */
     public function sourceSet(): SourceSet
     {
         return $this->sourceSet;

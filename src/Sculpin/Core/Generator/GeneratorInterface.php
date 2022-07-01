@@ -15,11 +15,21 @@ namespace Sculpin\Core\Generator;
 
 use Sculpin\Core\Source\SourceInterface;
 
-/**
+    /**
+    * Name : GeneratorInterface
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 interface GeneratorInterface
 {
+    /**
+    * Name : generate
+    *
+    * SourceInterface $source
+    * @return array
+    *
+    */
     /**
      * Generate generated sources from generator source
      *

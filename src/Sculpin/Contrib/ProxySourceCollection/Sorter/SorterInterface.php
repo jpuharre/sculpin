@@ -15,7 +15,18 @@ namespace Sculpin\Contrib\ProxySourceCollection\Sorter;
 
 use Sculpin\Contrib\ProxySourceCollection\ProxySourceItem;
 
-interface SorterInterface
+    /**
+    * Name : SorterInterface
+    */
+    interface SorterInterface
 {
+    /**
+    * Name : sort
+    *
+    * ProxySourceItem $a
+    * ProxySourceItem $b
+    * @return mixed
+    *
+    */
     public function sort(ProxySourceItem $a, ProxySourceItem $b);
 }

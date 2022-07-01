@@ -13,8 +13,18 @@ declare(strict_types=1);
 
 namespace Sculpin\Contrib\Taxonomy\PermalinkStrategy;
 
-class ToyRocketStrategy implements PermalinkStrategyInterface
+    /**
+    * Name : ToyRocketStrategy
+    */
+    class ToyRocketStrategy implements PermalinkStrategyInterface
 {
+    /**
+    * Name : process
+    *
+    * mixed $str
+    * @return mixed
+    *
+    */
     public function process($str)
     {
         return '∙∙∙∙∙·▫▫ᵒᴼᵒ▫ₒₒ▫ᵒᴼᵒ▫ₒₒ▫ᵒᴼᵒ☼)==' . $str . '==>';

@@ -4,8 +4,19 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateFromPostsTest extends FunctionalTestCase
+    /**
+    * Name : GenerateFromPostsTest
+    */
+    class GenerateFromPostsTest extends TestCase
+FunctionalTestCase
 {
+    /**
+    * Name : shouldGenerateAnHtmlFileFromEmptyPost
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldGenerateAnHtmlFileFromEmptyPost(): void
     {

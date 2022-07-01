@@ -13,7 +13,17 @@ declare(strict_types=1);
 
 namespace Sculpin\Contrib\Taxonomy\PermalinkStrategy;
 
-interface PermalinkStrategyInterface
+    /**
+    * Name : PermalinkStrategyInterface
+    */
+    interface PermalinkStrategyInterface
 {
+    /**
+    * Name : process
+    *
+    * mixed $str
+    * @return mixed
+    *
+    */
     public function process($str);
 }

@@ -18,7 +18,10 @@ use Sculpin\Core\Generator\GeneratorInterface;
 use Sculpin\Core\Source\SourceInterface;
 use Sculpin\Core\Permalink\SourcePermalinkFactory;
 
-/**
+    /**
+    * Name : PaginationGenerator
+    */
+    /**
  * Pagination Generator.
  *
  * @author Beau Simensen <beau@dflydev.com>
@@ -42,6 +45,15 @@ final class PaginationGenerator implements GeneratorInterface
      */
     private $maxPerPage;
 
+    /**
+    * Name : __construct
+    *
+    * DataProviderManager $dataProviderManager
+    * SourcePermalinkFactory $permalinkFactory
+    * int $maxPerPage
+    * @return mixed
+    *
+    */
     public function __construct(
         DataProviderManager $dataProviderManager,
         SourcePermalinkFactory $permalinkFactory,
@@ -52,6 +64,13 @@ final class PaginationGenerator implements GeneratorInterface
         $this->maxPerPage = $maxPerPage;
     }
 
+    /**
+    * Name : generate
+    *
+    * SourceInterface $source
+    * @return array
+    *
+    */
     /**
      * {@inheritdoc}
      */

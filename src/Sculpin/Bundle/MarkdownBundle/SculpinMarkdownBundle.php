@@ -15,7 +15,10 @@ namespace Sculpin\Bundle\MarkdownBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
+    /**
+    * Name : SculpinMarkdownBundle
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinMarkdownBundle extends Bundle

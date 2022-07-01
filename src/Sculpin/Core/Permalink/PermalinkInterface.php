@@ -13,12 +13,29 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Permalink;
 
-/**
+    /**
+    * Name : PermalinkInterface
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 interface PermalinkInterface
 {
+    /**
+    * Name : relativeFilePath
+    *
+    *  
+    * @return string
+    *
+    */
     public function relativeFilePath(): string;
 
+    /**
+    * Name : relativeUrlPath
+    *
+    *  
+    * @return string
+    *
+    */
     public function relativeUrlPath(): string;
 }

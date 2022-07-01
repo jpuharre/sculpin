@@ -15,8 +15,19 @@ namespace Sculpin\Contrib\ProxySourceCollection\Sorter;
 
 use Sculpin\Contrib\ProxySourceCollection\ProxySourceItem;
 
-class DefaultSorter implements SorterInterface
+    /**
+    * Name : DefaultSorter
+    */
+    class DefaultSorter implements SorterInterface
 {
+    /**
+    * Name : sort
+    *
+    * ProxySourceItem $a
+    * ProxySourceItem $b
+    * @return mixed
+    *
+    */
     public function sort(ProxySourceItem $a, ProxySourceItem $b)
     {
         if ($a->date() && $a->title() && $b->date() && $b->title()) {

@@ -18,11 +18,23 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
+    /**
+    * Name : ServeCommand
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ServeCommand extends AbstractCommand
-{
+class ServeCommand extends ContainerAwareCommand
+AbstractCommand
+ContainerAwareInterface
+Command {
+    /**
+    * Name : configure
+    *
+    *  
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -43,6 +55,14 @@ EOT
             )->setAliases(['server']);
     }
 
+    /**
+    * Name : execute
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

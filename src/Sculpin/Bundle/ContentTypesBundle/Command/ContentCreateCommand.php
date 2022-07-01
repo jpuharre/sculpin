@@ -20,16 +20,28 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
 
-/**
+    /**
+    * Name : ContentCreateCommand
+    */
+    /**
  * Helper command to create a new content type.
  *
  * Outputs the YAML required to add a new content type, and optionally
  * generates the associated boilerplate for the type.
  */
-final class ContentCreateCommand extends AbstractCommand
+final class ContentCreateCommand extends ContainerAwareCommand
+Command AbstractCommand
+ContainerAwareInterface
 {
     private const DIRECTORY_FLAG = '_directory_';
 
+    /**
+    * Name : configure
+    *
+    *  
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -82,6 +94,14 @@ EOT
         );
     }
 
+    /**
+    * Name : execute
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -138,6 +158,15 @@ EOT
         return 0;
     }
 
+    /**
+    * Name : generateBoilerplateManifest
+    *
+    * string $plural
+    * string $singular
+    * array $taxonomies
+    * @return array
+    *
+    */
     private function generateBoilerplateManifest(string $plural, string $singular, array $taxonomies = []): array
     {
         $app = $this->getApplication();
@@ -182,6 +211,15 @@ EOT
         return $manifest;
     }
 
+    /**
+    * Name : getOutputMessage
+    *
+    * string $type
+    * string $singularType
+    * array $taxonomies
+    * @return string
+    *
+    */
     private function getOutputMessage(string $type, string $singularType, array $taxonomies = []): string
     {
         $outputMessage = <<<EOT
@@ -211,6 +249,14 @@ EOT;
         return $outputMessage;
     }
 
+    /**
+    * Name : getIndexTemplate
+    *
+    * string $plural
+    * string $singular
+    * @return mixed
+    *
+    */
     private function getIndexTemplate(string $plural, string $singular)
     {
         $title = ucfirst($plural);
@@ -244,6 +290,14 @@ use: [$plural]
 EOT;
     }
 
+    /**
+    * Name : getViewTemplate
+    *
+    * string $plural
+    * array $taxonomies
+    * @return string
+    *
+    */
     private function getViewTemplate(string $plural, array $taxonomies = []): string
     {
         $output = <<<EOT
@@ -294,6 +348,15 @@ EOT;
         return $output;
     }
 
+    /**
+    * Name : getTaxonomyIndexTemplate
+    *
+    * string $plural
+    * string $taxonomy
+    * string $singularTaxonomy
+    * @return string
+    *
+    */
     private function getTaxonomyIndexTemplate(
         string $plural,
         string $taxonomy,
@@ -317,6 +380,15 @@ use: [${plural}_${taxonomy}]
 EOT;
     }
 
+    /**
+    * Name : getTaxonomyViewTemplate
+    *
+    * string $plural
+    * string $singular
+    * string $singularTaxonomy
+    * @return string
+    *
+    */
     private function getTaxonomyViewTemplate(
         string $plural,
         string $singular,

@@ -15,7 +15,10 @@ namespace Sculpin\Bundle\TextileBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
+    /**
+    * Name : SculpinTextileBundle
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinTextileBundle extends Bundle

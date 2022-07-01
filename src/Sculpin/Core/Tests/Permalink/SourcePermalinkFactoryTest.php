@@ -11,8 +11,20 @@ use Sculpin\Core\Permalink\SourcePermalinkFactory;
 use Sculpin\Core\Source\MemorySource;
 use Sculpin\Core\Source\SourceInterface;
 
-class SourcePermalinkFactoryTest extends TestCase
+    /**
+    * Name : SourcePermalinkFactoryTest
+    */
+    class SourcePermalinkFactoryTest extends TestCase
 {
+    /**
+    * Name : testCreate
+    *
+    * string $defaultPermalink
+    * SourceInterface $source
+    * Permalink $expectedPermalink
+    * @return mixed
+    *
+    */
     /**
      * @test
      * @dataProvider provideCreateData
@@ -29,6 +41,13 @@ class SourcePermalinkFactoryTest extends TestCase
         $this->assertEquals($expectedPermalink, $permalink);
     }
 
+    /**
+    * Name : provideCreateData
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function provideCreateData()
     {
         return [
@@ -199,6 +218,14 @@ class SourcePermalinkFactoryTest extends TestCase
         ];
     }
 
+    /**
+    * Name : makeTestSource
+    *
+    * mixed $relativePathname
+    * array $configurationData
+    * @return mixed
+    *
+    */
     private static function makeTestSource($relativePathname, array $configurationData = [])
     {
         $configuration = new Configuration($configurationData);

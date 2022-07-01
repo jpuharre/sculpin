@@ -17,11 +17,22 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 
-/**
+    /**
+    * Name : SculpinPostsExtension
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinPostsExtension extends Extension
 {
+    /**
+    * Name : load
+    *
+    * array $configs
+    * ContainerBuilder $container
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

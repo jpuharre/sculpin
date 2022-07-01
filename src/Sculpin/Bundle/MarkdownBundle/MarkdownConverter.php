@@ -22,7 +22,10 @@ use Sculpin\Core\Source\SourceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Michelf\Markdown;
 
-/**
+    /**
+    * Name : MarkdownConverter
+    */
+    /**
  * Convert Markdown content with michelf/php-markdown.
  *
  * @author Beau Simensen <beau@dflydev.com>
@@ -42,6 +45,14 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
     private $extensions = [];
 
     /**
+    * Name : __construct
+    *
+    * ParserInterface $markdown
+    * array $extensions
+    * @return mixed
+    *
+    */
+    /**
      * Constructor.
      *
      * @param ParserInterface $markdown
@@ -57,6 +68,13 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
     }
 
     /**
+    * Name : convert
+    *
+    * ConverterContextInterface $converterContext
+    * @return void
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function convert(ConverterContextInterface $converterContext): void
@@ -64,6 +82,13 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
         $converterContext->setContent($this->markdown->transform($converterContext->content()));
     }
 
+    /**
+    * Name : getSubscribedEvents
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -74,6 +99,13 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
         ];
     }
 
+    /**
+    * Name : beforeRun
+    *
+    * SourceSetEvent $sourceSetEvent
+    * @return void
+    *
+    */
     /**
      * Event hook to register this converter for all sources that have markdown file extensions.
      *
@@ -93,6 +125,13 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
     }
 
 
+    /**
+    * Name : generateHeaderId
+    *
+    * string $headerText
+    * @return string
+    *
+    */
     /**
      * This method is called to generate an id="" attribute for a header.
      *

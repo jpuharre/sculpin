@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Io;
 
-/**
+    /**
+    * Name : IoInterface
+    */
+    /**
  * Defines how to output information and provides meta information on the output.
  *
  * @author François Pluchino <francois.pluchino@opendisplay.com>
@@ -21,30 +24,73 @@ namespace Sculpin\Core\Io;
 interface IoInterface
 {
     /**
+    * Name : isInteractive
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * Is this an interactive output?
      */
     public function isInteractive(): bool;
 
+    /**
+    * Name : isVerbose
+    *
+    *  
+    * @return bool
+    *
+    */
     /**
      * Is this output verbose?
      */
     public function isVerbose(): bool;
 
     /**
+    * Name : isVeryVerbose
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * Is the output very verbose?
      */
     public function isVeryVerbose(): bool;
 
+    /**
+    * Name : isDebug
+    *
+    *  
+    * @return bool
+    *
+    */
     /**
      * Is the output in debug verbosity?
      */
     public function isDebug(): bool;
 
     /**
+    * Name : isDecorated
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * Is this output decorated?
      */
     public function isDecorated(): bool;
 
+    /**
+    * Name : write
+    *
+    * mixed $messages
+    * bool $newline
+    * @return mixed
+    *
+    */
     /**
      * Writes a message to the output.
      *
@@ -53,6 +99,15 @@ interface IoInterface
      */
     public function write($messages, bool $newline = true);
 
+    /**
+    * Name : overwrite
+    *
+    * mixed $messages
+    * bool $newline
+    * ?|int $size
+    * @return mixed
+    *
+    */
     /**
      * Overwrites a previous message to the output.
      *

@@ -7,11 +7,21 @@ namespace Sculpin\Bundle\MarkdownBundle;
 use Michelf\Markdown;
 use Sculpin\Core\Converter\ParserInterface;
 
-/**
+    /**
+    * Name : PhpMarkdownParser
+    */
+    /**
  * Provide Michelf\Markdown as Sculpin parser.
  */
 class PhpMarkdownParser extends Markdown implements ParserInterface
 {
+    /**
+    * Name : transform
+    *
+    * mixed $content
+    * @return string
+    *
+    */
     /**
      * {@inheritdoc}
      */

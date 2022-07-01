@@ -15,8 +15,18 @@ namespace Sculpin\Core\Source\Map;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class CalculatedDateFromFilenameMap implements MapInterface
+    /**
+    * Name : CalculatedDateFromFilenameMap
+    */
+    class CalculatedDateFromFilenameMap implements MapInterface
 {
+    /**
+    * Name : process
+    *
+    * SourceInterface $source
+    * @return void
+    *
+    */
     public function process(SourceInterface $source): void
     {
         if (!$source->data()->get('calculated_date')) {

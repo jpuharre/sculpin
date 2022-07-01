@@ -15,15 +15,32 @@ namespace Sculpin\Core\Source\Map;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class DefaultDataMap implements MapInterface
+    /**
+    * Name : DefaultDataMap
+    */
+    class DefaultDataMap implements MapInterface
 {
     private $defaults;
 
+    /**
+    * Name : __construct
+    *
+    * array $defaults
+    * @return mixed
+    *
+    */
     public function __construct(array $defaults = [])
     {
         $this->defaults = $defaults;
     }
 
+    /**
+    * Name : process
+    *
+    * SourceInterface $source
+    * @return void
+    *
+    */
     public function process(SourceInterface $source): void
     {
         foreach ($this->defaults as $name => $value) {

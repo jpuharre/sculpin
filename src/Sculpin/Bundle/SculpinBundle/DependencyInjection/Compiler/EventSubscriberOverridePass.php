@@ -16,11 +16,21 @@ namespace Sculpin\Bundle\SculpinBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/**
+    /**
+    * Name : EventSubscriberOverridePass
+    */
+    /**
  * Make sure that all services tagged with kernel.event_subscriber are public.
  */
 final class EventSubscriberOverridePass implements CompilerPassInterface
 {
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

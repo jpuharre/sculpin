@@ -18,11 +18,21 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\EventDispatcher\DependencyInjection\RegisterListenersPass;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
+    /**
+    * Name : SculpinStandaloneBundle
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinStandaloneBundle extends Bundle
 {
+    /**
+    * Name : build
+    *
+    * ContainerBuilder $container
+    * @return void
+    *
+    */
     public function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new RegisterListenersPass, PassConfig::TYPE_AFTER_REMOVING);

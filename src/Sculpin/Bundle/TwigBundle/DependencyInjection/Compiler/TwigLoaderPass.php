@@ -17,7 +17,10 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
-/**
+    /**
+    * Name : TwigLoaderPass
+    */
+    /**
  * Adds tagged twig.loaders services to twig loader service
  *
  * @author Fabien Potencier <fabien@symfony.com>
@@ -25,6 +28,13 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
  */
 class TwigLoaderPass implements CompilerPassInterface
 {
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

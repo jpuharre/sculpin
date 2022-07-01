@@ -17,7 +17,10 @@ use Dflydev\DotAccessConfiguration\Configuration;
 use Dflydev\DotAccessConfiguration\ConfigurationInterface;
 use Dflydev\DotAccessConfiguration\YamlFileConfigurationBuilder;
 
-/**
+    /**
+    * Name : SiteConfigurationFactory
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class SiteConfigurationFactory
@@ -32,12 +35,27 @@ final class SiteConfigurationFactory
      */
     private $environment;
 
+    /**
+    * Name : __construct
+    *
+    * string $rootDir
+    * string $environment
+    * @return mixed
+    *
+    */
     public function __construct(string $rootDir, string $environment)
     {
         $this->rootDir = $rootDir;
         $this->environment = $environment;
     }
 
+    /**
+    * Name : getConfigFile
+    *
+    * string $configFile
+    * @return ConfigurationInterface
+    *
+    */
     /**
      * Get an instance of the Configuration() class from the given file.
      *
@@ -53,6 +71,13 @@ final class SiteConfigurationFactory
     }
 
     /**
+    * Name : create
+    *
+    *  
+    * @return ConfigurationInterface
+    *
+    */
+    /**
      * Create Site Configuration
      *
      * @return ConfigurationInterface
@@ -64,6 +89,13 @@ final class SiteConfigurationFactory
 
         return $config;
     }
+    /**
+    * Name : detectConfig
+    *
+    *  
+    * @return ConfigurationInterface
+    *
+    */
     /**
      * Detect configuration file and create Site Configuration from it
      *

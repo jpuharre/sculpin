@@ -15,21 +15,39 @@ namespace Sculpin\Core\Event;
 
 use Sculpin\Core\Formatter\FormatContext;
 
-/**
+    /**
+    * Name : FormatEvent
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class FormatEvent extends Event
+class FormatEvent extends BaseEvent
+Event
 {
     /**
      * @var FormatContext
      */
     protected $formatContext;
 
+    /**
+    * Name : __construct
+    *
+    * FormatContext $formatContext
+    * @return mixed
+    *
+    */
     public function __construct(FormatContext $formatContext)
     {
         $this->formatContext = $formatContext;
     }
 
+    /**
+    * Name : formatContext
+    *
+    *  
+    * @return FormatContext
+    *
+    */
     public function formatContext(): FormatContext
     {
         return $this->formatContext;

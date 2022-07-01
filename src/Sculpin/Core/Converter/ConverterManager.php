@@ -19,7 +19,10 @@ use Sculpin\Core\Sculpin;
 use Sculpin\Core\Source\SourceInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-/**
+    /**
+    * Name : ConverterManager
+    */
+    /**
  * Allow to register converters and trigger them when a source needs to be converted.
  *
  * @author Beau Simensen <beau@dflydev.com>
@@ -45,6 +48,14 @@ final class ConverterManager
      */
     private $converters = [];
 
+    /**
+    * Name : __construct
+    *
+    * EventDispatcherInterface $eventDispatcher
+    * FormatterManager $formatterManager
+    * @return mixed
+    *
+    */
     public function __construct(EventDispatcherInterface $eventDispatcher, FormatterManager $formatterManager)
     {
         $this->formatterManager = $formatterManager;
@@ -52,6 +63,14 @@ final class ConverterManager
         $this->registerConverter('null', new NullConverter);
     }
 
+    /**
+    * Name : registerConverter
+    *
+    * string $name
+    * ConverterInterface $converter
+    * @return void
+    *
+    */
     /**
      * Add a converter to the manager.
      *
@@ -62,6 +81,13 @@ final class ConverterManager
         $this->converters[$name] = $converter;
     }
 
+    /**
+    * Name : converter
+    *
+    * string $name
+    * @return ConverterInterface
+    *
+    */
     /**
      * Converter
      *
@@ -74,6 +100,13 @@ final class ConverterManager
         return $this->converters[$name];
     }
 
+    /**
+    * Name : convertSource
+    *
+    * SourceInterface $source
+    * @return void
+    *
+    */
     /**
      * Convert a source to the output.
      *

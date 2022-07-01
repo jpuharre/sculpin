@@ -15,12 +15,16 @@ namespace Sculpin\Core\Event;
 
 use Sculpin\Core\Source\SourceInterface;
 
-/**
+    /**
+    * Name : ConvertEvent
+    */
+    /**
  * Event for converting a source.
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-final class ConvertEvent extends Event
+final class ConvertEvent extends BaseEvent
+Event
 {
     /**
      * @var SourceInterface
@@ -37,6 +41,15 @@ final class ConvertEvent extends Event
      */
     private $defaultFormatter;
 
+    /**
+    * Name : __construct
+    *
+    * SourceInterface $source
+    * string $converter
+    * string $defaultFormatter
+    * @return mixed
+    *
+    */
     public function __construct(SourceInterface $source, string $converter, string $defaultFormatter)
     {
         $this->source = $source;
@@ -44,16 +57,37 @@ final class ConvertEvent extends Event
         $this->defaultFormatter = $defaultFormatter;
     }
 
+    /**
+    * Name : source
+    *
+    *  
+    * @return SourceInterface
+    *
+    */
     public function source(): SourceInterface
     {
         return $this->source;
     }
 
+    /**
+    * Name : converter
+    *
+    *  
+    * @return string
+    *
+    */
     public function converter(): string
     {
         return $this->converter;
     }
 
+    /**
+    * Name : isConvertedBy
+    *
+    * string $requestedConverter
+    * @return bool
+    *
+    */
     /**
      * Test if Source is converted by requested converter
      */
@@ -63,6 +97,13 @@ final class ConvertEvent extends Event
     }
 
     /**
+    * Name : isFormattedBy
+    *
+    * string $requestedFormatter
+    * @return bool
+    *
+    */
+    /**
      * Test if Source is formatted by requested formatter
      */
     public function isFormattedBy(string $requestedFormatter): bool
@@ -70,6 +111,14 @@ final class ConvertEvent extends Event
         return $requestedFormatter == ($this->source->data()->get('formatter') ?: $this->defaultFormatter);
     }
 
+    /**
+    * Name : isHandledBy
+    *
+    * string $requestedConverter
+    * string $requestedFormatter
+    * @return bool
+    *
+    */
     /**
      * Test if Source is converted and formatted by requested converter and formatter
      */

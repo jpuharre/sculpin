@@ -17,7 +17,10 @@ use Sculpin\Core\DataProvider\DataProviderManager;
 use Sculpin\Core\Generator\GeneratorInterface;
 use Sculpin\Core\Source\SourceInterface;
 
-class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
+    /**
+    * Name : ProxySourceTaxonomyIndexGenerator
+    */
+    class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
 {
     private $dataProviderManager;
     private $dataProviderName;
@@ -25,6 +28,17 @@ class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
     private $injectedTaxonItemsKey;
     private $permalinkStrategyCollection;
 
+    /**
+    * Name : __construct
+    *
+    * DataProviderManager $dataProviderManager
+    * mixed $dataProviderName
+    * mixed $injectedTaxonKey
+    * mixed $injectedTaxonItemsKey
+    * PermalinkStrategyCollection $permalinkStrategyCollection
+    * @return mixed
+    *
+    */
     public function __construct(
         DataProviderManager $dataProviderManager,
         $dataProviderName,
@@ -39,6 +53,13 @@ class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
         $this->permalinkStrategyCollection = $permalinkStrategyCollection;
     }
 
+    /**
+    * Name : generate
+    *
+    * SourceInterface $source
+    * @return array
+    *
+    */
     public function generate(SourceInterface $source): array
     {
         $dataProvider = $this->dataProviderManager->dataProvider($this->dataProviderName);

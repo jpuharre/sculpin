@@ -13,16 +13,33 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Source;
 
-/**
+    /**
+    * Name : DataSourceInterface
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 interface DataSourceInterface
 {
     /**
+    * Name : dataSourceId
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * @return string
      */
     public function dataSourceId(): string;
 
+    /**
+    * Name : refresh
+    *
+    * SourceSet $sourceSet
+    * @return void
+    *
+    */
     /**
      * Refresh the Source Set with updated Sources.
      *

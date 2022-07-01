@@ -19,13 +19,25 @@ use Sculpin\Core\Event\SourceSetEvent;
 use Sculpin\Core\Sculpin;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSubscriberInterface
+    /**
+    * Name : ProxySourceTaxonomyDataProvider
+    */
+    class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSubscriberInterface
 {
     private $taxons = [];
     private $dataProviderManager;
     private $dataProviderName;
     private $taxonomyKey;
 
+    /**
+    * Name : __construct
+    *
+    * DataProviderManager $dataProviderManager
+    * mixed $dataProviderName
+    * mixed $taxonomyKey
+    * @return mixed
+    *
+    */
     public function __construct(
         DataProviderManager $dataProviderManager,
         $dataProviderName,
@@ -36,11 +48,25 @@ class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSub
         $this->taxonomyKey = $taxonomyKey;
     }
 
+    /**
+    * Name : provideData
+    *
+    *  
+    * @return array
+    *
+    */
     public function provideData(): array
     {
         return $this->taxons;
     }
 
+    /**
+    * Name : getSubscribedEvents
+    *
+    *  
+    * @return mixed
+    *
+    */
     public static function getSubscribedEvents()
     {
         return [
@@ -48,6 +74,13 @@ class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSub
         ];
     }
 
+    /**
+    * Name : beforeRun
+    *
+    * SourceSetEvent $sourceSetEvent
+    * @return mixed
+    *
+    */
     public function beforeRun(SourceSetEvent $sourceSetEvent)
     {
         $taxons = [];

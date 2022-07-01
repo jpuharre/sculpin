@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Permalink;
 
-/**
+    /**
+    * Name : Permalink
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class Permalink implements PermalinkInterface
@@ -28,12 +31,27 @@ class Permalink implements PermalinkInterface
      */
     private $relativeUrlPath;
 
+    /**
+    * Name : __construct
+    *
+    * string $relativeFilePath
+    * string $relativeUrlPath
+    * @return mixed
+    *
+    */
     public function __construct(string $relativeFilePath, string $relativeUrlPath)
     {
         $this->relativeFilePath = $relativeFilePath;
         $this->relativeUrlPath = $relativeUrlPath;
     }
 
+    /**
+    * Name : relativeFilePath
+    *
+    *  
+    * @return string
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -42,6 +60,13 @@ class Permalink implements PermalinkInterface
         return $this->relativeFilePath;
     }
 
+    /**
+    * Name : relativeUrlPath
+    *
+    *  
+    * @return string
+    *
+    */
     /**
      * {@inheritdoc}
      */

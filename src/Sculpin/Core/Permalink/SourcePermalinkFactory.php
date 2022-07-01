@@ -15,7 +15,10 @@ namespace Sculpin\Core\Permalink;
 
 use Sculpin\Core\Source\SourceInterface;
 
-/**
+    /**
+    * Name : SourcePermalinkFactory
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
@@ -27,11 +30,25 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      */
     protected $defaultPermalink;
 
+    /**
+    * Name : __construct
+    *
+    * string $defaultPermalink
+    * @return mixed
+    *
+    */
     public function __construct(string $defaultPermalink)
     {
         $this->defaultPermalink = $defaultPermalink;
     }
 
+    /**
+    * Name : create
+    *
+    * SourceInterface $source
+    * @return PermalinkInterface
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -68,6 +85,13 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
         return new Permalink($relativeFilePath, $relativeUrlPath);
     }
 
+    /**
+    * Name : generatePermalinkPathname
+    *
+    * SourceInterface $source
+    * @return mixed
+    *
+    */
     protected function generatePermalinkPathname(SourceInterface $source)
     {
         $pathname = $source->relativePathname();
@@ -164,6 +188,13 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
     }
 
     /**
+    * Name : getPermaLinkTemplate
+    *
+    * SourceInterface $source
+    * @return string
+    *
+    */
+    /**
      * Getting the permalink template
      *
      * @param SourceInterface $source Data source
@@ -181,6 +212,13 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
         return $permalink;
     }
 
+    /**
+    * Name : isDatePath
+    *
+    * string $path
+    * @return ?|array
+    *
+    */
     /**
      * Does the specified path represent a date?
      *
@@ -201,6 +239,14 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
         return null;
     }
 
+    /**
+    * Name : normalize
+    *
+    * string $param
+    * string $space
+    * @return string
+    *
+    */
     /**
      * Normalize parameter to be used in human readable URL
      *

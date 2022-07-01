@@ -16,8 +16,18 @@ namespace Sculpin\Core\Tests\Formatter;
 use PHPUnit\Framework\TestCase;
 use Sculpin\Core\Formatter\FormatContext;
 
-class FormatContextTest extends TestCase
+    /**
+    * Name : FormatContextTest
+    */
+    class FormatContextTest extends TestCase
 {
+    /**
+    * Name : test
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function test()
     {
         $formatContext = new FormatContext('someTemplateId', 'template text', [

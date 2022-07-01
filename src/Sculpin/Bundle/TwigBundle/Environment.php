@@ -13,11 +13,21 @@ declare(strict_types=1);
 
 namespace Sculpin\Bundle\TwigBundle;
 
-/**
+    /**
+    * Name : Environment
+    */
+    /**
  * Twig Environment with Loaded Template Invalidation.
  */
 class Environment extends \Twig\Environment
 {
+    /**
+    * Name : invalidateLoadedTemplates
+    *
+    *  
+    * @return void
+    *
+    */
     /**
      * We aren't supposed to be using loadTemplate directly, and Twig V2 took away our ability to invalidate it.
      *

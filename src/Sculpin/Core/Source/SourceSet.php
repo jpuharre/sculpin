@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Source;
 
-/**
+    /**
+    * Name : SourceSet
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SourceSet
@@ -29,6 +32,13 @@ class SourceSet
     protected $newSources = [];
 
     /**
+    * Name : __construct
+    *
+    * array $sources
+    * @return mixed
+    *
+    */
+    /**
      * @param SourceInterface[] $sources
      */
     public function __construct(array $sources = [])
@@ -38,6 +48,13 @@ class SourceSet
         }
     }
     /**
+    * Name : containsSource
+    *
+    * SourceInterface $source
+    * @return bool
+    *
+    */
+    /**
      * Whether this set contains the specified source.
      */
     public function containsSource(SourceInterface $source): bool
@@ -45,6 +62,13 @@ class SourceSet
         return array_key_exists($source->sourceId(), $this->sources);
     }
 
+    /**
+    * Name : mergeSource
+    *
+    * SourceInterface $source
+    * @return void
+    *
+    */
     /**
      * Add this source to the list, tracking whether its a new or existing source.
      */
@@ -59,6 +83,13 @@ class SourceSet
     }
 
     /**
+    * Name : allSources
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * @return SourceInterface[]
      */
     public function allSources(): array
@@ -66,6 +97,13 @@ class SourceSet
         return $this->sources;
     }
 
+    /**
+    * Name : updatedSources
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * All sources that have been changed.
      *
@@ -79,6 +117,13 @@ class SourceSet
     }
 
     /**
+    * Name : newSources
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * @return SourceInterface[]
      */
     public function newSources(): array
@@ -86,6 +131,13 @@ class SourceSet
         return $this->newSources;
     }
 
+    /**
+    * Name : reset
+    *
+    *  
+    * @return void
+    *
+    */
     /**
      * Reset all sources.
      *

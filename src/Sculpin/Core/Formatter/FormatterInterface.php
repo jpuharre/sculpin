@@ -13,16 +13,33 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Formatter;
 
-/**
+    /**
+    * Name : FormatterInterface
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 interface FormatterInterface
 {
     /**
+    * Name : formatBlocks
+    *
+    * FormatContext $formatContext
+    * @return array
+    *
+    */
+    /**
      * Format the input blocks
      */
     public function formatBlocks(FormatContext $formatContext): array;
 
+    /**
+    * Name : formatPage
+    *
+    * FormatContext $formatContext
+    * @return string
+    *
+    */
     /**
      * Format an entire page
      *
@@ -30,6 +47,13 @@ interface FormatterInterface
      */
     public function formatPage(FormatContext $formatContext): string;
 
+    /**
+    * Name : reset
+    *
+    *  
+    * @return mixed
+    *
+    */
     /**
      * Reset
      *

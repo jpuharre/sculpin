@@ -15,7 +15,10 @@ namespace Sculpin\Core\Configuration;
 
 use Dflydev\DotAccessConfiguration\Configuration as BaseConfiguration;
 
-/**
+    /**
+    * Name : Configuration
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class Configuration extends BaseConfiguration
@@ -70,6 +73,13 @@ class Configuration extends BaseConfiguration
     private $defaultFormatter;
 
     /**
+    * Name : setExcludes
+    *
+    * array $excludes
+    * @return self
+    *
+    */
+    /**
      * Set excludes
      *
      * NOTE: Does not clear existing values first.
@@ -87,6 +97,13 @@ class Configuration extends BaseConfiguration
         return $this;
     }
 
+    /**
+    * Name : addExclude
+    *
+    * string $pattern
+    * @return self
+    *
+    */
     /**
      * Add an exclude pattern
      *
@@ -108,6 +125,13 @@ class Configuration extends BaseConfiguration
     }
 
     /**
+    * Name : excludes
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * Excludes
      *
      * @return array
@@ -117,6 +141,13 @@ class Configuration extends BaseConfiguration
         return $this->excludes;
     }
 
+    /**
+    * Name : setIgnores
+    *
+    * array $ignores
+    * @return self
+    *
+    */
     /**
      * Set ignores
      *
@@ -135,6 +166,13 @@ class Configuration extends BaseConfiguration
         return $this;
     }
 
+    /**
+    * Name : addIgnore
+    *
+    * string $pattern
+    * @return self
+    *
+    */
     /**
      * Add an ignore pattern
      *
@@ -156,6 +194,13 @@ class Configuration extends BaseConfiguration
     }
 
     /**
+    * Name : ignores
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * Ignores
      *
      * @return array
@@ -165,6 +210,13 @@ class Configuration extends BaseConfiguration
         return $this->ignores;
     }
 
+    /**
+    * Name : setRaws
+    *
+    * array $raws
+    * @return self
+    *
+    */
     /**
      * Set raws
      *
@@ -183,6 +235,13 @@ class Configuration extends BaseConfiguration
         return $this;
     }
 
+    /**
+    * Name : addRaw
+    *
+    * string $pattern
+    * @return self
+    *
+    */
     /**
      * Add a raw pattern
      *
@@ -203,6 +262,13 @@ class Configuration extends BaseConfiguration
     }
 
     /**
+    * Name : raws
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * Raws
      *
      * @return array
@@ -212,6 +278,13 @@ class Configuration extends BaseConfiguration
         return $this->raws;
     }
 
+    /**
+    * Name : setSourceDir
+    *
+    * string $sourceDir
+    * @return self
+    *
+    */
     /**
      * Set source directory
      *
@@ -227,6 +300,13 @@ class Configuration extends BaseConfiguration
     }
 
     /**
+    * Name : sourceDir
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * Source directory
      *
      * @return string
@@ -236,6 +316,13 @@ class Configuration extends BaseConfiguration
         return $this->sourceDir;
     }
 
+    /**
+    * Name : setOutputDir
+    *
+    * string $outputDir
+    * @return self
+    *
+    */
     /**
      * Set output directory
      *
@@ -251,6 +338,13 @@ class Configuration extends BaseConfiguration
     }
 
     /**
+    * Name : outputDir
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * Output directory
      *
      * @return string
@@ -260,6 +354,13 @@ class Configuration extends BaseConfiguration
         return $this->outputDir;
     }
 
+    /**
+    * Name : setPermalink
+    *
+    * string $permalink
+    * @return self
+    *
+    */
     /**
      * Set permalink
      *
@@ -275,6 +376,13 @@ class Configuration extends BaseConfiguration
     }
 
     /**
+    * Name : permalink
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * Permalink
      *
      * @return string
@@ -284,6 +392,13 @@ class Configuration extends BaseConfiguration
         return $this->permalink;
     }
 
+    /**
+    * Name : setDefaultFormatter
+    *
+    * string $defaultFormatter
+    * @return self
+    *
+    */
     /**
      * Set default formatter
      *
@@ -298,6 +413,13 @@ class Configuration extends BaseConfiguration
         return $this;
     }
 
+    /**
+    * Name : defaultFormatter
+    *
+    *  
+    * @return string
+    *
+    */
     /**
      * Default formatter
      *

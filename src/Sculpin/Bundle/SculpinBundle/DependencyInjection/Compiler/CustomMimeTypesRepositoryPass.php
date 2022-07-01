@@ -16,11 +16,21 @@ namespace Sculpin\Bundle\SculpinBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/**
+    /**
+    * Name : CustomMimeTypesRepositoryPass
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class CustomMimeTypesRepositoryPass implements CompilerPassInterface
 {
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

@@ -16,7 +16,10 @@ namespace Sculpin\Core\Output;
 use Sculpin\Core\Permalink\PermalinkInterface;
 use Sculpin\Core\Source\SourceInterface;
 
-/**
+    /**
+    * Name : SourceOutput
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SourceOutput implements OutputInterface
@@ -26,11 +29,25 @@ class SourceOutput implements OutputInterface
      */
     protected $source;
 
+    /**
+    * Name : __construct
+    *
+    * SourceInterface $source
+    * @return mixed
+    *
+    */
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;
     }
 
+    /**
+    * Name : outputId
+    *
+    *  
+    * @return string
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -40,6 +57,13 @@ class SourceOutput implements OutputInterface
     }
 
     /**
+    * Name : pathname
+    *
+    *  
+    * @return string
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function pathname(): string
@@ -47,6 +71,13 @@ class SourceOutput implements OutputInterface
         return $this->source->relativePathname();
     }
 
+    /**
+    * Name : permalink
+    *
+    *  
+    * @return PermalinkInterface
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -56,6 +87,13 @@ class SourceOutput implements OutputInterface
     }
 
     /**
+    * Name : hasFileReference
+    *
+    *  
+    * @return bool
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function hasFileReference(): bool
@@ -64,6 +102,13 @@ class SourceOutput implements OutputInterface
     }
 
     /**
+    * Name : file
+    *
+    *  
+    * @return ?|\SplFileInfo
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function file(): ?\SplFileInfo
@@ -71,6 +116,13 @@ class SourceOutput implements OutputInterface
         return $this->source->useFileReference() ? $this->source->file() : null;
     }
 
+    /**
+    * Name : formattedContent
+    *
+    *  
+    * @return ?|string
+    *
+    */
     /**
      * {@inheritdoc}
      */

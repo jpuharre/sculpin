@@ -15,15 +15,32 @@ namespace Sculpin\Core\Source\Map;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class ChainMap implements MapInterface
+    /**
+    * Name : ChainMap
+    */
+    class ChainMap implements MapInterface
 {
     private $maps = [];
 
+    /**
+    * Name : __construct
+    *
+    * array $maps
+    * @return mixed
+    *
+    */
     public function __construct(array $maps = [])
     {
         $this->maps = $maps;
     }
 
+    /**
+    * Name : process
+    *
+    * SourceInterface $source
+    * @return void
+    *
+    */
     public function process(SourceInterface $source): void
     {
         foreach ($this->maps as $map) {
@@ -31,6 +48,13 @@ class ChainMap implements MapInterface
         }
     }
 
+    /**
+    * Name : addMap
+    *
+    * MapInterface $map
+    * @return void
+    *
+    */
     public function addMap(MapInterface $map): void
     {
         $this->maps[] = $map;

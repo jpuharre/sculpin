@@ -16,11 +16,21 @@ namespace Sculpin\Bundle\SculpinBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
-/**
+    /**
+    * Name : WriterPass
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class WriterPass implements CompilerPassInterface
 {
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

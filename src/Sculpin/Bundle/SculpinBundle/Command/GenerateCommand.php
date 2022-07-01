@@ -30,18 +30,30 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-/**
+    /**
+    * Name : GenerateCommand
+    */
+    /**
  * Generate the site.
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class GenerateCommand extends AbstractCommand
+class GenerateCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     /**
      * @var bool
      */
     protected $throwExceptions;
 
+    /**
+    * Name : configure
+    *
+    *  
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -83,6 +95,14 @@ EOT
             );
     }
 
+    /**
+    * Name : execute
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -155,6 +175,15 @@ EOT
     }
 
     /**
+    * Name : clean
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * string $dir
+    * @return void
+    *
+    */
+    /**
      * Cleanup an output directory by deleting it.
      *
      * @param string $dir The directory to remove
@@ -183,6 +212,16 @@ EOT
         }
     }
 
+    /**
+    * Name : runSculpin
+    *
+    * Sculpin $sculpin
+    * DataSourceInterface $dataSource
+    * SourceSet $sourceSet
+    * IoInterface $io
+    * @return mixed
+    *
+    */
     /**
      * @throws \Throwable
      */

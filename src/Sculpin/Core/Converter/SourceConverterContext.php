@@ -15,7 +15,10 @@ namespace Sculpin\Core\Converter;
 
 use Sculpin\Core\Source\SourceInterface;
 
-/**
+    /**
+    * Name : SourceConverterContext
+    */
+    /**
  * Provide a source as converter context.
  *
  * @author Beau Simensen <beau@dflydev.com>
@@ -27,11 +30,25 @@ class SourceConverterContext implements ConverterContextInterface
      */
     private $source;
 
+    /**
+    * Name : __construct
+    *
+    * SourceInterface $source
+    * @return mixed
+    *
+    */
     public function __construct(SourceInterface $source)
     {
         $this->source = $source;
     }
 
+    /**
+    * Name : content
+    *
+    *  
+    * @return string
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -40,6 +57,13 @@ class SourceConverterContext implements ConverterContextInterface
         return $this->source->content();
     }
 
+    /**
+    * Name : setContent
+    *
+    * string $content
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

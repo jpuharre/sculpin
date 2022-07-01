@@ -17,11 +17,22 @@ use Sculpin\Core\Console\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
+    /**
+    * Name : ListCommand
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ListCommand extends ContainerAwareCommand
+class ListCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
+    /**
+    * Name : configure
+    *
+    *  
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -37,6 +48,14 @@ EOT
             );
     }
 
+    /**
+    * Name : execute
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

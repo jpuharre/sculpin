@@ -13,8 +13,18 @@ declare(strict_types=1);
 
 namespace Sculpin\Contrib\Taxonomy;
 
-final class PermalinkStrategyCollectionFactory
+    /**
+    * Name : PermalinkStrategyCollectionFactory
+    */
+    final class PermalinkStrategyCollectionFactory
 {
+    /**
+    * Name : create
+    *
+    * mixed $taxonomy
+    * @return PermalinkStrategyCollection
+    *
+    */
     /**
      * @param string|array $taxonomy
      */

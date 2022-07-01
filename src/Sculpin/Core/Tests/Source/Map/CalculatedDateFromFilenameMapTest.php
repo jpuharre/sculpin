@@ -18,18 +18,35 @@ use PHPUnit\Framework\TestCase;
 use Sculpin\Core\Source\Map\CalculatedDateFromFilenameMap;
 use Sculpin\Core\Source\MemorySource;
 
-class CalculatedDateFromFilenameMapTest extends TestCase
+    /**
+    * Name : CalculatedDateFromFilenameMapTest
+    */
+    class CalculatedDateFromFilenameMapTest extends TestCase
 {
     /**
      * @var CalculatedDateFromFilenameMap
      */
     private $map;
 
+    /**
+    * Name : setUp
+    *
+    *  
+    * @return void
+    *
+    */
     protected function setUp(): void
     {
         $this->map = new CalculatedDateFromFilenameMap();
     }
 
+    /**
+    * Name : itShouldNotModifyAnExistingCalculatedDate
+    *
+    *  
+    * @return mixed
+    *
+    */
     /** @test */
     public function itShouldNotModifyAnExistingCalculatedDate()
     {
@@ -40,6 +57,13 @@ class CalculatedDateFromFilenameMapTest extends TestCase
         $this->assertEquals($timestamp, $source->data()->get('calculated_date'));
     }
 
+    /**
+    * Name : itShouldSetTheCalculatedDateIfFound
+    *
+    *  
+    * @return mixed
+    *
+    */
     /** @test */
     public function itShouldSetTheCalculatedDateIfFound()
     {
@@ -50,6 +74,13 @@ class CalculatedDateFromFilenameMapTest extends TestCase
         $this->assertEquals(strtotime("2013-12-12"), $source->data()->get('calculated_date'));
     }
 
+    /**
+    * Name : itShouldIncludeTheTimeIfFound
+    *
+    *  
+    * @return mixed
+    *
+    */
     /** @test */
     public function itShouldIncludeTheTimeIfFound()
     {
@@ -60,6 +91,13 @@ class CalculatedDateFromFilenameMapTest extends TestCase
         $this->assertEquals(strtotime("2013-12-12 22:02:12"), $source->data()->get('calculated_date'));
     }
 
+    /**
+    * Name : itShouldIgnoreTheTimeIfItsProbablyNotATime
+    *
+    *  
+    * @return mixed
+    *
+    */
     /** @test */
     public function itShouldIgnoreTheTimeIfItsProbablyNotATime()
     {
@@ -72,6 +110,13 @@ class CalculatedDateFromFilenameMapTest extends TestCase
         $this->assertEquals(strtotime("2013-12-12"), $source->data()->get('calculated_date'));
     }
 
+    /**
+    * Name : getSourceWithCalculatedDate
+    *
+    * mixed $timestamp
+    * @return mixed
+    *
+    */
     protected function getSourceWithCalculatedDate($timestamp)
     {
         return new MemorySource(
@@ -88,6 +133,13 @@ class CalculatedDateFromFilenameMapTest extends TestCase
         );
     }
 
+    /**
+    * Name : getSourceWithoutCalculatedDateAndPathname
+    *
+    * mixed $path
+    * @return mixed
+    *
+    */
     protected function getSourceWithoutCalculatedDateAndPathname($path)
     {
         return new MemorySource(

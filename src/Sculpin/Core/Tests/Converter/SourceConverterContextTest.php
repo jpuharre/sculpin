@@ -17,8 +17,18 @@ use PHPUnit\Framework\TestCase;
 use Sculpin\Core\Converter\SourceConverterContext;
 use Sculpin\Core\Source\SourceInterface;
 
-class SourceConverterContextTest extends TestCase
+    /**
+    * Name : SourceConverterContextTest
+    */
+    class SourceConverterContextTest extends TestCase
 {
+    /**
+    * Name : testContent
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function testContent()
     {
         $source = $this->createMock(SourceInterface::class);
@@ -32,6 +42,13 @@ class SourceConverterContextTest extends TestCase
         $this->assertEquals('hello world', $sourceConverterContext->content());
     }
 
+    /**
+    * Name : testSetContent
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function testSetContent()
     {
         $source = $this->createMock(SourceInterface::class);

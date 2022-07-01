@@ -21,7 +21,10 @@ use Sculpin\Core\Sculpin;
 use Sculpin\Core\Source\SourceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-/**
+    /**
+    * Name : TextileConverter
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class TextileConverter implements ConverterInterface, EventSubscriberInterface
@@ -39,6 +42,14 @@ final class TextileConverter implements ConverterInterface, EventSubscriberInter
     private $extensions = [];
 
     /**
+    * Name : __construct
+    *
+    * Parser $parser
+    * array $extensions
+    * @return mixed
+    *
+    */
+    /**
      * @param string[] $extensions file name extensions that are handled as markdown
      */
     public function __construct(Parser $parser, array $extensions = [])
@@ -48,6 +59,13 @@ final class TextileConverter implements ConverterInterface, EventSubscriberInter
     }
 
     /**
+    * Name : convert
+    *
+    * ConverterContextInterface $converterContext
+    * @return void
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function convert(ConverterContextInterface $converterContext): void
@@ -55,6 +73,13 @@ final class TextileConverter implements ConverterInterface, EventSubscriberInter
         $converterContext->setContent($this->textileParser->parse($converterContext->content()));
     }
 
+    /**
+    * Name : getSubscribedEvents
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -65,6 +90,13 @@ final class TextileConverter implements ConverterInterface, EventSubscriberInter
         ];
     }
 
+    /**
+    * Name : beforeRun
+    *
+    * SourceSetEvent $sourceSetEvent
+    * @return void
+    *
+    */
     /**
      * Event hook to register this converter for all sources that have markdown file extensions.
      *

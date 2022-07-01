@@ -16,12 +16,24 @@ namespace Sculpin\Bundle\ThemeBundle;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
-class ThemeRegistry
+    /**
+    * Name : ThemeRegistry
+    */
+    class ThemeRegistry
 {
     private $finderFactory;
     private $directory;
     private $activeTheme;
 
+    /**
+    * Name : __construct
+    *
+    * mixed $finderFactory
+    * string $directory
+    * ?|string $activeTheme
+    * @return mixed
+    *
+    */
     public function __construct($finderFactory, string $directory, ?string $activeTheme = null)
     {
         $this->finderFactory = $finderFactory;
@@ -29,6 +41,13 @@ class ThemeRegistry
         $this->activeTheme = $activeTheme;
     }
 
+    /**
+    * Name : listThemes
+    *
+    *  
+    * @return array
+    *
+    */
     public function listThemes(): array
     {
         if (! file_exists($this->directory)) {
@@ -56,6 +75,13 @@ class ThemeRegistry
         return $themes;
     }
 
+    /**
+    * Name : findActiveTheme
+    *
+    *  
+    * @return ?|array
+    *
+    */
     public function findActiveTheme(): ?array
     {
         $themes = $this->listThemes();

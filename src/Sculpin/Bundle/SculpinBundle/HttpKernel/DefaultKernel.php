@@ -13,11 +13,22 @@ declare(strict_types=1);
 
 namespace Sculpin\Bundle\SculpinBundle\HttpKernel;
 
-/**
+    /**
+    * Name : DefaultKernel
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class DefaultKernel extends AbstractKernel
+class DefaultKernel extends Kernel
+AbstractKernel
 {
+    /**
+    * Name : getAdditionalSculpinBundles
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * {@inheritdoc}
      *

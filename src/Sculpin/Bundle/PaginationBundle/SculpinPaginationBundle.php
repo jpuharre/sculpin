@@ -15,7 +15,10 @@ namespace Sculpin\Bundle\PaginationBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
+    /**
+    * Name : SculpinPaginationBundle
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinPaginationBundle extends Bundle

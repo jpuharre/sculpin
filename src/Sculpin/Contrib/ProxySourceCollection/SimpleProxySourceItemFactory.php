@@ -15,10 +15,20 @@ namespace Sculpin\Contrib\ProxySourceCollection;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class SimpleProxySourceItemFactory implements ProxySourceItemFactoryInterface
+    /**
+    * Name : SimpleProxySourceItemFactory
+    */
+    class SimpleProxySourceItemFactory implements ProxySourceItemFactoryInterface
 {
     private $reflectionClass;
 
+    /**
+    * Name : __construct
+    *
+    * null|mixed $class
+    * @return mixed
+    *
+    */
     public function __construct($class = null)
     {
         $this->reflectionClass = new \ReflectionClass(
@@ -26,6 +36,13 @@ class SimpleProxySourceItemFactory implements ProxySourceItemFactoryInterface
         );
     }
 
+    /**
+    * Name : createProxySourceItem
+    *
+    * SourceInterface $source
+    * @return mixed
+    *
+    */
     public function createProxySourceItem(SourceInterface $source)
     {
         return $this->reflectionClass->newInstance($source);

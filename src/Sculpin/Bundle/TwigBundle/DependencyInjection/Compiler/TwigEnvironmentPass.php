@@ -17,7 +17,10 @@ use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 
-/**
+    /**
+    * Name : TwigEnvironmentPass
+    */
+    /**
  * Adds tagged twig.extension services to twig service
  *
  * @author Fabien Potencier <fabien@symfony.com>
@@ -25,6 +28,13 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
  */
 class TwigEnvironmentPass implements CompilerPassInterface
 {
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

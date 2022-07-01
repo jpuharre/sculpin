@@ -18,13 +18,23 @@ use Sculpin\Bundle\TwigBundle\DependencyInjection\Compiler\TwigLoaderPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-/**
+    /**
+    * Name : SculpinTwigBundle
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class SculpinTwigBundle extends Bundle
 {
     public const FORMATTER_NAME = 'twig';
 
+    /**
+    * Name : build
+    *
+    * ContainerBuilder $container
+    * @return void
+    *
+    */
     /**
      * {@inheritdoc}
      */

@@ -15,7 +15,17 @@ namespace Sculpin\Contrib\ProxySourceCollection;
 
 use Sculpin\Core\Source\SourceInterface;
 
-interface ProxySourceItemFactoryInterface
+    /**
+    * Name : ProxySourceItemFactoryInterface
+    */
+    interface ProxySourceItemFactoryInterface
 {
+    /**
+    * Name : createProxySourceItem
+    *
+    * SourceInterface $source
+    * @return mixed
+    *
+    */
     public function createProxySourceItem(SourceInterface $source);
 }

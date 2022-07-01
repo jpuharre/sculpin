@@ -17,13 +17,24 @@ use Sculpin\Bundle\TwigBundle\FlexibleExtensionFilesystemLoader;
 use Twig\Loader\ChainLoader;
 use Twig\Loader\LoaderInterface;
 
-class ThemeTwigLoader implements LoaderInterface
+    /**
+    * Name : ThemeTwigLoader
+    */
+    class ThemeTwigLoader implements LoaderInterface
 {
     /**
      * @var ChainLoader
      */
     private $chainLoader;
 
+    /**
+    * Name : __construct
+    *
+    * ThemeRegistry $themeRegistry
+    * array $extensions
+    * @return mixed
+    *
+    */
     public function __construct(ThemeRegistry $themeRegistry, array $extensions)
     {
         $loaders = [];
@@ -43,6 +54,14 @@ class ThemeTwigLoader implements LoaderInterface
         $this->chainLoader = new ChainLoader($loaders);
     }
 
+    /**
+    * Name : findPaths
+    *
+    * array $theme
+    * array $paths
+    * @return array
+    *
+    */
     private function findPaths(array $theme, array $paths = []): array
     {
         foreach (['_views', '_layouts', '_includes', '_partials'] as $type) {
@@ -55,6 +74,13 @@ class ThemeTwigLoader implements LoaderInterface
     }
 
     /**
+    * Name : getSourceContext
+    *
+    * mixed $name
+    * @return mixed
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function getSourceContext($name)
@@ -62,6 +88,13 @@ class ThemeTwigLoader implements LoaderInterface
         return $this->chainLoader->getSourceContext($name);
     }
 
+    /**
+    * Name : exists
+    *
+    * mixed $name
+    * @return bool
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -71,6 +104,13 @@ class ThemeTwigLoader implements LoaderInterface
     }
 
     /**
+    * Name : getCacheKey
+    *
+    * mixed $name
+    * @return string
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function getCacheKey($name): string
@@ -78,6 +118,14 @@ class ThemeTwigLoader implements LoaderInterface
         return $this->chainLoader->getCacheKey($name);
     }
 
+    /**
+    * Name : isFresh
+    *
+    * mixed $name
+    * mixed $time
+    * @return bool
+    *
+    */
     /**
      * {@inheritdoc}
      */

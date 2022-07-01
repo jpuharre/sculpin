@@ -18,7 +18,10 @@ use Sculpin\Core\Console\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
+    /**
+    * Name : CacheClearCommand
+    */
+    /**
  * Clear and Warmup the cache.
  *
  * Originally from FrameworkBundle/Command/CacheClearCommand.php
@@ -26,8 +29,16 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @author Francis Besset <francis.besset@gmail.com>
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class CacheClearCommand extends ContainerAwareCommand
+class CacheClearCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
+    /**
+    * Name : configure
+    *
+    *  
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -48,6 +59,14 @@ EOF
         ;
     }
 
+    /**
+    * Name : execute
+    *
+    * InputInterface $input
+    * OutputInterface $output
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

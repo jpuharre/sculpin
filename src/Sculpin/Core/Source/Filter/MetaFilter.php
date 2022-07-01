@@ -15,17 +15,35 @@ namespace Sculpin\Core\Source\Filter;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class MetaFilter implements FilterInterface
+    /**
+    * Name : MetaFilter
+    */
+    class MetaFilter implements FilterInterface
 {
     private $key;
     private $value;
 
+    /**
+    * Name : __construct
+    *
+    * mixed $key
+    * mixed $value
+    * @return mixed
+    *
+    */
     public function __construct($key, $value)
     {
         $this->key = $key;
         $this->value = $value;
     }
 
+    /**
+    * Name : match
+    *
+    * SourceInterface $source
+    * @return bool
+    *
+    */
     public function match(SourceInterface $source): bool
     {
         return $source->data()->get($this->key) === $this->value;

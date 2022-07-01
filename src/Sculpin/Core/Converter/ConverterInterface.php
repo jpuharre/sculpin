@@ -13,13 +13,23 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Converter;
 
-/**
+    /**
+    * Name : ConverterInterface
+    */
+    /**
  * A converter knows how to convert content of a specific format.
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
 interface ConverterInterface
 {
+    /**
+    * Name : convert
+    *
+    * ConverterContextInterface $converterContext
+    * @return void
+    *
+    */
     /**
      * Convert the thing specified in the context.
      *

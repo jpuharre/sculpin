@@ -21,11 +21,22 @@ use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-/**
+    /**
+    * Name : SculpinContentTypesExtension
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class SculpinContentTypesExtension extends Extension
 {
+    /**
+    * Name : load
+    *
+    * array $configs
+    * ContainerBuilder $container
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -268,16 +279,38 @@ class SculpinContentTypesExtension extends Extension
         }
     }
 
+    /**
+    * Name : generatePlaceholder
+    *
+    * string $value
+    * @return string
+    *
+    */
     private static function generatePlaceholder(string $value): string
     {
         return '%'.$value.'%';
     }
 
+    /**
+    * Name : generateId
+    *
+    * string $value
+    * @return string
+    *
+    */
     private static function generateId(string $value): string
     {
         return implode('.', ['sculpin_content_types', $value]);
     }
 
+    /**
+    * Name : generateTypesId
+    *
+    * string $type
+    * string $value
+    * @return mixed
+    *
+    */
     private static function generateTypesId(string $type, string $value)
     {
         return implode('.', ['sculpin_content_types.types', $type, $value]);

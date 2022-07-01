@@ -16,11 +16,21 @@ namespace Sculpin\Bundle\SculpinBundle\DependencyInjection\Compiler;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/**
+    /**
+    * Name : DirectoryOverridePass
+    */
+    /**
  * @author Kevin Boyd
  */
 class DirectoryOverridePass implements CompilerPassInterface
 {
+    /**
+    * Name : process
+    *
+    * ContainerBuilder $container
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

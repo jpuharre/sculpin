@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\DataProvider;
 
-/**
+    /**
+    * Name : DataProviderManager
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class DataProviderManager
@@ -25,11 +28,26 @@ class DataProviderManager
      */
     protected $dataProviders = [];
 
+    /**
+    * Name : registerDataProvider
+    *
+    * string $name
+    * DataProviderInterface $dataProvider
+    * @return void
+    *
+    */
     public function registerDataProvider(string $name, DataProviderInterface $dataProvider): void
     {
         $this->dataProviders[$name] = $dataProvider;
     }
 
+    /**
+    * Name : dataProviders
+    *
+    *  
+    * @return array
+    *
+    */
     /**
      * List of registered data provider names.
      *
@@ -40,6 +58,13 @@ class DataProviderManager
         return array_keys($this->dataProviders);
     }
 
+    /**
+    * Name : dataProvider
+    *
+    * string $name
+    * @return DataProviderInterface
+    *
+    */
     /**
      * Get a data provider by name.
      *

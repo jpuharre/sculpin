@@ -15,11 +15,31 @@ namespace Sculpin\Core\Source;
 
 use Dflydev\DotAccessConfiguration\Configuration as Data;
 
-/**
+    /**
+    * Name : MemorySource
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 class MemorySource extends AbstractSource
+SourceInterface
 {
+    /**
+    * Name : __construct
+    *
+    * string $sourceId
+    * Data $data
+    * string $content
+    * ?|string $formattedContent
+    * string $relativePathname
+    * string $filename
+    * \SplFileInfo $file
+    * bool $isRaw
+    * bool $canBeFormatted
+    * bool $hasChanged
+    * @return mixed
+    *
+    */
     public function __construct(
         string $sourceId,
         Data $data,

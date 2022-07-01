@@ -11,12 +11,23 @@ use Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface;
 use Dflydev\Canal\InternetMediaType\InternetMediaTypeFactory;
 use Sculpin\Core\Source\DataSourceInterface;
 
-class FileSourceTest extends TestCase
+    /**
+    * Name : FileSourceTest
+    */
+    class FileSourceTest extends TestCase
 {
     /*
      * mock analyzer for detectFromFilename, should return text/html
      */
 
+    /**
+    * Name : makeTestSource
+    *
+    * mixed $filename
+    * mixed $hasChanged
+    * @return mixed
+    *
+    */
     public function makeTestSource($filename, $hasChanged = true)
     {
         $source = new FileSource(
@@ -30,6 +41,13 @@ class FileSourceTest extends TestCase
         return $source;
     }
 
+    /**
+    * Name : makeTestAnalyzer
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function makeTestAnalyzer()
     {
         $analyzer = $this->createMock(Analyzer::class);
@@ -47,6 +65,13 @@ class FileSourceTest extends TestCase
         return $analyzer;
     }
 
+    /**
+    * Name : makeTestInternetMediaType
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function makeTestInternetMediaType()
     {
         $type = $this->createMock(InternetMediaTypeInterface::class);
@@ -59,6 +84,13 @@ class FileSourceTest extends TestCase
         return $type;
     }
 
+    /**
+    * Name : makeTestInternetMediaFactory
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function makeTestInternetMediaFactory()
     {
         $factory = $this->createMock(InternetMediaTypeFactory::class);
@@ -71,6 +103,13 @@ class FileSourceTest extends TestCase
         return $factory;
     }
 
+    /**
+    * Name : makeTestDatasource
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function makeTestDatasource()
     {
         $datasource = $this->createMock(DataSourceInterface::class);
@@ -83,6 +122,14 @@ class FileSourceTest extends TestCase
         return $datasource;
     }
 
+    /**
+    * Name : testParseYaml
+    *
+    * mixed $filename
+    * mixed $msg
+    * @return mixed
+    *
+    */
     /**
      * @dataProvider provideTestParseYaml
      */
@@ -98,6 +145,13 @@ class FileSourceTest extends TestCase
         $this->assertEquals($expectedOutput, $output);
     }
 
+    /**
+    * Name : provideTestParseYaml
+    *
+    *  
+    * @return mixed
+    *
+    */
     public function provideTestParseYaml()
     {
         return [
@@ -119,6 +173,14 @@ class FileSourceTest extends TestCase
         ];
     }
 
+    /**
+    * Name : getErrorMessage
+    *
+    * mixed $filename
+    * mixed $msg
+    * @return mixed
+    *
+    */
     public function getErrorMessage($filename, $msg)
     {
         if ($msg == '') {

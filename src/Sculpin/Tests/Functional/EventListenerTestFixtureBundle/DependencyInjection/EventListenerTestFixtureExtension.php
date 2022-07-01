@@ -7,8 +7,19 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-class EventListenerTestFixtureExtension extends Extension
+    /**
+    * Name : EventListenerTestFixtureExtension
+    */
+    class EventListenerTestFixtureExtension extends Extension
 {
+    /**
+    * Name : load
+    *
+    * array $configs
+    * ContainerBuilder $container
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */

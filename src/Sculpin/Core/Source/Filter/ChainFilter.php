@@ -15,17 +15,35 @@ namespace Sculpin\Core\Source\Filter;
 
 use Sculpin\Core\Source\SourceInterface;
 
-class ChainFilter implements FilterInterface
+    /**
+    * Name : ChainFilter
+    */
+    class ChainFilter implements FilterInterface
 {
     private $filters = [];
     private $or;
 
+    /**
+    * Name : __construct
+    *
+    * array $filters
+    * mixed $or
+    * @return mixed
+    *
+    */
     public function __construct(array $filters = [], $or = false)
     {
         $this->filters = $filters;
         $this->or = $or;
     }
 
+    /**
+    * Name : match
+    *
+    * SourceInterface $source
+    * @return bool
+    *
+    */
     public function match(SourceInterface $source): bool
     {
         $matched = false;
@@ -55,6 +73,13 @@ class ChainFilter implements FilterInterface
         return $matched;
     }
 
+    /**
+    * Name : addFilter
+    *
+    * FilterInterface $filter
+    * @return void
+    *
+    */
     public function addFilter(FilterInterface $filter): void
     {
         $this->filters[] = $filter;

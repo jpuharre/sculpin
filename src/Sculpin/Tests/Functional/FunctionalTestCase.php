@@ -10,7 +10,10 @@ use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
-/**
+    /**
+    * Name : FunctionalTestCase
+    */
+    /**
  * This test case allows you to create a test project on the fly,
  * and run the sculpin binary against it. Test project files
  * will automatically be created and removed with every test.
@@ -28,11 +31,25 @@ class FunctionalTestCase extends TestCase
     /** @var string */
     protected $errorOutput;
 
+    /**
+    * Name : setUpBeforeClass
+    *
+    *  
+    * @return void
+    *
+    */
     public static function setUpBeforeClass(): void
     {
         static::$fs = new Filesystem();
     }
 
+    /**
+    * Name : setUp
+    *
+    *  
+    * @return void
+    *
+    */
     public function setUp(): void
     {
         parent::setUp();
@@ -40,6 +57,13 @@ class FunctionalTestCase extends TestCase
         $this->setUpTestProject();
     }
 
+    /**
+    * Name : setUpTestProject
+    *
+    *  
+    * @return void
+    *
+    */
     protected function setUpTestProject(): void
     {
         $this->tearDownTestProject();
@@ -62,6 +86,13 @@ class FunctionalTestCase extends TestCase
         );
     }
 
+    /**
+    * Name : tearDownTestProject
+    *
+    *  
+    * @return void
+    *
+    */
     protected function tearDownTestProject(): void
     {
         $projectDir = static::projectDir();
@@ -70,6 +101,13 @@ class FunctionalTestCase extends TestCase
         }
     }
 
+    /**
+    * Name : executeSculpin
+    *
+    * mixed $command
+    * @return void
+    *
+    */
     /**
      * Execute a command against the sculpin binary
      * @param string $command
@@ -87,6 +125,15 @@ class FunctionalTestCase extends TestCase
         self::assertSame('', $this->errorOutput, 'Execution output should not contain errors');
     }
 
+    /**
+    * Name : executeSculpinAsync
+    *
+    * string $command
+    * bool $start
+    * ?|callable $callback
+    * @return Process
+    *
+    */
     /**
      * Asynchronously execute a command against the sculpin binary
      *
@@ -111,6 +158,14 @@ class FunctionalTestCase extends TestCase
         return $process;
     }
 
+    /**
+    * Name : addProjectDirectory
+    *
+    * string $path
+    * bool $recursive
+    * @return void
+    *
+    */
     /**
      * @param string $path
      * @param bool $recursive
@@ -137,6 +192,14 @@ class FunctionalTestCase extends TestCase
         }
     }
 
+    /**
+    * Name : addProjectFile
+    *
+    * string $filePath
+    * ?|string $content
+    * @return void
+    *
+    */
     /**
      * @param string $filePath
      * @param string $content
@@ -166,6 +229,14 @@ class FunctionalTestCase extends TestCase
     }
 
     /**
+    * Name : copyFixtureToProject
+    *
+    * string $fixturePath
+    * string $projectPath
+    * @return void
+    *
+    */
+    /**
      * @param string $fixturePath
      * @param string $projectPath
      */
@@ -174,6 +245,14 @@ class FunctionalTestCase extends TestCase
         static::$fs->copy($fixturePath, static::projectDir() . $projectPath);
     }
 
+    /**
+    * Name : assertProjectHasFile
+    *
+    * string $filePath
+    * ?|string $msg
+    * @return void
+    *
+    */
     /**
      * @param string        $filePath
      * @param string|null   $msg
@@ -186,6 +265,14 @@ class FunctionalTestCase extends TestCase
     }
 
     /**
+    * Name : assertProjectLacksFile
+    *
+    * string $filePath
+    * ?|string $msg
+    * @return void
+    *
+    */
+    /**
      * @param string        $filePath
      * @param string|null   $msg
      */
@@ -196,6 +283,14 @@ class FunctionalTestCase extends TestCase
         $this->assertFalse(static::$fs->exists(static::projectDir() . $filePath), $msg);
     }
 
+    /**
+    * Name : assertProjectHasGeneratedFile
+    *
+    * string $filePath
+    * ?|string $msg
+    * @return void
+    *
+    */
     /**
      * @param string $filePath
      * @param string|null $msg
@@ -208,6 +303,15 @@ class FunctionalTestCase extends TestCase
         $this->assertProjectHasFile($outputDir . $filePath, $msg);
     }
 
+    /**
+    * Name : assertGeneratedFileHasContent
+    *
+    * string $filePath
+    * string $expected
+    * ?|string $msg
+    * @return void
+    *
+    */
     /**
      * @param string $filePath
      * @param string $expected
@@ -228,6 +332,14 @@ class FunctionalTestCase extends TestCase
     }
 
     /**
+    * Name : writeToProjectFile
+    *
+    * string $filePath
+    * string $content
+    * @return void
+    *
+    */
+    /**
      * @param string $filePath
      * @param string $content
      */
@@ -236,6 +348,13 @@ class FunctionalTestCase extends TestCase
         static::$fs->dumpFile(static::projectDir() . $filePath, $content);
     }
 
+    /**
+    * Name : crawlGeneratedProjectFile
+    *
+    * string $filePath
+    * @return Crawler
+    *
+    */
     /**
      * @param string $filePath
      * @return Crawler
@@ -246,6 +365,13 @@ class FunctionalTestCase extends TestCase
     }
 
     /**
+    * Name : crawlProjectFile
+    *
+    * string $filePath
+    * @return Crawler
+    *
+    */
+    /**
      * @param string $filePath
      * @return Crawler
      */
@@ -254,6 +380,13 @@ class FunctionalTestCase extends TestCase
         return $this->crawlFile(static::projectDir() . $filePath);
     }
 
+    /**
+    * Name : crawlFile
+    *
+    * string $filePath
+    * @return Crawler
+    *
+    */
     /**
      * @param string $filePath
      * @return Crawler
@@ -265,6 +398,13 @@ class FunctionalTestCase extends TestCase
         return new Crawler($content);
     }
 
+    /**
+    * Name : readFile
+    *
+    * string $filePath
+    * @return string
+    *
+    */
     /**
      * @param $filePath
      * @return string
@@ -283,6 +423,13 @@ class FunctionalTestCase extends TestCase
         return $content;
     }
 
+    /**
+    * Name : projectDir
+    *
+    *  
+    * @return string
+    *
+    */
     /**
      * @return string
      */

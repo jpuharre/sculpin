@@ -4,12 +4,23 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateCommandTest extends FunctionalTestCase
+    /**
+    * Name : GenerateCommandTest
+    */
+    class GenerateCommandTest extends TestCase
+FunctionalTestCase
 {
     public const CONFIG_FILE = DIRECTORY_SEPARATOR . 'app'
         . DIRECTORY_SEPARATOR . 'config'
         . DIRECTORY_SEPARATOR . 'sculpin_kernel.yml';
 
+    /**
+    * Name : tearDown
+    *
+    *  
+    * @return void
+    *
+    */
     public function tearDown(): void
     {
         parent::tearDown();
@@ -17,6 +28,13 @@ class GenerateCommandTest extends FunctionalTestCase
         $this->writeToProjectFile(self::CONFIG_FILE, '');
     }
 
+    /**
+    * Name : shouldGenerateInSpecifiedOutputDir
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldGenerateInSpecifiedOutputDir(): void
     {
@@ -32,6 +50,13 @@ class GenerateCommandTest extends FunctionalTestCase
         $this->assertProjectHasFile($filePath, $msg);
     }
 
+    /**
+    * Name : shouldGenerateUsingSpecifiedSourceDir
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldGenerateUsingSpecifiedSourceDir(): void
     {
@@ -55,6 +80,13 @@ class GenerateCommandTest extends FunctionalTestCase
         $this->assertProjectHasFile($filePath, "Expected project to have generated file at path $filePath.");
     }
 
+    /**
+    * Name : shouldExposeWebpackManifestInTwig
+    *
+    *  
+    * @return void
+    *
+    */
     /** @test */
     public function shouldExposeWebpackManifestInTwig(): void
     {
@@ -72,6 +104,13 @@ class GenerateCommandTest extends FunctionalTestCase
         $this->assertGeneratedFileHasContent($filePath, 'Testing JS /build/js/app.43dcc737.js');
     }
 
+    /**
+    * Name : configureForWebpack
+    *
+    *  
+    * @return void
+    *
+    */
     protected function configureForWebpack(): void
     {
         $this->writeToProjectFile(

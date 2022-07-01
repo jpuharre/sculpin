@@ -20,7 +20,10 @@ use Twig\Error\LoaderError;
 use Twig\Loader\LoaderInterface;
 use Twig\Source as TwigSource;
 
-/**
+    /**
+    * Name : FlexibleExtensionFilesystemLoader
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventSubscriberInterface
@@ -50,6 +53,16 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     private $extensions = [];
 
     /**
+    * Name : __construct
+    *
+    * string $sourceDir
+    * array $sourcePaths
+    * array $paths
+    * array $extensions
+    * @return mixed
+    *
+    */
+    /**
      * @param string[] $sourcePaths
      * @param string[] $paths
      * @param string[] $extensions  List of file extensions for twig files
@@ -72,6 +85,13 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     }
 
     /**
+    * Name : getSourceContext
+    *
+    * mixed $name
+    * @return TwigSource
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function getSourceContext($name): TwigSource
@@ -83,6 +103,13 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
         return $this->filesystemLoader->getSourceContext($name.$extension);
     }
 
+    /**
+    * Name : getCacheKey
+    *
+    * mixed $name
+    * @return mixed
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -114,6 +141,14 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     }
 
     /**
+    * Name : isFresh
+    *
+    * mixed $name
+    * mixed $time
+    * @return mixed
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public function isFresh($name, $time)
@@ -125,6 +160,13 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
         return $this->filesystemLoader->isFresh($name.$extension, $time);
     }
 
+    /**
+    * Name : exists
+    *
+    * mixed $name
+    * @return bool
+    *
+    */
     /**
      * {@inheritdoc}
      */
@@ -142,6 +184,13 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
     }
 
     /**
+    * Name : getSubscribedEvents
+    *
+    *  
+    * @return array
+    *
+    */
+    /**
      * {@inheritdoc}
      */
     public static function getSubscribedEvents(): array
@@ -151,6 +200,13 @@ final class FlexibleExtensionFilesystemLoader implements LoaderInterface, EventS
         ];
     }
 
+    /**
+    * Name : beforeRun
+    *
+    * SourceSetEvent $sourceSetEvent
+    * @return void
+    *
+    */
     public function beforeRun(SourceSetEvent $sourceSetEvent): void
     {
         if ($sourceSetEvent->sourceSet()->newSources()) {

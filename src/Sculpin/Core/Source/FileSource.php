@@ -19,10 +19,14 @@ use Dflydev\Canal\Analyzer\Analyzer;
 use Dflydev\DotAccessConfiguration\Configuration as Data;
 use Dflydev\DotAccessConfiguration\YamlConfigurationBuilder as YamlDataBuilder;
 
-/**
+    /**
+    * Name : FileSource
+    */
+    /**
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class FileSource extends AbstractSource
+SourceInterface
 {
     /**
      * @var Analyzer
@@ -34,6 +38,17 @@ final class FileSource extends AbstractSource
      */
     private $applicationXmlType;
 
+    /**
+    * Name : __construct
+    *
+    * Analyzer $analyzer
+    * DataSourceInterface $dataSource
+    * SplFileInfo $file
+    * bool $isRaw
+    * bool $hasChanged
+    * @return mixed
+    *
+    */
     public function __construct(
         Analyzer $analyzer,
         DataSourceInterface $dataSource,
@@ -55,6 +70,13 @@ final class FileSource extends AbstractSource
         $this->init();
     }
 
+    /**
+    * Name : init
+    *
+    * bool $hasChanged
+    * @return void
+    *
+    */
     /**
      * Initialize source
      *
