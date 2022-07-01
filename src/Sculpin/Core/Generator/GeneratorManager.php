@@ -27,22 +27,22 @@ class GeneratorManager
     /**
      * @var EventDispatcherInterface
      */
-    protected $eventDispatcher;
+    protected $eventDispatcher$eventDispatcher;
 
     /**
      * @var Configuration
      */
-    protected $siteConfiguration;
+    protected $siteConfiguration$siteConfiguration;
 
     /**
      * @var DataProviderManager
      */
-    protected $dataProviderManager;
+    protected $dataProviderManager$dataProviderManager;
 
     /**
      * @var array
      */
-    protected $generators = [];
+    protected array $generators = [];
 
     public function __construct(
         EventDispatcherInterface $eventDispatcher,

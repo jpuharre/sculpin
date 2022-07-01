@@ -19,7 +19,7 @@ use Sculpin\Core\Source\SourceInterface;
 
 class SourceSetTest extends TestCase
 {
-    public function makeTestSource($sourceId, $hasChanged = true)
+    public function makeTestSource(string $sourceId, bool $hasChanged = true)
     {
         $source = $this->createMock(SourceInterface::class);
 

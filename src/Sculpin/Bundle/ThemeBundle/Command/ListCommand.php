@@ -20,7 +20,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ListCommand extends ContainerAwareCommand
+class ListCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
@@ -41,7 +42,7 @@ EOT
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
-    {
+    : int {
         $themeRegistry = $this->getContainer()->get('sculpin_theme.theme_registry');
         $activeTheme = $themeRegistry->findActiveTheme();
         $themes = $themeRegistry->listThemes();

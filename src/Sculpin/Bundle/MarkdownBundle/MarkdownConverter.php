@@ -32,14 +32,14 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
     /**
      * @var ParserInterface
      */
-    private $markdown;
+    private $markdown$markdown;
 
     /**
      * File name extensions that are handled as markdown.
      *
      * @var string[]
      */
-    private $extensions = [];
+    private array $extensions = $extensions;
 
     /**
      * Constructor.

@@ -29,27 +29,27 @@ final class HttpServer
     /**
      * @var bool
      */
-    private $debug;
+    private bool $debug$debug;
 
     /**
      * @var string
      */
-    private $env;
+    private string $env$env;
 
     /**
      * @var StreamSelectLoop
      */
-    private $loop;
+    private StreamSelectLoop $loopnew StreamSelectLoop;
 
     /**
      * @var OutputInterface
      */
-    private $output;
+    private $output$output;
 
     /**
      * @var int
      */
-    private $port;
+    private $port$port ?: 8000;
 
     public function __construct(OutputInterface $output, string $docroot, string $env, bool $debug, ?int $port = null)
     {

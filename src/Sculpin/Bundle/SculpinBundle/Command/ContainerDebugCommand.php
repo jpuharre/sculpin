@@ -31,7 +31,8 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author Ryan Weaver <ryan@thatsquality.com>
  */
-final class ContainerDebugCommand extends ContainerAwareCommand
+final class ContainerDebugCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
@@ -114,7 +115,7 @@ EOF
      * @throws \LogicException
      */
     protected function execute(InputInterface $input, OutputInterface $output)
-    {
+    : int {
         $this->validateInput($input);
 
         if ($input->getOption('parameters')) {
@@ -193,7 +194,7 @@ EOF
     private function outputServices(
         OutputInterface $output,
         $serviceIds,
-        $showPrivate = false,
+        bool $showPrivate = false,
         $showTagAttributes = null
     ): void {
         // set the label to specify public or public+private
@@ -241,14 +242,14 @@ EOF
             }
         }
         $format = '%-'.$maxName.'s ';
-        $format .= implode("", array_map(function ($length) {
+        $format .= implode("", array_map(function (string $length) : string {
             return "%-{$length}s ";
         }, $maxTags));
         $format .=  '%s';
 
         // the title field needs extra space to make up for comment tags
         $format1 = '%-'.($maxName + 19).'s ';
-        $format1 .= implode("", array_map(function ($length) {
+        $format1 .= implode("", array_map(function (int $length) : string {
             return '%-'.($length + 19).'s ';
         }, $maxTags));
         $format1 .= '%s';
@@ -310,7 +311,7 @@ EOF
         }
     }
 
-    private function buildArgumentsArray($serviceId, $className, array $tagAttributes = []): array
+    private function buildArgumentsArray(string $serviceId, string $className, array $tagAttributes = []): array
     {
         $arguments = [$serviceId];
         foreach ($tagAttributes as $tagAttribute) {

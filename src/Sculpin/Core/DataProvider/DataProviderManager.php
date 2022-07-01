@@ -23,7 +23,7 @@ class DataProviderManager
      *
      * @var array
      */
-    protected $dataProviders = [];
+    protected array $dataProviders = [];
 
     public function registerDataProvider(string $name, DataProviderInterface $dataProvider): void
     {

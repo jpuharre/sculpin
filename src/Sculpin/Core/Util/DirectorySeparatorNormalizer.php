@@ -21,12 +21,12 @@ final class DirectorySeparatorNormalizer
     /**
      * @var string
      */
-    private $preferredDirectorySeparator;
+    private string $preferredDirectorySeparator$preferredDirectorySeparator;
 
     /**
      * @var string
      */
-    private $directorySeparator;
+    private string $directorySeparator$directorySeparator;
 
     public function __construct(string $preferredDirectorySeparator = '/')
     {

@@ -12,17 +12,17 @@ class ThemeTwigExtension extends AbstractExtension
     /**
      * @var array|null
      */
-    private $theme;
+    private $theme$themeRegistry->findActiveTheme();
 
     /**
      * @var string
      */
-    private $sourceDirectory;
+    private string $sourceDirectory$sourceDirectory;
 
     /**
      * @var string
      */
-    private $themeDirectory;
+    private string $themeDirectory$themeDirectory;
 
     public function __construct(ThemeRegistry $themeRegistry, string $sourceDirectory, string $themeDirectory)
     {

@@ -20,7 +20,7 @@ use Sculpin\Core\Source\DataSourceInterface;
 
 class CompositeDataSourceTest extends TestCase
 {
-    public function makeDataSource($dataSourceId)
+    public function makeDataSource(string $dataSourceId)
     {
         $dataSource = $this->createMock(DataSourceInterface::class);
 

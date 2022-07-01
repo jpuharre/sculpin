@@ -17,7 +17,7 @@ class FileSourceTest extends TestCase
      * mock analyzer for detectFromFilename, should return text/html
      */
 
-    public function makeTestSource($filename, $hasChanged = true)
+    public function makeTestSource($filename, bool $hasChanged = true)
     {
         $source = new FileSource(
             $this->makeTestAnalyzer(),
@@ -99,7 +99,7 @@ class FileSourceTest extends TestCase
     }
 
     public function provideTestParseYaml()
-    {
+    : array {
         return [
             [__DIR__ . '/../Fixtures/valid/no-end-frontmatter.yml', ''],
             [__DIR__ . '/../Fixtures/valid/frontmatter-nocontent.yml', ''],
@@ -119,8 +119,8 @@ class FileSourceTest extends TestCase
         ];
     }
 
-    public function getErrorMessage($filename, $msg)
-    {
+    public function getErrorMessage(string $filename, string $msg)
+    : string {
         if ($msg == '') {
             return '';
         }

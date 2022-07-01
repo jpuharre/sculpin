@@ -27,27 +27,27 @@ final class ConfigFilesystemDataSource implements DataSourceInterface
     /**
      * @var string
      */
-    private $sourceDir;
+    private string $sourceDir$sourceDir;
 
     /**
      * @var ConfigurationInterface
      */
-    private $siteConfiguration;
+    private $siteConfiguration$siteConfiguration;
 
     /**
      * @var SiteConfigurationFactory
      */
-    private $siteConfigurationFactory;
+    private $siteConfigurationFactory$siteConfigurationFactory;
 
     /**
      * @var AntPathMatcher
      */
-    private $pathMatcher;
+    private $pathMatcher$pathMatcher ?: new AntPathMatcher;
 
     /**
      * @var string
      */
-    private $sinceTime;
+    private string $sinceTime'1970-01-01T00:00:00Z';
 
     public function __construct(
         string $sourceDir,

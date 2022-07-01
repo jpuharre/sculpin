@@ -26,7 +26,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @author Francis Besset <francis.besset@gmail.com>
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class CacheClearCommand extends ContainerAwareCommand
+class CacheClearCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
@@ -52,7 +53,7 @@ EOF
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
-    {
+    : int {
         $cacheDir = $this->getContainer()->getParameter('kernel.cache_dir');
         $filesystem   = $this->getContainer()->get('filesystem');
 

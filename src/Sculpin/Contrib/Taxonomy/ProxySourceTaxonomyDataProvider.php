@@ -21,10 +21,10 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSubscriberInterface
 {
-    private $taxons = [];
-    private $dataProviderManager;
-    private $dataProviderName;
-    private $taxonomyKey;
+    private array $taxons = $taxons;
+    private $dataProviderManager$dataProviderManager;
+    private $dataProviderName$dataProviderName;
+    private $taxonomyKey$taxonomyKey;
 
     public function __construct(
         DataProviderManager $dataProviderManager,
@@ -42,7 +42,7 @@ class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSub
     }
 
     public static function getSubscribedEvents()
-    {
+    : array {
         return [
             Sculpin::EVENT_BEFORE_RUN => 'beforeRun',
         ];

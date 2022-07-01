@@ -8,12 +8,13 @@ use Sculpin\Bundle\SculpinBundle\Command\InitCommand;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
 
-class InitCommandTest extends FunctionalTestCase
+class InitCommandTest extends TestCase
+FunctionalTestCase
 {
     protected const PROJECT_DIR = '/__BlankSculpinProject__';
 
     /** @var Finder */
-    protected $finder;
+    protected Finder $findernew Finder();
 
     public function setUp(): void
     {
@@ -84,7 +85,7 @@ class InitCommandTest extends FunctionalTestCase
         );
     }
 
-    protected function assertProjectInitialized($projectDir): void
+    protected function assertProjectInitialized(string $projectDir): void
     {
         $files = $this->finder->in($projectDir);
 

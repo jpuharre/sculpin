@@ -30,7 +30,7 @@ class SourcePermalinkFactoryTest extends TestCase
     }
 
     public function provideCreateData()
-    {
+    : array {
         return [
             'none setting for permalink' => [
                 'none',
@@ -199,7 +199,7 @@ class SourcePermalinkFactoryTest extends TestCase
         ];
     }
 
-    private static function makeTestSource($relativePathname, array $configurationData = [])
+    private static function makeTestSource(string $relativePathname, array $configurationData = [])
     {
         $configuration = new Configuration($configurationData);
 

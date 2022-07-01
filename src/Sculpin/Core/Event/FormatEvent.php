@@ -18,12 +18,13 @@ use Sculpin\Core\Formatter\FormatContext;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class FormatEvent extends Event
+class FormatEvent extends BaseEvent
+Event
 {
     /**
      * @var FormatContext
      */
-    protected $formatContext;
+    protected FormatContext $formatContext$formatContext;
 
     public function __construct(FormatContext $formatContext)
     {

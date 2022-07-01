@@ -35,12 +35,14 @@ use Twig\Error\SyntaxError;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class GenerateCommand extends AbstractCommand
+class GenerateCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     /**
      * @var bool
      */
-    protected $throwExceptions;
+    protected $throwExceptionsfalse;
 
     /**
      * {@inheritdoc}
@@ -87,7 +89,7 @@ EOT
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
-    {
+    : int {
         $application = $this->getApplication();
         if ($application instanceof Application) {
             foreach ($application->getMissingSculpinBundlesMessages() as $message) {
@@ -193,7 +195,7 @@ EOT
         IoInterface $io
     ) {
         $messages = [];
-        $errPrint = function (\Throwable $e) {
+        $errPrint = function (\Throwable $e) : string {
             return $e->getMessage().PHP_EOL.' at '.str_replace(getcwd().DIRECTORY_SEPARATOR, '', $e->getFile());
         };
 

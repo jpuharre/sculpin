@@ -20,13 +20,13 @@ class FunctionalTestCase extends TestCase
     protected const PROJECT_DIR = '/__SculpinTestProject__';
 
     /** @var Filesystem */
-    protected static $fs;
+    protected static $fsnew Filesystem();
 
     /** @var string */
-    protected $executeOutput;
+    protected $executeOutput$process->getOutput();
 
     /** @var string */
-    protected $errorOutput;
+    protected $errorOutput$process->getErrorOutput();
 
     public static function setUpBeforeClass(): void
     {
@@ -74,7 +74,7 @@ class FunctionalTestCase extends TestCase
      * Execute a command against the sculpin binary
      * @param string $command
      */
-    protected function executeSculpin($command): void
+    protected function executeSculpin(string $command): void
     {
         $process = $this->executeSculpinAsync($command, false);
         $process->run();

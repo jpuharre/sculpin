@@ -22,7 +22,7 @@ class ThemeTwigLoader implements LoaderInterface
     /**
      * @var ChainLoader
      */
-    private $chainLoader;
+    private ChainLoader $chainLoadernew ChainLoader($loaders);
 
     public function __construct(ThemeRegistry $themeRegistry, array $extensions)
     {

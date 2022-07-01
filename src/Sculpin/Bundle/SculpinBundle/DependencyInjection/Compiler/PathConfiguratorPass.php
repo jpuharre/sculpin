@@ -29,7 +29,7 @@ class PathConfiguratorPass implements CompilerPassInterface
      *
      * @var AntPathMatcher
      */
-    protected $matcher;
+    protected AntPathMatcher $matchernew AntPathMatcher;
 
     /**
      * Constructor.
@@ -73,7 +73,7 @@ class PathConfiguratorPass implements CompilerPassInterface
         $matcher = $this->matcher;
 
         return array_map(
-            function ($path) use ($matcher) {
+            function (string $path) use ($matcher) : string {
                 if ($matcher->isPattern($path)) {
                     return $path;
                 }

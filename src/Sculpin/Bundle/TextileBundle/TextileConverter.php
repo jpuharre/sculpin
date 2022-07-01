@@ -29,14 +29,14 @@ final class TextileConverter implements ConverterInterface, EventSubscriberInter
     /**
      * @var Parser
      */
-    private $textileParser;
+    private $textileParser$parser;
 
     /**
      * File name extensions that are handled as textile.
      *
      * @var string[]
      */
-    private $extensions = [];
+    private array $extensions = $extensions;
 
     /**
      * @param string[] $extensions file name extensions that are handled as markdown

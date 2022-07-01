@@ -17,8 +17,8 @@ use Sculpin\Core\Source\SourceInterface;
 
 class ChainFilter implements FilterInterface
 {
-    private $filters = [];
-    private $or;
+    private array $filters = $filters;
+    private $or$or;
 
     public function __construct(array $filters = [], $or = false)
     {

@@ -25,49 +25,49 @@ class Configuration extends BaseConfiguration
      *
      * @var array
      */
-    private $excludes = [];
+    private array $excludes = [];
 
     /**
      * Ignore patterns
      *
      * @var array
      */
-    private $ignores = [];
+    private array $ignores = [];
 
     /**
      * Raw patterns
      *
      * @var array
      */
-    private $raws = [];
+    private array $raws = [];
 
     /**
      * Source directory
      *
      * @var string
      */
-    private $sourceDir;
+    private string $sourceDir$sourceDir;
 
     /**
      * Output directory
      *
      * @var string
      */
-    private $outputDir;
+    private string $outputDir$outputDir;
 
     /**
      * Default permalink
      *
      * @var string
      */
-    private $permalink;
+    private string $permalink$permalink;
 
     /**
      * Default formatter
      *
      * @var string
      */
-    private $defaultFormatter;
+    private string $defaultFormatter$defaultFormatter;
 
     /**
      * Set excludes

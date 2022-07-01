@@ -31,19 +31,19 @@ final class ConverterManager
      *
      * @var EventDispatcherInterface
      */
-    private $eventDispatcher;
+    private $eventDispatcher$eventDispatcher;
 
     /**
      * Used to know the default formatter name.
      *
      * @var FormatterManager
      */
-    private $formatterManager;
+    private $formatterManager$formatterManager;
 
     /**
      * @var ConverterInterface[]
      */
-    private $converters = [];
+    private array $converters = [];
 
     public function __construct(EventDispatcherInterface $eventDispatcher, FormatterManager $formatterManager)
     {

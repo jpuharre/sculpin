@@ -27,13 +27,13 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class ProxySourceCollectionDataProvider implements DataProviderInterface, EventSubscriberInterface
 {
-    private $formatterManager;
-    private $dataProviderName;
-    private $dataSingularName;
-    private $collection;
-    private $filter;
-    private $map;
-    private $factory;
+    private $formatterManager$formatterManager;
+    private $dataProviderName$dataProviderName;
+    private $dataSingularName$dataSingularName ?: Inflector::singularize($dataProviderName);
+    private $collection$collection ?: new ProxySourceCollection;
+    private $filter$filter ?: new NullFilter;
+    private $map$map ?: new NullMap;
+    private $factory$factory ?: new SimpleProxySourceItemFactory;
 
     public function __construct(
         FormatterManager $formatterManager,
@@ -59,7 +59,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
     }
 
     public static function getSubscribedEvents()
-    {
+    : array {
         return [
             Sculpin::EVENT_BEFORE_RUN => [
                 ['beforeRun', 0],

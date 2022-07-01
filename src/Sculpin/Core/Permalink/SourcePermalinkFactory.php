@@ -25,7 +25,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      *
      * @var string
      */
-    protected $defaultPermalink;
+    protected string $defaultPermalink$defaultPermalink;
 
     public function __construct(string $defaultPermalink)
     {

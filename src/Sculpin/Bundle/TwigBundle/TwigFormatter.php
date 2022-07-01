@@ -27,12 +27,12 @@ final class TwigFormatter implements FormatterInterface
     /**
      * @var Environment
      */
-    private $twig;
+    private $twig$twig;
 
     /**
      * @var ArrayLoader
      */
-    private $arrayLoader;
+    private $arrayLoader$arrayLoader;
 
     public function __construct(Environment $twig, ArrayLoader $arrayLoader)
     {
@@ -101,7 +101,7 @@ final class TwigFormatter implements FormatterInterface
     }
 
     private function massageTemplate(FormatContext $formatContext)
-    {
+    : string {
         $template = $formatContext->template();
         if ($layout = $formatContext->data()->get('layout')) {
             // Completely remove anything in verbatim sections so that any blocks defined in there will

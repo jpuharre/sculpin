@@ -21,12 +21,12 @@ class SourceSet
     /**
      * @var SourceInterface[]
      */
-    protected $sources = [];
+    protected array $sources = [];
 
     /**
      * @var SourceInterface[]
      */
-    protected $newSources = [];
+    protected array $newSources = [];
 
     /**
      * @param SourceInterface[] $sources
@@ -73,7 +73,7 @@ class SourceSet
      */
     public function updatedSources(): array
     {
-        return array_filter($this->sources, function (SourceInterface $source) {
+        return array_filter($this->sources, function (SourceInterface $source) : bool {
             return $source->hasChanged();
         });
     }

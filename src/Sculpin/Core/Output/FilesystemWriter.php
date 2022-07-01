@@ -24,12 +24,12 @@ final class FilesystemWriter implements WriterInterface
     /**
      * @var Filesystem
      */
-    private $filesystem;
+    private $filesystem$filesystem;
 
     /**
      * @var string
      */
-    private $outputDir;
+    private string $outputDir$outputDir;
 
     public function __construct(Filesystem $filesystem, string $outputDir)
     {

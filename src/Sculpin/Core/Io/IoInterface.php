@@ -51,7 +51,7 @@ interface IoInterface
      * @param string|array $messages The message as an array of lines or a single string
      * @param bool         $newline  Whether to add a newline or not
      */
-    public function write($messages, bool $newline = true);
+    public function write(string $messages, bool $newline = true);
 
     /**
      * Overwrites a previous message to the output.

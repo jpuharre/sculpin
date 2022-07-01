@@ -21,8 +21,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ServeCommand extends AbstractCommand
-{
+class ServeCommand extends ContainerAwareCommand
+AbstractCommand
+ContainerAwareInterface
+Command {
     /**
      * {@inheritdoc}
      */
@@ -47,7 +49,7 @@ EOT
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
-    {
+    : int {
         $docroot = $this->getContainer()->getParameter('sculpin.output_dir');
         $kernel = $this->getContainer()->get('kernel');
 

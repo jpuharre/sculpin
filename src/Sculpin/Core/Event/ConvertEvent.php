@@ -20,22 +20,23 @@ use Sculpin\Core\Source\SourceInterface;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-final class ConvertEvent extends Event
+final class ConvertEvent extends BaseEvent
+Event
 {
     /**
      * @var SourceInterface
      */
-    private $source;
+    private SourceInterface $source$source;
 
     /**
      * @var string
      */
-    private $converter;
+    private string $converter$converter;
 
     /**
      * @var string
      */
-    private $defaultFormatter;
+    private string $defaultFormatter$defaultFormatter;
 
     public function __construct(SourceInterface $source, string $converter, string $defaultFormatter)
     {

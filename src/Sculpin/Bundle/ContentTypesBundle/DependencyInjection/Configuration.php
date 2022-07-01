@@ -45,7 +45,7 @@ class Configuration implements ConfigurationInterface
                         // Default case is we want the user to specify just one
                         // path but we can allow for multiple if they want to.
                         ->ifString()
-                        ->then(function ($v) {
+                        ->then(function ($v) : array {
                             return [$v];
                         })
                     ->end()
@@ -61,14 +61,14 @@ class Configuration implements ConfigurationInterface
                         // Default case is we want the user to specify just one
                         // taxonomy but we can allow for multiple if they want to.
                         ->ifString()
-                        ->then(function ($v) {
+                        ->then(function ($v) : array {
                             return [['name' => $v]];
                         })
                     ->end()
                     ->prototype('array')
                         ->beforeNormalization()
                             ->ifString()
-                            ->then(function ($v) {
+                            ->then(function ($v) : array {
                                 return ['name' => $v];
                             })
                         ->end()

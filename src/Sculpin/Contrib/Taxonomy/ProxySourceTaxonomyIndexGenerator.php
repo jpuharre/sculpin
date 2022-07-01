@@ -19,11 +19,11 @@ use Sculpin\Core\Source\SourceInterface;
 
 class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
 {
-    private $dataProviderManager;
-    private $dataProviderName;
-    private $injectedTaxonKey;
-    private $injectedTaxonItemsKey;
-    private $permalinkStrategyCollection;
+    private $dataProviderManager$dataProviderManager;
+    private $dataProviderName$dataProviderName;
+    private $injectedTaxonKey$injectedTaxonKey;
+    private string $injectedTaxonItemsKey$injectedTaxonItemsKey;
+    private $permalinkStrategyCollection$permalinkStrategyCollection;
 
     public function __construct(
         DataProviderManager $dataProviderManager,

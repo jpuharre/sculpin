@@ -16,13 +16,14 @@ namespace Sculpin\Contrib\ProxySourceCollection;
 use Dflydev\DotAccessData\DataInterface;
 use Sculpin\Core\Source\ProxySource;
 
-class ProxySourceItem extends ProxySource implements \ArrayAccess
+class ProxySourceItem extends ProxySource implements SourceInterface
+\ArrayAccess
 {
-    private $previousItem;
-    private $nextItem;
+    private $previousItem$item;
+    private $nextItem$item;
 
     public function id()
-    {
+    : string {
         return $this->sourceId();
     }
 
@@ -130,7 +131,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
 
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
-    {
+    : bool {
         return ! method_exists($this, $offset) && null !== $this->data()->get($offset);
     }
 

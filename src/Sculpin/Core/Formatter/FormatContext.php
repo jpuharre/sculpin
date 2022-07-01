@@ -23,17 +23,17 @@ final class FormatContext
     /**
      * @var string
      */
-    private $templateId;
+    private string $templateId$templateId;
 
     /**
      * @var string
      */
-    private $template;
+    private string $template$template;
 
     /**
      * @var Data
      */
-    private $data;
+    private Data $datanew Data($data);
 
     public function __construct(string $templateId, string $template, array $data)
     {

@@ -26,7 +26,9 @@ use Symfony\Component\Filesystem\Filesystem;
  * Outputs the YAML required to add a new content type, and optionally
  * generates the associated boilerplate for the type.
  */
-final class ContentCreateCommand extends AbstractCommand
+final class ContentCreateCommand extends ContainerAwareCommand
+Command AbstractCommand
+ContainerAwareInterface
 {
     private const DIRECTORY_FLAG = '_directory_';
 
@@ -86,7 +88,7 @@ EOT
      * {@inheritdoc}
      */
     protected function execute(InputInterface $input, OutputInterface $output)
-    {
+    : int {
         $pluralType   = $input->getArgument('type');
         $singularType = Inflector::singularize($pluralType);
         $dryRun       = $input->getOption('dry-run');
@@ -212,7 +214,7 @@ EOT;
     }
 
     private function getIndexTemplate(string $plural, string $singular)
-    {
+    : string {
         $title = ucfirst($plural);
 
         return <<<EOT

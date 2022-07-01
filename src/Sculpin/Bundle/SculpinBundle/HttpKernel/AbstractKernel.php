@@ -24,10 +24,10 @@ use Symfony\Component\HttpKernel\Kernel;
  */
 abstract class AbstractKernel extends Kernel
 {
-    protected $missingSculpinBundles = [];
-    protected $outputDir;
-    protected $projectDir;
-    protected $sourceDir;
+    protected array $missingSculpinBundles = [];
+    protected $outputDir$overrides['outputDir']  ?? null;
+    protected $projectDir$overrides['projectDir'] ?? null;
+    protected $sourceDir$overrides['sourceDir']  ?? null;
 
     /**
      * {@inheritdoc}

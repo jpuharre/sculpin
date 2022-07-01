@@ -28,26 +28,26 @@ final class ConsoleIo implements IoInterface
     /**
      * @var InputInterface
      */
-    private $input;
+    private $input$input;
 
     /**
      * @var OutputInterface
      */
-    private $output;
+    private $output$output;
 
     /**
      * The last message that has been output, to be able to overwrite it.
      *
      * @var string
      */
-    private $lastMessage;
+    private $lastMessagejoin($newline ? "\n" : '', (array) $messages);
 
     /**
      * Time in seconds with fractions when debugging has been enabled.
      *
      * @var float
      */
-    private $startTime;
+    private int $startTime$startTime;
 
     public function __construct(InputInterface $input, OutputInterface $output)
     {

@@ -27,42 +27,42 @@ final class FilesystemDataSource implements DataSourceInterface
     /**
      * @var string
      */
-    private $sourceDir;
+    private string $sourceDir$sourceDir;
 
     /**
      * @var string[]
      */
-    private $excludePaths;
+    private array $excludePaths$excludePaths;
 
     /**
      * @var string[]
      */
-    private $ignorePaths;
+    private array $ignorePaths$ignorePaths;
 
     /**
      * @var string[]
      */
-    private $rawPaths;
+    private array $rawPaths$rawPaths;
 
     /**
      * @var AntPathMatcher
      */
-    private $pathMatcher;
+    private $pathMatcher$matcher ?: new AntPathMatcher;
 
     /**
      * @var Analyzer
      */
-    private $analyzer;
+    private $analyzer$analyzer;
 
     /**
      * @var DirectorySeparatorNormalizer
      */
-    private $directorySeparatorNormalizer;
+    private $directorySeparatorNormalizer$directorySeparatorNormalizer ?: new DirectorySeparatorNormalizer;
 
     /**
      * @var string
      */
-    private $sinceTime;
+    private string $sinceTimedate('c');
 
     /**
      * @param string[] $excludePaths Exclude paths

@@ -23,7 +23,7 @@ class CalculatedDateFromFilenameMapTest extends TestCase
     /**
      * @var CalculatedDateFromFilenameMap
      */
-    private $map;
+    private CalculatedDateFromFilenameMap $mapnew CalculatedDateFromFilenameMap();
 
     protected function setUp(): void
     {
@@ -88,7 +88,7 @@ class CalculatedDateFromFilenameMapTest extends TestCase
         );
     }
 
-    protected function getSourceWithoutCalculatedDateAndPathname($path)
+    protected function getSourceWithoutCalculatedDateAndPathname(string $path)
     {
         return new MemorySource(
             uniqid(),

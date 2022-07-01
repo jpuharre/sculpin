@@ -36,12 +36,12 @@ final class Application extends BaseApplication
     /**
      * @var KernelInterface
      */
-    private $kernel;
+    private KernelInterface $kernel$kernel;
 
     /**
      * @var \Throwable[]
      */
-    private $registrationErrors = [];
+    private array $registrationErrors = [];
 
     public function __construct(KernelInterface $kernel)
     {

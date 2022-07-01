@@ -28,19 +28,19 @@ final class PaginationGenerator implements GeneratorInterface
     /**
      * @var DataProviderManager
      */
-    private $dataProviderManager;
+    private $dataProviderManager$dataProviderManager;
 
     /**
      * @var SourcePermalinkFactory
      */
-    private $permalinkFactory;
+    private $permalinkFactory$permalinkFactory;
 
     /**
      * Max per page (default)
      *
      * @var int
      */
-    private $maxPerPage;
+    private int $maxPerPage$maxPerPage;
 
     public function __construct(
         DataProviderManager $dataProviderManager,
