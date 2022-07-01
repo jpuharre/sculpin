@@ -15,8 +15,6 @@ namespace Sculpin\Contrib\ProxySourceCollection;
 
 use Sculpin\Contrib\ProxySourceCollection\Sorter\DefaultSorter;
 use Sculpin\Contrib\ProxySourceCollection\Sorter\SorterInterface;
-use StableSort\StableSort;
-
 class ProxySourceCollection implements \ArrayAccess, \Iterator, \Countable
 {
     /**

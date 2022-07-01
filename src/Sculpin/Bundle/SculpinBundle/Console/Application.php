@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace Sculpin\Bundle\SculpinBundle\Console;
 
 use Sculpin\Bundle\SculpinBundle\HttpKernel\AbstractKernel;
-use Sculpin\Core\Sculpin;
 use Symfony\Component\Console\Application as BaseApplication;
 use Symfony\Component\Console\Formatter\OutputFormatter;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;

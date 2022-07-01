@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Source;
 
-use Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface;
 use Symfony\Component\Finder\SplFileInfo;
 use Dflydev\Canal\Analyzer\Analyzer;
 use Dflydev\DotAccessConfiguration\Configuration as Data;
@@ -23,6 +22,7 @@ use Dflydev\DotAccessConfiguration\YamlConfigurationBuilder as YamlDataBuilder;
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class FileSource extends AbstractSource
+SourceInterface
 {
     /**
      * @var Analyzer

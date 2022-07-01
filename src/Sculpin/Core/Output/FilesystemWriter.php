@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Output;
 
-use Symfony\Component\Filesystem\Exception\IOException;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**

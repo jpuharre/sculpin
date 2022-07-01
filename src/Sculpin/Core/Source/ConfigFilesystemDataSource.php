@@ -17,8 +17,6 @@ use Dflydev\DotAccessConfiguration\ConfigurationInterface;
 use Symfony\Component\Finder\Finder;
 use dflydev\util\antPathMatcher\AntPathMatcher;
 use Sculpin\Core\SiteConfiguration\SiteConfigurationFactory;
-use Symfony\Component\Finder\SplFileInfo;
-
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */

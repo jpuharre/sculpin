@@ -17,8 +17,6 @@ use Dflydev\Canal\Analyzer\Analyzer;
 use Symfony\Component\Finder\Finder;
 use dflydev\util\antPathMatcher\AntPathMatcher;
 use Sculpin\Core\Util\DirectorySeparatorNormalizer;
-use Symfony\Component\Finder\SplFileInfo;
-
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */

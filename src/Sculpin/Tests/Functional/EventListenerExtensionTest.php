@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-use Symfony\Component\Finder\Finder;
-
-class EventListenerExtensionTest extends FunctionalTestCase
+class EventListenerExtensionTest extends TestCase
+FunctionalTestCase
 {
     protected const PROJECT_DIR = '/__EventListenerFixture__';
 

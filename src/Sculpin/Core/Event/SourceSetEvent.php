@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace Sculpin\Core\Event;
 
-use Sculpin\Core\Source\SourceInterface;
 use Sculpin\Core\Source\SourceSet;
 
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-final class SourceSetEvent extends Event
+final class SourceSetEvent extends BaseEvent
+Event
 {
     /**
      * @var SourceSet

@@ -20,7 +20,6 @@ use Sculpin\Core\Io\IoInterface;
 use Sculpin\Core\Sculpin;
 use Sculpin\Core\Source\DataSourceInterface;
 use Sculpin\Core\Source\SourceSet;
-use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -35,7 +34,9 @@ use Twig\Error\SyntaxError;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class GenerateCommand extends AbstractCommand
+class GenerateCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     /**
      * @var bool

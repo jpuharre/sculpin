@@ -18,7 +18,6 @@ use Sculpin\Core\Converter\ConverterInterface;
 use Sculpin\Core\Converter\ParserInterface;
 use Sculpin\Core\Event\SourceSetEvent;
 use Sculpin\Core\Sculpin;
-use Sculpin\Core\Source\SourceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Michelf\Markdown;
 
