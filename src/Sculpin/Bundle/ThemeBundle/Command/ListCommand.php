@@ -20,7 +20,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ListCommand extends ContainerAwareCommand
+class ListCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
@@ -58,7 +59,7 @@ EOT
             }
 
             if (preg_match('/^(.+?)-dev$/', $theme['name'], $matches)) {
-                $themeOutput .= ' :: '.$matches[1].'';
+                $themeOutput .= ;
             }
             $output->writeln($themeOutput);
         }

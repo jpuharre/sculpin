@@ -26,7 +26,7 @@ abstract class AbstractKernel extends Kernel
 {
     protected $missingSculpinBundles = [];
     protected $outputDir;
-    protected $projectDir;
+    protected $projectDirdirname($this->rootDir);
     protected $sourceDir;
 
     /**
@@ -34,9 +34,9 @@ abstract class AbstractKernel extends Kernel
      */
     public function __construct(string $environment, bool $debug, array $overrides = [])
     {
-        $this->projectDir = $overrides['projectDir'] ?? null;
-        $this->outputDir  = $overrides['outputDir']  ?? null;
-        $this->sourceDir  = $overrides['sourceDir']  ?? null;
+        $this->projectDir = ;
+        $this->outputDir  = ;
+        $this->sourceDir  = ;
 
         if (null !== $this->projectDir) {
             $this->rootDir = $this->projectDir . '/app';
