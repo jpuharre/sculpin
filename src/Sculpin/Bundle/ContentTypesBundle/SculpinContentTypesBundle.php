@@ -27,8 +27,7 @@ class SculpinContentTypesBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container): void
-    {
+    public function build($container){
         $container->addCompilerPass(new MapPass);
     }
 }

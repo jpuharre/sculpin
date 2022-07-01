@@ -27,7 +27,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      */
     protected $defaultPermalink;
 
-    public function __construct(string $defaultPermalink)
+    public function __construct($defaultPermalink)
     {
         $this->defaultPermalink = $defaultPermalink;
     }
@@ -35,8 +35,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
     /**
      * {@inheritdoc}
      */
-    public function create(SourceInterface $source): PermalinkInterface
-    {
+    public function create($source){
         if ($source->canBeFormatted()) {
             $relativeFilePath = $this->generatePermalinkPathname($source);
             // TODO: Make this configurable... not all index files are named index.*
@@ -68,7 +67,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
         return new Permalink($relativeFilePath, $relativeUrlPath);
     }
 
-    protected function generatePermalinkPathname(SourceInterface $source)
+    protected function generatePermalinkPathname($source)
     {
         $pathname = $source->relativePathname();
         // Make sure that twig files end up as .html files.
@@ -170,8 +169,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      *
      * @return string Template for permalink
      */
-    private function getPermaLinkTemplate(SourceInterface $source): string
-    {
+    private function getPermaLinkTemplate($source){
         $permalink = $source->data()->get('permalink');
 
         if (!$permalink) {
@@ -188,8 +186,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      *
      * @return mixed
      */
-    private function isDatePath(string $path): ?array
-    {
+    private function isDatePath($path){
         if (preg_match(
             '/(\d{4})[\/\-]*(\d{2})[\/\-]*(\d{2})[\/\-]*(.+?)(\.[^\.]+|\.[^\.]+\.[^\.]+)$/',
             $path,
@@ -211,8 +208,7 @@ class SourcePermalinkFactory implements SourcePermalinkFactoryInterface
      *
      * @return string
      */
-    private function normalize(string $param, string $space = '-'): string
-    {
+    private function normalize($param, $space = '-'){
         $param = trim($param);
         if (function_exists('iconv')) {
             $param = @iconv('utf-8', 'us-ascii//TRANSLIT', $param);

@@ -20,13 +20,13 @@ class MetaSorter implements SorterInterface
     private $key;
     private $reversed;
 
-    public function __construct($key = null, $direction = 'desc')
+    public function __construct($key , $direction = 'desc')
     {
         $this->setKey($key);
         $this->setReversed($direction);
     }
 
-    private function setKey($key = null)
+    private function setKey($key )
     {
         if (null === $key) {
             throw new \InvalidArgumentException('Key must be specified');
@@ -52,7 +52,7 @@ class MetaSorter implements SorterInterface
         }
     }
 
-    public function sort(ProxySourceItem $a, ProxySourceItem $b)
+    public function sort($a, $b)
     {
         if ($this->reversed) {
             return strnatcmp($b[$this->key], $a[$this->key]);

@@ -19,14 +19,14 @@ class SimpleProxySourceItemFactory implements ProxySourceItemFactoryInterface
 {
     private $reflectionClass;
 
-    public function __construct($class = null)
+    public function __construct($class )
     {
         $this->reflectionClass = new \ReflectionClass(
             $class ?: 'Sculpin\Contrib\ProxySourceCollection\ProxySourceItem'
         );
     }
 
-    public function createProxySourceItem(SourceInterface $source)
+    public function createProxySourceItem($source)
     {
         return $this->reflectionClass->newInstance($source);
     }

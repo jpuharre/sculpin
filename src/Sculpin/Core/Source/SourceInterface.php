@@ -24,113 +24,113 @@ interface SourceInterface
     /**
      * @return String
      */
-    public function sourceId(): string;
+    public function sourceId();
 
     /**
      * Whether this source is a raw source.
      */
-    public function isRaw(): bool;
+    public function isRaw();
 
     /**
      * Whether this source can be formatted.
      */
-    public function canBeFormatted(): bool;
+    public function canBeFormatted();
 
-    public function hasChanged(): bool;
+    public function hasChanged();
 
     /**
      * Mark source as changed.
      */
-    public function setHasChanged(): void;
+    public function setHasChanged();
 
     /**
      * Mark source as not changed.
      */
-    public function setHasNotChanged(): void;
+    public function setHasNotChanged();
 
-    public function permalink(): PermalinkInterface;
+    public function permalink();
 
-    public function setPermalink(PermalinkInterface $permalink);
+    public function setPermalink($permalink);
 
     /**
      * Whether to use file reference reference instead of string content.
      */
-    public function useFileReference(): bool;
+    public function useFileReference();
 
     /**
      * File reference. (if useFileReference)
      */
-    public function file(): \SplFileInfo;
+    public function file();
 
     /**
      * Content (if not useFileReference)
      */
-    public function content(): ?string;
+    public function content();
 
-    public function setContent(?string $content = null): void;
+    public function setContent($content = null);
 
     /**
      * Formatted content (if not useFileReference)
      */
-    public function formattedContent(): ?string;
+    public function formattedContent();
 
-    public function setFormattedContent(?string $formattedContent = null): void;
+    public function setFormattedContent($formattedContent = null);
 
-    public function relativePathname(): string;
+    public function relativePathname();
 
-    public function filename(): string;
+    public function filename();
 
-    public function data(): Configuration;
+    public function data();
 
     /**
      * Whether this source is a generator.
      */
-    public function isGenerator(): bool;
+    public function isGenerator();
 
     /**
      * Mark Source as being a generator.
      */
-    public function setIsGenerator(): void;
+    public function setIsGenerator();
 
     /**
      * Mark Source as not being a generator.
      */
-    public function setIsNotGenerator(): void;
+    public function setIsNotGenerator();
 
     /**
      * Whether source is generated (from a generator).
      */
-    public function isGenerated(): bool;
+    public function isGenerated();
 
     /**
      * Mark Source as being generated (by a generator).
      */
-    public function setIsGenerated(): void;
+    public function setIsGenerated();
 
     /**
      * Mark Source as not being generated (by a generator).
      */
-    public function setIsNotGenerated(): void;
+    public function setIsNotGenerated();
 
     /**
      * Whether this source should be skipped.
      */
-    public function shouldBeSkipped(): bool;
+    public function shouldBeSkipped();
 
     /**
      * Mark Source as being skipped.
      */
-    public function setShouldBeSkipped(): void;
+    public function setShouldBeSkipped();
 
     /**
      * Mark Source as not being skipped.
      */
-    public function setShouldNotBeSkipped(): void;
+    public function setShouldNotBeSkipped();
 
     /**
      * Force Source to be reprocessed.
      */
-    public function forceReprocess(): void;
+    public function forceReprocess();
 
     /**
      * Get the URL for this source.
@@ -139,7 +139,7 @@ interface SourceInterface
      *
      * @return string
      */
-    public function url(): string;
+    public function url();
 
-    public function duplicate(string $newSourceId): SourceInterface;
+    public function duplicate($newSourceId);
 }

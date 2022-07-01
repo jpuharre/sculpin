@@ -25,7 +25,7 @@ final class GeneratorManagerPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process($container)
     {
         if (false === $container->hasDefinition('sculpin.generator_manager')) {
             return;

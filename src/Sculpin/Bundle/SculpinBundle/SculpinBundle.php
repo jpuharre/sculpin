@@ -35,8 +35,7 @@ class SculpinBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container): void
-    {
+    public function build($container){
         $container->addCompilerPass(new ConverterManagerPass);
         $container->addCompilerPass(new DataProviderManagerPass);
         $container->addCompilerPass(new FormatterManagerPass);

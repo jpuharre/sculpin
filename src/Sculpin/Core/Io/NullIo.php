@@ -23,54 +23,49 @@ class NullIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function isInteractive(): bool
-    {
+    public function isInteractive(){
         return false;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isVerbose(): bool
-    {
+    public function isVerbose(){
         return false;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isVeryVerbose(): bool
-    {
+    public function isVeryVerbose(){
         return false;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isDebug(): bool
-    {
+    public function isDebug(){
         return false;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isDecorated(): bool
-    {
+    public function isDecorated(){
         return false;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function write($messages, bool $newline = true)
+    public function write($messages, $newline = true)
     {
     }
 
     /**
      * {@inheritDoc}
      */
-    public function overwrite($messages, bool $newline = true, ?int $size = 80)
+    public function overwrite($messages, $newline = true, $size = 80)
     {
     }
 }

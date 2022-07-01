@@ -22,7 +22,9 @@ use Symfony\Component\Filesystem\Filesystem;
 /**
  * Initialize default website configuration and structure.
  */
-final class InitCommand extends AbstractCommand
+final class InitCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     public const COMMAND_SUCCESS          = 0;
     public const PROJECT_FOLDER_NOT_EMPTY = 101;
@@ -33,8 +35,7 @@ final class InitCommand extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    protected function configure(): void
-    {
+    protected function configure(){
         $prefix = $this->isStandaloneSculpin() ? '' : 'sculpin:';
 
         $this
@@ -66,8 +67,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output): ?int
-    {
+    protected function execute($input, $output){
         $application = $this->getApplication();
         if ($application instanceof Application) {
             foreach ($application->getMissingSculpinBundlesMessages() as $message) {
@@ -108,8 +108,7 @@ EOT
         return self::COMMAND_SUCCESS;
     }
 
-    private function ensureCleanSlate(string $projectDir, OutputInterface $output): bool
-    {
+    private function ensureCleanSlate($projectDir, $output){
         $fs = new Filesystem();
         if ($fs->exists($projectDir . '/app')) {
             $output->writeln('<info>/app folder exists.</info>');
@@ -126,8 +125,7 @@ EOT
         return true;
     }
 
-    private function createDefaultKernel(string $projectDir, OutputInterface $output): bool
-    {
+    private function createDefaultKernel($projectDir, $output){
         $contents = <<<EOF
 <?php
 
@@ -147,8 +145,7 @@ EOF;
         return true;
     }
 
-    private function createSiteKernelFile(string $projectDir, OutputInterface $output): bool
-    {
+    private function createSiteKernelFile($projectDir, $output){
         $contents = <<<EOF
 sculpin_content_types:
     posts:
@@ -161,11 +158,11 @@ EOF;
     }
 
     private function createSiteConfigFile(
-        string $projectDir,
-        string $title,
-        string $subTitle,
-        OutputInterface $output
-    ): bool {
+        $projectDir,
+        $title,
+        $subTitle,
+        $output
+    ){
         $contents = <<<EOF
 title: "$title"
 subtitle: "$subTitle"
@@ -178,8 +175,7 @@ EOF;
         return true;
     }
 
-    private function createSourceFolder(string $projectDir, OutputInterface $output): bool
-    {
+    private function createSourceFolder($projectDir, $output){
         $fs = new Filesystem();
 
         $fs->dumpFile(
@@ -210,8 +206,7 @@ EOF
         return true;
     }
 
-    private function createFile(string $path, string $contents): void
-    {
+    private function createFile($path, $contents){
         $fs = new Filesystem();
         $fs->dumpFile($path, $contents);
     }

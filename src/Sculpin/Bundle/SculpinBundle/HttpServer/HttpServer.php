@@ -51,7 +51,7 @@ final class HttpServer
      */
     private $port;
 
-    public function __construct(OutputInterface $output, string $docroot, string $env, bool $debug, ?int $port = null)
+    public function __construct($output, $docroot, $env, $debug, $port = null)
     {
         $repository = new PhpRepository;
 
@@ -66,7 +66,7 @@ final class HttpServer
             $this->loop
         );
 
-        $httpServer = new ReactHttpServer($this->loop, function (ServerRequestInterface $request) use (
+        $httpServer = new ReactHttpServer($this->loop, function ($request) use (
             $repository,
             $docroot,
             $output
@@ -111,16 +111,14 @@ final class HttpServer
      * @param int      $interval Interval
      * @param callable $callback Callback
      */
-    public function addPeriodicTimer(int $interval, callable $callback): void
-    {
+    public function addPeriodicTimer($interval, $callback){
         $this->loop->addPeriodicTimer($interval, $callback);
     }
 
     /**
      * Run server
      */
-    public function run(): void
-    {
+    public function run(){
         $this->output->writeln(sprintf(
             'Starting Sculpin server for the <info>%s</info> environment with debug <info>%s</info>',
             $this->env,
@@ -143,8 +141,7 @@ final class HttpServer
      * @param int                       $responseCode Response code
      * @param ServerRequestInterface    $request      Request
      */
-    public static function logRequest(OutputInterface $output, int $responseCode, ServerRequestInterface $request): void
-    {
+    public static function logRequest($output, $responseCode, $request){
         $wrapOpen  = '';
         $wrapClose = '';
 

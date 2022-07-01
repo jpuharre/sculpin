@@ -19,13 +19,12 @@ class DefaultDataMap implements MapInterface
 {
     private $defaults;
 
-    public function __construct(array $defaults = [])
+    public function __construct($defaults = [])
     {
         $this->defaults = $defaults;
     }
 
-    public function process(SourceInterface $source): void
-    {
+    public function process($source){
         foreach ($this->defaults as $name => $value) {
             if (!$source->data()->get($name) && $value) {
                 $source->data()->set($name, $value);

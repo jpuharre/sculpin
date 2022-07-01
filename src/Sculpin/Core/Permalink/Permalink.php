@@ -28,7 +28,7 @@ class Permalink implements PermalinkInterface
      */
     private $relativeUrlPath;
 
-    public function __construct(string $relativeFilePath, string $relativeUrlPath)
+    public function __construct($relativeFilePath, $relativeUrlPath)
     {
         $this->relativeFilePath = $relativeFilePath;
         $this->relativeUrlPath = $relativeUrlPath;
@@ -37,16 +37,14 @@ class Permalink implements PermalinkInterface
     /**
      * {@inheritdoc}
      */
-    public function relativeFilePath(): string
-    {
+    public function relativeFilePath(){
         return $this->relativeFilePath;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function relativeUrlPath(): string
-    {
+    public function relativeUrlPath(){
         return $this->relativeUrlPath;
     }
 }

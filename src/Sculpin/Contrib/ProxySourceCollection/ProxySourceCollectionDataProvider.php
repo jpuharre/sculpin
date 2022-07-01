@@ -36,14 +36,13 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
     private $factory;
 
     public function __construct(
-        FormatterManager $formatterManager,
+        $formatterManager,
         $dataProviderName,
-        $dataSingularName = null,
-        ProxySourceCollection $collection = null,
-        FilterInterface $filter = null,
-        MapInterface $map = null,
-        ProxySourceItemFactoryInterface $factory = null
-    ) {
+        $dataSingularName ,
+        $collection ,
+        $filter ,
+        $map ,
+        $factory ) {
         $this->formatterManager = $formatterManager;
         $this->dataProviderName = $dataProviderName;
         $this->dataSingularName = $dataSingularName ?: Inflector::singularize($dataProviderName);
@@ -53,8 +52,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         $this->factory = $factory ?: new SimpleProxySourceItemFactory;
     }
 
-    public function provideData(): array
-    {
+    public function provideData(){
         return iterator_to_array($this->collection);
     }
 
@@ -69,7 +67,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         ];
     }
 
-    public function beforeRun(SourceSetEvent $sourceSetEvent)
+    public function beforeRun($sourceSetEvent)
     {
         foreach ($sourceSetEvent->updatedSources() as $source) {
             if ($source->isGenerated()) {
@@ -124,7 +122,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         $this->collection->init();
     }
 
-    public function beforeRunPost(SourceSetEvent $sourceSetEvent)
+    public function beforeRunPost($sourceSetEvent)
     {
         $anItemHasChanged = false;
         foreach ($this->collection as $item) {
@@ -147,7 +145,7 @@ class ProxySourceCollectionDataProvider implements DataProviderInterface, EventS
         }
     }
 
-    public function afterConvert(ConvertEvent $convertEvent)
+    public function afterConvert($convertEvent)
     {
         $sourceId = $convertEvent->source()->sourceId();
 

@@ -18,7 +18,7 @@ namespace Sculpin\Core\Permalink;
  */
 interface PermalinkInterface
 {
-    public function relativeFilePath(): string;
+    public function relativeFilePath();
 
-    public function relativeUrlPath(): string;
+    public function relativeUrlPath();
 }

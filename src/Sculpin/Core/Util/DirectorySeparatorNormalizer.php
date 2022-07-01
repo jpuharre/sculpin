@@ -28,7 +28,7 @@ final class DirectorySeparatorNormalizer
      */
     private $directorySeparator;
 
-    public function __construct(string $preferredDirectorySeparator = '/')
+    public function __construct($preferredDirectorySeparator = '/')
     {
         $this->preferredDirectorySeparator = $preferredDirectorySeparator;
         $this->directorySeparator = DIRECTORY_SEPARATOR;
@@ -39,8 +39,7 @@ final class DirectorySeparatorNormalizer
      *
      * Useful for testing to override DIRECTORY_SEPARATOR.
      */
-    public function setDirectorySeparator(string $directorySeparator): self
-    {
+    public function setDirectorySeparator($directorySeparator){
         $this->directorySeparator = $directorySeparator;
 
         return $this;
@@ -49,8 +48,7 @@ final class DirectorySeparatorNormalizer
     /**
      * Normalize filesystem paths to a preferred $separator.
      */
-    public function normalize(?string $path): ?string
-    {
+    public function normalize($path){
         if ($this->preferredDirectorySeparator === $this->directorySeparator) {
             return $path;
         }

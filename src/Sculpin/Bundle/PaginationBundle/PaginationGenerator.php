@@ -43,9 +43,9 @@ final class PaginationGenerator implements GeneratorInterface
     private $maxPerPage;
 
     public function __construct(
-        DataProviderManager $dataProviderManager,
-        SourcePermalinkFactory $permalinkFactory,
-        int $maxPerPage
+        $dataProviderManager,
+        $permalinkFactory,
+        $maxPerPage
     ) {
         $this->dataProviderManager = $dataProviderManager;
         $this->permalinkFactory = $permalinkFactory;
@@ -55,8 +55,7 @@ final class PaginationGenerator implements GeneratorInterface
     /**
      * {@inheritdoc}
      */
-    public function generate(SourceInterface $source): array
-    {
+    public function generate($source){
         $data = null;
         $config = $source->data()->get('pagination') ?: [];
         if (!isset($config['provider'])) {

@@ -19,14 +19,15 @@ use Sculpin\Core\Source\SourceSet;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-final class SourceSetEvent extends Event
+final class SourceSetEvent extends BaseEvent
+Event
 {
     /**
      * @var SourceSet
      */
     private $sourceSet;
 
-    public function __construct(SourceSet $sourceSet)
+    public function __construct($sourceSet)
     {
         $this->sourceSet = $sourceSet;
     }
@@ -34,21 +35,18 @@ final class SourceSetEvent extends Event
     /**
      * @return SourceInterface[]
      */
-    public function allSources(): array
-    {
+    public function allSources(){
         return $this->sourceSet->allSources();
     }
 
     /**
      * @return SourceInterface[]
      */
-    public function updatedSources(): array
-    {
+    public function updatedSources(){
         return $this->sourceSet->updatedSources();
     }
 
-    public function sourceSet(): SourceSet
-    {
+    public function sourceSet(){
         return $this->sourceSet;
     }
 }

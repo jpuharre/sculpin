@@ -24,7 +24,7 @@ class PermalinkStrategyCollection
         $this->strategies = new \SplObjectStorage();
     }
 
-    public function push(PermalinkStrategyInterface $strategy)
+    public function push($strategy)
     {
         $this->strategies->attach($strategy);
     }

@@ -21,13 +21,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 /**
  * @author Beau Simensen <beau@dflydev.com>
  */
-class ServeCommand extends AbstractCommand
-{
+class ServeCommand extends ContainerAwareCommand
+AbstractCommand
+ContainerAwareInterface
+Command {
     /**
      * {@inheritdoc}
      */
-    protected function configure(): void
-    {
+    protected function configure(){
         $prefix = $this->isStandaloneSculpin() ? '' : 'sculpin:';
 
         $this
@@ -46,7 +47,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute($input, $output)
     {
         $docroot = $this->getContainer()->getParameter('sculpin.output_dir');
         $kernel = $this->getContainer()->get('kernel');

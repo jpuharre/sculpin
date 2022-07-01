@@ -25,7 +25,7 @@ final class ConverterManagerPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container)
+    public function process($container)
     {
         if (false === $container->hasDefinition('sculpin.converter_manager')) {
             return;

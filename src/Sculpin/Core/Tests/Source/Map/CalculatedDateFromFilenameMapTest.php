@@ -25,8 +25,7 @@ class CalculatedDateFromFilenameMapTest extends TestCase
      */
     private $map;
 
-    protected function setUp(): void
-    {
+    protected function setUp(){
         $this->map = new CalculatedDateFromFilenameMap();
     }
 

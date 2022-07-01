@@ -21,12 +21,12 @@ interface DataSourceInterface
     /**
      * @return string
      */
-    public function dataSourceId(): string;
+    public function dataSourceId();
 
     /**
      * Refresh the Source Set with updated Sources.
      *
      * @param SourceSet $sourceSet Source set to be updated
      */
-    public function refresh(SourceSet $sourceSet): void;
+    public function refresh($sourceSet);
 }

@@ -22,15 +22,14 @@ class ThemeRegistry
     private $directory;
     private $activeTheme;
 
-    public function __construct($finderFactory, string $directory, ?string $activeTheme = null)
+    public function __construct($finderFactory, $directory, $activeTheme = null)
     {
         $this->finderFactory = $finderFactory;
         $this->directory = $directory;
         $this->activeTheme = $activeTheme;
     }
 
-    public function listThemes(): array
-    {
+    public function listThemes(){
         if (! file_exists($this->directory)) {
             return [];
         }
@@ -56,8 +55,7 @@ class ThemeRegistry
         return $themes;
     }
 
-    public function findActiveTheme(): ?array
-    {
+    public function findActiveTheme(){
         $themes = $this->listThemes();
 
         foreach ([$this->activeTheme.'-dev', $this->activeTheme] as $activeTheme) {

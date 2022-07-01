@@ -23,7 +23,6 @@ class NullConverter implements ConverterInterface
     /**
      * Does nothing.
      */
-    public function convert(ConverterContextInterface $converterContext): void
-    {
+    public function convert($converterContext){
     }
 }

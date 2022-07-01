@@ -41,7 +41,7 @@ final class TextileConverter implements ConverterInterface, EventSubscriberInter
     /**
      * @param string[] $extensions file name extensions that are handled as markdown
      */
-    public function __construct(Parser $parser, array $extensions = [])
+    public function __construct($parser, $extensions = [])
     {
         $this->textileParser = $parser;
         $this->extensions = $extensions;
@@ -50,16 +50,14 @@ final class TextileConverter implements ConverterInterface, EventSubscriberInter
     /**
      * {@inheritdoc}
      */
-    public function convert(ConverterContextInterface $converterContext): void
-    {
+    public function convert($converterContext){
         $converterContext->setContent($this->textileParser->parse($converterContext->content()));
     }
 
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
-    {
+    public static function getSubscribedEvents(){
         return [
             Sculpin::EVENT_BEFORE_RUN => 'beforeRun',
         ];
@@ -70,8 +68,7 @@ final class TextileConverter implements ConverterInterface, EventSubscriberInter
      *
      * @internal
      */
-    public function beforeRun(SourceSetEvent $sourceSetEvent): void
-    {
+    public function beforeRun($sourceSetEvent){
         /** @var SourceInterface $source */
         foreach ($sourceSetEvent->updatedSources() as $source) {
             foreach ($this->extensions as $extension) {

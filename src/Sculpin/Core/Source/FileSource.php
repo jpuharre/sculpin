@@ -23,6 +23,7 @@ use Dflydev\DotAccessConfiguration\YamlConfigurationBuilder as YamlDataBuilder;
  * @author Beau Simensen <beau@dflydev.com>
  */
 final class FileSource extends AbstractSource
+SourceInterface
 {
     /**
      * @var Analyzer
@@ -35,11 +36,11 @@ final class FileSource extends AbstractSource
     private $applicationXmlType;
 
     public function __construct(
-        Analyzer $analyzer,
-        DataSourceInterface $dataSource,
-        SplFileInfo $file,
-        bool $isRaw,
-        bool $hasChanged = false
+        $analyzer,
+        $dataSource,
+        $file,
+        $isRaw,
+        $hasChanged = false
     ) {
         $this->analyzer = $analyzer;
         $this->sourceId = 'FileSource:'.$dataSource->dataSourceId().':'.$file->getRelativePathname();
@@ -60,8 +61,7 @@ final class FileSource extends AbstractSource
      *
      * @param bool $hasChanged Has the file changed?
      */
-    protected function init(bool $hasChanged = false): void
-    {
+    protected function init($hasChanged = false){
         parent::init($hasChanged);
 
         $originalData = $this->data;

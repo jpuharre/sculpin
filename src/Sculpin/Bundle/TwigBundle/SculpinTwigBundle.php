@@ -28,8 +28,7 @@ final class SculpinTwigBundle extends Bundle
     /**
      * {@inheritdoc}
      */
-    public function build(ContainerBuilder $container): void
-    {
+    public function build($container){
         $container->addCompilerPass(new TwigEnvironmentPass);
         $container->addCompilerPass(new TwigLoaderPass);
     }

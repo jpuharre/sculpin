@@ -70,14 +70,13 @@ final class FilesystemDataSource implements DataSourceInterface
      * @param string[] $rawPaths     Raw paths
      */
     public function __construct(
-        string $sourceDir,
-        array $excludePaths,
-        array $ignorePaths,
-        array $rawPaths,
-        AntPathMatcher $matcher = null,
-        Analyzer $analyzer = null,
-        DirectorySeparatorNormalizer $directorySeparatorNormalizer = null
-    ) {
+        $sourceDir,
+        $excludePaths,
+        $ignorePaths,
+        $rawPaths,
+        $matcher ,
+        $analyzer ,
+        $directorySeparatorNormalizer ) {
         $this->sourceDir = $sourceDir;
         $this->excludePaths = $excludePaths;
         $this->ignorePaths = $ignorePaths;
@@ -91,16 +90,14 @@ final class FilesystemDataSource implements DataSourceInterface
     /**
      * {@inheritdoc}
      */
-    public function dataSourceId(): string
-    {
+    public function dataSourceId(){
         return 'FilesystemDataSource:'.$this->sourceDir;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function refresh(SourceSet $sourceSet): void
-    {
+    public function refresh($sourceSet){
         $sinceTimeLast = $this->sinceTime;
 
         $this->sinceTime = date('c');

@@ -16,7 +16,8 @@ namespace Sculpin\Contrib\ProxySourceCollection;
 use Dflydev\DotAccessData\DataInterface;
 use Sculpin\Core\Source\ProxySource;
 
-class ProxySourceItem extends ProxySource implements \ArrayAccess
+class ProxySourceItem extends ProxySource implements SourceInterface
+\ArrayAccess
 {
     private $previousItem;
     private $nextItem;
@@ -31,8 +32,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         return $this->data()->export();
     }
 
-    public function url(): string
-    {
+    public function url(){
         return $this->permalink()->relativeUrlPath();
     }
 
@@ -53,7 +53,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         return $this->data()->get('blocks');
     }
 
-    public function setBlocks(array $blocks = null)
+    public function setBlocks($blocks )
     {
         $this->data()->set('blocks', $blocks ?: []);
     }
@@ -63,7 +63,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         return $this->previousItem;
     }
 
-    public function setPreviousItem(ProxySourceItem $item = null)
+    public function setPreviousItem($item )
     {
         $lastPreviousItem = $this->previousItem;
         $this->previousItem = $item;
@@ -86,7 +86,7 @@ class ProxySourceItem extends ProxySource implements \ArrayAccess
         return $this->nextItem;
     }
 
-    public function setNextItem(ProxySourceItem $item = null)
+    public function setNextItem($item )
     {
         $lastNextItem = $this->nextItem;
         $this->nextItem = $item;

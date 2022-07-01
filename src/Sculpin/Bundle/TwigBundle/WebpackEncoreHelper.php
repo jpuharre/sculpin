@@ -12,14 +12,13 @@ class WebpackEncoreHelper extends AbstractExtension implements GlobalsInterface
     protected $sourceDir;
     protected $manifest;
 
-    public function __construct(string $sourceDir, ?string $manifest)
+    public function __construct($sourceDir, $manifest)
     {
         $this->sourceDir = $sourceDir;
         $this->manifest = $manifest;
     }
 
-    public function getGlobals(): array
-    {
+    public function getGlobals(){
         $manifestContents = $this->getManifestContents();
 
         if (!$manifestContents) {
@@ -41,8 +40,7 @@ class WebpackEncoreHelper extends AbstractExtension implements GlobalsInterface
         ];
     }
 
-    private function getManifestContents(): string
-    {
+    private function getManifestContents(){
         $path = $this->sourceDir . DIRECTORY_SEPARATOR . $this->manifest;
 
         if (!file_exists($path) || !is_readable($path) || !is_file($path)) {

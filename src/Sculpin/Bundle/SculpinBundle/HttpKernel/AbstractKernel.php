@@ -32,7 +32,7 @@ abstract class AbstractKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function __construct(string $environment, bool $debug, array $overrides = [])
+    public function __construct($environment, $debug, $overrides = [])
     {
         $this->projectDir = $overrides['projectDir'] ?? null;
         $this->outputDir  = $overrides['outputDir']  ?? null;
@@ -48,8 +48,7 @@ abstract class AbstractKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    protected function getKernelParameters(): array
-    {
+    protected function getKernelParameters(){
         if (null === $this->projectDir) {
             $this->projectDir = dirname($this->rootDir);
         }
@@ -64,8 +63,7 @@ abstract class AbstractKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function registerBundles(): array
-    {
+    public function registerBundles(){
         $bundles = [
             new \Sculpin\Bundle\StandaloneBundle\SculpinStandaloneBundle,
             new \Sculpin\Bundle\MarkdownBundle\SculpinMarkdownBundle,
@@ -93,7 +91,7 @@ abstract class AbstractKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function registerContainerConfiguration(LoaderInterface $loader)
+    public function registerContainerConfiguration($loader)
     {
         // Load defaults.
         $loader->load(__DIR__.'/../Resources/config/kernel.yml');
@@ -108,8 +106,7 @@ abstract class AbstractKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function boot(): void
-    {
+    public function boot(){
         if (true === $this->booted) {
             return;
         }
@@ -122,8 +119,7 @@ abstract class AbstractKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    protected function buildContainer(): ContainerBuilder
-    {
+    protected function buildContainer(){
         $container = $this->getContainerBuilder();
         $container->addObjectResource($this);
         $this->prepareContainer($container);
@@ -143,8 +139,7 @@ abstract class AbstractKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    protected function initializeContainer(): void
-    {
+    protected function initializeContainer(){
         $container = $this->buildContainer();
         $container->set('kernel', $this);
         $this->container = $container;
@@ -161,8 +156,7 @@ abstract class AbstractKernel extends Kernel
      *
      * @return array
      */
-    public function getMissingSculpinBundles(): array
-    {
+    public function getMissingSculpinBundles(){
         return $this->missingSculpinBundles;
     }
 
@@ -171,5 +165,5 @@ abstract class AbstractKernel extends Kernel
      *
      * @return string[] Fully qualified class names of the bundles to register.
      */
-    abstract protected function getAdditionalSculpinBundles(): array;
+    abstract protected function getAdditionalSculpinBundles();
 }

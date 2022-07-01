@@ -26,8 +26,7 @@ class SculpinThemeExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container): void
-    {
+    public function load($configs, $container){
         $configuration = new Configuration;
         $config = $this->processConfiguration($configuration, $configs);
 

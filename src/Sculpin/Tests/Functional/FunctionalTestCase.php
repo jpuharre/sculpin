@@ -28,20 +28,17 @@ class FunctionalTestCase extends TestCase
     /** @var string */
     protected $errorOutput;
 
-    public static function setUpBeforeClass(): void
-    {
+    public static function setUpBeforeClass(){
         static::$fs = new Filesystem();
     }
 
-    public function setUp(): void
-    {
+    public function setUp(){
         parent::setUp();
 
         $this->setUpTestProject();
     }
 
-    protected function setUpTestProject(): void
-    {
+    protected function setUpTestProject(){
         $this->tearDownTestProject();
 
         $projectFiles = [
@@ -62,8 +59,7 @@ class FunctionalTestCase extends TestCase
         );
     }
 
-    protected function tearDownTestProject(): void
-    {
+    protected function tearDownTestProject(){
         $projectDir = static::projectDir();
         if (static::$fs->exists($projectDir)) {
             static::$fs->remove($projectDir);
@@ -74,8 +70,7 @@ class FunctionalTestCase extends TestCase
      * Execute a command against the sculpin binary
      * @param string $command
      */
-    protected function executeSculpin($command): void
-    {
+    protected function executeSculpin($command){
         $process = $this->executeSculpinAsync($command, false);
         $process->run();
         $this->executeOutput = $process->getOutput();
@@ -98,8 +93,7 @@ class FunctionalTestCase extends TestCase
      *
      * @return Process
      */
-    protected function executeSculpinAsync(string $command, bool $start = true, ?callable $callback = null): Process
-    {
+    protected function executeSculpinAsync($command, $start = true, $callback = null){
         $binPath    = __DIR__ . '/../../../../bin';
         $projectDir = static::projectDir();
         $process    = new Process("$binPath/sculpin $command --project-dir $projectDir --env=test");
@@ -115,8 +109,7 @@ class FunctionalTestCase extends TestCase
      * @param string $path
      * @param bool $recursive
      */
-    protected function addProjectDirectory(string $path, bool $recursive = true): void
-    {
+    protected function addProjectDirectory($path, $recursive = true){
         $pathParts = explode('/', $path);
         // Remove leading slash
         array_shift($pathParts);
@@ -141,8 +134,7 @@ class FunctionalTestCase extends TestCase
      * @param string $filePath
      * @param string $content
      */
-    protected function addProjectFile(string $filePath, ?string $content = null): void
-    {
+    protected function addProjectFile($filePath, $content = null){
         $dirPathParts = explode('/', $filePath);
         // Remove leading slash
         array_shift($dirPathParts);
@@ -169,8 +161,7 @@ class FunctionalTestCase extends TestCase
      * @param string $fixturePath
      * @param string $projectPath
      */
-    protected function copyFixtureToProject(string $fixturePath, string $projectPath): void
-    {
+    protected function copyFixtureToProject($fixturePath, $projectPath){
         static::$fs->copy($fixturePath, static::projectDir() . $projectPath);
     }
 
@@ -178,8 +169,7 @@ class FunctionalTestCase extends TestCase
      * @param string        $filePath
      * @param string|null   $msg
      */
-    protected function assertProjectHasFile(string $filePath, ?string $msg = null): void
-    {
+    protected function assertProjectHasFile($filePath, $msg = null){
         $msg = $msg ?: "Expected project to contain file at path $filePath.";
 
         $this->assertTrue(static::$fs->exists(static::projectDir() . $filePath), $msg);
@@ -189,8 +179,7 @@ class FunctionalTestCase extends TestCase
      * @param string        $filePath
      * @param string|null   $msg
      */
-    protected function assertProjectLacksFile(string $filePath, ?string $msg = null): void
-    {
+    protected function assertProjectLacksFile($filePath, $msg = null){
         $msg = $msg ?: "Expected project to NOT contain file at path $filePath.";
 
         $this->assertFalse(static::$fs->exists(static::projectDir() . $filePath), $msg);
@@ -200,8 +189,7 @@ class FunctionalTestCase extends TestCase
      * @param string $filePath
      * @param string|null $msg
      */
-    protected function assertProjectHasGeneratedFile(string $filePath, ?string $msg = null): void
-    {
+    protected function assertProjectHasGeneratedFile($filePath, $msg = null){
         $outputDir = '/output_test';
 
         $msg = $msg ?: "Expected project to have generated file at path $filePath.";
@@ -213,8 +201,7 @@ class FunctionalTestCase extends TestCase
      * @param string $expected
      * @param string|null $msg
      */
-    protected function assertGeneratedFileHasContent(string $filePath, string $expected, ?string $msg = null): void
-    {
+    protected function assertGeneratedFileHasContent($filePath, $expected, $msg = null){
         $outputDir = '/output_test';
 
         $msg        = $msg ?: "Expected generated file at path $filePath to have content '$expected'.";
@@ -231,8 +218,7 @@ class FunctionalTestCase extends TestCase
      * @param string $filePath
      * @param string $content
      */
-    protected function writeToProjectFile(string $filePath, string $content): void
-    {
+    protected function writeToProjectFile($filePath, $content){
         static::$fs->dumpFile(static::projectDir() . $filePath, $content);
     }
 
@@ -240,8 +226,7 @@ class FunctionalTestCase extends TestCase
      * @param string $filePath
      * @return Crawler
      */
-    protected function crawlGeneratedProjectFile(string $filePath): Crawler
-    {
+    protected function crawlGeneratedProjectFile($filePath){
         return $this->crawlProjectFile('/output_test' . $filePath);
     }
 
@@ -249,8 +234,7 @@ class FunctionalTestCase extends TestCase
      * @param string $filePath
      * @return Crawler
      */
-    protected function crawlProjectFile(string $filePath): Crawler
-    {
+    protected function crawlProjectFile($filePath){
         return $this->crawlFile(static::projectDir() . $filePath);
     }
 
@@ -258,8 +242,7 @@ class FunctionalTestCase extends TestCase
      * @param string $filePath
      * @return Crawler
      */
-    private function crawlFile(string $filePath): Crawler
-    {
+    private function crawlFile($filePath){
         $content = $this->readFile($filePath);
 
         return new Crawler($content);
@@ -269,8 +252,7 @@ class FunctionalTestCase extends TestCase
      * @param $filePath
      * @return string
      */
-    private function readFile(string $filePath): string
-    {
+    private function readFile($filePath){
         if (!static::$fs->exists($filePath)) {
             throw new \PHPUnit\Framework\Exception("Unable to read file at path $filePath: file does not exist");
         }
@@ -286,8 +268,7 @@ class FunctionalTestCase extends TestCase
     /**
      * @return string
      */
-    protected static function projectDir(): string
-    {
+    protected static function projectDir(){
         return __DIR__ . static::PROJECT_DIR;
     }
 }

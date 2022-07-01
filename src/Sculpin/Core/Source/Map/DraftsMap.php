@@ -17,8 +17,7 @@ use Sculpin\Core\Source\SourceInterface;
 
 class DraftsMap implements MapInterface
 {
-    public function process(SourceInterface $source): void
-    {
+    public function process($source){
         if ($source->data()->get('draft')) {
             $tags = $source->data()->get('tags');
             if (null === $tags) {

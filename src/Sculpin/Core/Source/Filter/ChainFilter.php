@@ -20,14 +20,13 @@ class ChainFilter implements FilterInterface
     private $filters = [];
     private $or;
 
-    public function __construct(array $filters = [], $or = false)
+    public function __construct($filters = [], $or = false)
     {
         $this->filters = $filters;
         $this->or = $or;
     }
 
-    public function match(SourceInterface $source): bool
-    {
+    public function match($source){
         $matched = false;
 
         foreach ($this->filters as $filter) {
@@ -55,8 +54,7 @@ class ChainFilter implements FilterInterface
         return $matched;
     }
 
-    public function addFilter(FilterInterface $filter): void
-    {
+    public function addFilter($filter){
         $this->filters[] = $filter;
     }
 }

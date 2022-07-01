@@ -15,15 +15,13 @@ class Listener implements EventSubscriberInterface
         $this->outputDir = $outputDir;
     }
 
-    public static function getSubscribedEvents(): array
-    {
+    public static function getSubscribedEvents(){
         return [
             Sculpin::EVENT_AFTER_RUN => 'createSuccessFile',
         ];
     }
 
-    public function createSuccessFile(SourceSetEvent $event, $eventName): void
-    {
+    public function createSuccessFile($event, $eventName){
         file_put_contents($this->outputDir . '/' . $eventName . '.event', $eventName);
     }
 }

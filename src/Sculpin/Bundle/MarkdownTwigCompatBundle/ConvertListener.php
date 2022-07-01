@@ -54,8 +54,7 @@ final class ConvertListener implements EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
-    {
+    public static function getSubscribedEvents(){
         return [
             Sculpin::EVENT_BEFORE_CONVERT => 'beforeConvert',
             Sculpin::EVENT_AFTER_CONVERT => 'afterConvert',
@@ -65,8 +64,7 @@ final class ConvertListener implements EventSubscriberInterface
     /**
      * Called before conversion
      */
-    public function beforeConvert(ConvertEvent $convertEvent): void
-    {
+    public function beforeConvert($convertEvent){
         if ($convertEvent->isHandledBy(SculpinMarkdownBundle::CONVERTER_NAME, SculpinTwigBundle::FORMATTER_NAME)) {
             $content = $convertEvent->source()->content();
             foreach (self::$addPlaceholderRe as $re) {
@@ -84,8 +82,7 @@ final class ConvertListener implements EventSubscriberInterface
     /**
      * Called after conversion
      */
-    public function afterConvert(ConvertEvent $convertEvent): void
-    {
+    public function afterConvert($convertEvent){
         if ($convertEvent->isHandledBy(SculpinMarkdownBundle::CONVERTER_NAME, SculpinTwigBundle::FORMATTER_NAME)) {
             $content = $convertEvent->source()->content();
             $content = preg_replace(self::$removePlaceholderRe, '', $content);

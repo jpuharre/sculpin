@@ -19,20 +19,18 @@ class ChainMap implements MapInterface
 {
     private $maps = [];
 
-    public function __construct(array $maps = [])
+    public function __construct($maps = [])
     {
         $this->maps = $maps;
     }
 
-    public function process(SourceInterface $source): void
-    {
+    public function process($source){
         foreach ($this->maps as $map) {
             $map->process($source);
         }
     }
 
-    public function addMap(MapInterface $map): void
-    {
+    public function addMap($map){
         $this->maps[] = $map;
     }
 }

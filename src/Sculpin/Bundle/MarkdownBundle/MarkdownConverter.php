@@ -47,7 +47,7 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
      * @param ParserInterface $markdown
      * @param string[]        $extensions file name extensions that are handled as markdown
      */
-    public function __construct(ParserInterface $markdown, array $extensions = [])
+    public function __construct($markdown, $extensions = [])
     {
         $this->markdown = $markdown;
         if ($this->markdown instanceof Markdown) {
@@ -59,16 +59,14 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
     /**
      * {@inheritdoc}
      */
-    public function convert(ConverterContextInterface $converterContext): void
-    {
+    public function convert($converterContext){
         $converterContext->setContent($this->markdown->transform($converterContext->content()));
     }
 
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
-    {
+    public static function getSubscribedEvents(){
         return [
             Sculpin::EVENT_BEFORE_RUN => 'beforeRun',
         ];
@@ -79,8 +77,7 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
      *
      * @internal
      */
-    public function beforeRun(SourceSetEvent $sourceSetEvent): void
-    {
+    public function beforeRun($sourceSetEvent){
         /** @var SourceInterface $source */
         foreach ($sourceSetEvent->updatedSources() as $source) {
             foreach ($this->extensions as $extension) {
@@ -100,8 +97,7 @@ final class MarkdownConverter implements ConverterInterface, EventSubscriberInte
      *
      * @param string $headerText raw markdown input for the header name
      */
-    public function generateHeaderId(string $headerText): string
-    {
+    public function generateHeaderId($headerText){
 
         // $headerText is completely raw markdown input. We need to strip it
         // from all markup, because we are only interested in the actual 'text'

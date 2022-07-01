@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateFromMarkdownTest extends FunctionalTestCase
+class GenerateFromMarkdownTest extends TestCase
+FunctionalTestCase
 {
     /** @test */
-    public function shouldGenerateAnHtmlFileFromMarkdown(): void
-    {
+    public function shouldGenerateAnHtmlFileFromMarkdown(){
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello_world.md');
 
         $this->executeSculpin('generate');
@@ -17,8 +17,7 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
     }
 
     /** @test */
-    public function shouldGenerateHtmlContentFromMarkdown(): void
-    {
+    public function shouldGenerateHtmlContentFromMarkdown(){
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello_world.md');
 
         $this->executeSculpin('generate');
@@ -29,8 +28,7 @@ class GenerateFromMarkdownTest extends FunctionalTestCase
     }
 
     /** @test */
-    public function shouldGenerateIntoNestedDirectories(): void
-    {
+    public function shouldGenerateIntoNestedDirectories(){
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello/world.md');
 
         $this->executeSculpin('generate');
@@ -70,8 +68,7 @@ EOT
     }
 
     /** @test */
-    public function shouldRefreshGeneratedHtmlAfterFilesystemChange(): void
-    {
+    public function shouldRefreshGeneratedHtmlAfterFilesystemChange(){
         $layoutFile    = '/source/_layouts/my_layout.html.twig';
         $pageFile      = '/source/my_page_with_layout.md';
         $pageGenerated = '/my_page_with_layout/index.html';
@@ -166,8 +163,7 @@ EOT;
     }
 
     /** @test */
-    public function shouldPassThruFilesWithNoExtension(): void
-    {
+    public function shouldPassThruFilesWithNoExtension(){
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello_world');
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/hello_world.md', '/source/hello_world2');
 
@@ -181,8 +177,7 @@ EOT;
     }
 
     /** @test */
-    public function shouldSkipContentTypeFilesWithNoExtension(): void
-    {
+    public function shouldSkipContentTypeFilesWithNoExtension(){
         $this->addProjectDirectory(__DIR__ . '/Fixture/source/_posts');
         $this->writeToProjectFile(
             '/app/config/sculpin_kernel.yml',
@@ -218,8 +213,7 @@ EOF
     }
 
     /** @test */
-    public function shouldSkipHiddenFilesSilently(): void
-    {
+    public function shouldSkipHiddenFilesSilently(){
         $this->addProjectDirectory(__DIR__ . '/Fixture/source/_posts');
         $this->writeToProjectFile(
             '/app/config/sculpin_kernel.yml',

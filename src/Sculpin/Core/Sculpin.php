@@ -82,13 +82,13 @@ final class Sculpin
     private $converterManager;
 
     public function __construct(
-        Configuration $siteConfiguration,
-        EventDispatcherInterface $eventDispatcher,
-        SourcePermalinkFactoryInterface $permalinkFactory,
-        WriterInterface $writer,
-        GeneratorManager $generatorManager,
-        FormatterManager $formatterManager,
-        ConverterManager $converterManager
+        $siteConfiguration,
+        $eventDispatcher,
+        $permalinkFactory,
+        $writer,
+        $generatorManager,
+        $formatterManager,
+        $converterManager
     ) {
         $this->siteConfiguration = $siteConfiguration;
         $this->eventDispatcher = $eventDispatcher;
@@ -99,7 +99,7 @@ final class Sculpin
         $this->converterManager = $converterManager;
     }
 
-    public function run(DataSourceInterface $dataSource, SourceSet $sourceSet, IoInterface $io = null)
+    public function run($dataSource, $sourceSet, $io = new NullIo())
     {
         if (null === $io) {
             $io = new NullIo();
@@ -111,7 +111,7 @@ final class Sculpin
 
         $this->eventDispatcher->dispatch(self::EVENT_BEFORE_RUN, new SourceSetEvent($sourceSet));
 
-        if ($updatedSources = array_filter($sourceSet->updatedSources(), function (SourceInterface $source) {
+        if ($updatedSources = array_filter($sourceSet->updatedSources(), function ($source) {
             return !$source->isGenerated();
         })) {
             if (!$found) {

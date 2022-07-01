@@ -26,7 +26,7 @@ class ProxySource implements SourceInterface
      */
     protected $source;
 
-    public function __construct(SourceInterface $source)
+    public function __construct($source)
     {
         $this->source = $source;
     }
@@ -34,232 +34,203 @@ class ProxySource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function sourceId(): string
-    {
+    public function sourceId(){
         return $this->source->sourceId();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function isRaw(): bool
-    {
+    public function isRaw(){
         return $this->source->isRaw();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function canBeFormatted(): bool
-    {
+    public function canBeFormatted(){
         return $this->source->isRaw();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function hasChanged(): bool
-    {
+    public function hasChanged(){
         return $this->source->hasChanged();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setHasChanged(): void
-    {
+    public function setHasChanged(){
         $this->source->setHasChanged();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setHasNotChanged(): void
-    {
+    public function setHasNotChanged(){
         $this->source->setHasNotChanged();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function permalink(): PermalinkInterface
-    {
+    public function permalink(){
         return $this->source->permalink();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setPermalink(PermalinkInterface $permalink): void
-    {
+    public function setPermalink($permalink){
         $this->source->setPermalink($permalink);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function useFileReference(): bool
-    {
+    public function useFileReference(){
         return $this->source->useFileReference();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function file(): \SplFileInfo
-    {
+    public function file(){
         return $this->source->file();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function content(): string
-    {
+    public function content(){
         return $this->source->content();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setContent(?string $content = null): void
-    {
+    public function setContent($content = null){
         $this->source->setContent($content);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function formattedContent(): string
-    {
+    public function formattedContent(){
         return $this->source->formattedContent();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setFormattedContent(?string $formattedContent = null): void
-    {
+    public function setFormattedContent($formattedContent = null){
         $this->source->setFormattedContent($formattedContent);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function relativePathname(): string
-    {
+    public function relativePathname(){
         return $this->source->relativePathname();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function filename(): string
-    {
+    public function filename(){
         return $this->source->filename();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function data(): Configuration
-    {
+    public function data(){
         return $this->source->data();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function isGenerator(): bool
-    {
+    public function isGenerator(){
         return $this->source->isGenerator();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setIsGenerator(): void
-    {
+    public function setIsGenerator(){
         $this->source->setIsGenerator();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setIsNotGenerator(): void
-    {
+    public function setIsNotGenerator(){
         $this->source->setIsNotGenerator();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function isGenerated(): bool
-    {
+    public function isGenerated(){
         return $this->source->isGenerated();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setIsGenerated(): void
-    {
+    public function setIsGenerated(){
         $this->source->setIsGenerated();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setIsNotGenerated(): void
-    {
+    public function setIsNotGenerated(){
         $this->source->setIsNotGenerated();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function shouldBeSkipped(): bool
-    {
+    public function shouldBeSkipped(){
         return $this->source->shouldBeSkipped();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setShouldBeSkipped(): void
-    {
+    public function setShouldBeSkipped(){
         $this->source->setShouldBeSkipped();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setShouldNotBeSkipped(): void
-    {
+    public function setShouldNotBeSkipped(){
         $this->source->setShouldNotBeSkipped();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function forceReprocess(): void
-    {
+    public function forceReprocess(){
         $this->source->forceReprocess();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function url(): string
-    {
+    public function url(){
         return $this->source->url();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function duplicate($newSourceId): SourceInterface
-    {
+    public function duplicate($newSourceId){
         return $this->source->duplicate($newSourceId);
     }
 }

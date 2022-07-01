@@ -28,8 +28,7 @@ class TwigEnvironmentPass implements CompilerPassInterface
     /**
      * {@inheritdoc}
      */
-    public function process(ContainerBuilder $container): void
-    {
+    public function process($container){
         if (false === $container->hasDefinition('sculpin_twig.twig')) {
             return;
         }

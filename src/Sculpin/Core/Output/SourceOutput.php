@@ -26,7 +26,7 @@ class SourceOutput implements OutputInterface
      */
     protected $source;
 
-    public function __construct(SourceInterface $source)
+    public function __construct($source)
     {
         $this->source = $source;
     }
@@ -34,48 +34,42 @@ class SourceOutput implements OutputInterface
     /**
      * {@inheritdoc}
      */
-    public function outputId(): string
-    {
+    public function outputId(){
         return $this->source->sourceId();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function pathname(): string
-    {
+    public function pathname(){
         return $this->source->relativePathname();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function permalink(): PermalinkInterface
-    {
+    public function permalink(){
         return $this->source->permalink();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function hasFileReference(): bool
-    {
+    public function hasFileReference(){
         return $this->source->useFileReference();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function file(): ?\SplFileInfo
-    {
+    public function file(){
         return $this->source->useFileReference() ? $this->source->file() : null;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function formattedContent(): ?string
-    {
+    public function formattedContent(){
         return $this->source->useFileReference() ? null : $this->source->formattedContent();
     }
 }

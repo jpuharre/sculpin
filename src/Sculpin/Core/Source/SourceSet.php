@@ -31,7 +31,7 @@ class SourceSet
     /**
      * @param SourceInterface[] $sources
      */
-    public function __construct(array $sources = [])
+    public function __construct($sources = [])
     {
         foreach ($sources as $source) {
             $this->sources[$source->sourceId()] = $source;
@@ -40,16 +40,14 @@ class SourceSet
     /**
      * Whether this set contains the specified source.
      */
-    public function containsSource(SourceInterface $source): bool
-    {
+    public function containsSource($source){
         return array_key_exists($source->sourceId(), $this->sources);
     }
 
     /**
      * Add this source to the list, tracking whether its a new or existing source.
      */
-    public function mergeSource(SourceInterface $source): void
-    {
+    public function mergeSource($source){
         if (array_key_exists($source->sourceId(), $this->sources)) {
             unset($this->sources[$source->sourceId()]);
         } else {
@@ -61,8 +59,7 @@ class SourceSet
     /**
      * @return SourceInterface[]
      */
-    public function allSources(): array
-    {
+    public function allSources(){
         return $this->sources;
     }
 
@@ -71,9 +68,8 @@ class SourceSet
      *
      * @return SourceInterface[]
      */
-    public function updatedSources(): array
-    {
-        return array_filter($this->sources, function (SourceInterface $source) {
+    public function updatedSources(){
+        return array_filter($this->sources, function ($source) {
             return $source->hasChanged();
         });
     }
@@ -81,8 +77,7 @@ class SourceSet
     /**
      * @return SourceInterface[]
      */
-    public function newSources(): array
-    {
+    public function newSources(){
         return $this->newSources;
     }
 
@@ -91,8 +86,7 @@ class SourceSet
      *
      * Should be called after each loop while watching.
      */
-    public function reset(): void
-    {
+    public function reset(){
         foreach ($this->sources as $source) {
             $source->setHasNotChanged();
         }

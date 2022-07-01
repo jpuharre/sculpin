@@ -23,8 +23,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class SculpinStandaloneBundle extends Bundle
 {
-    public function build(ContainerBuilder $container): void
-    {
+    public function build($container){
         $container->addCompilerPass(new RegisterListenersPass, PassConfig::TYPE_AFTER_REMOVING);
     }
 }

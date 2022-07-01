@@ -20,7 +20,8 @@ use Sculpin\Core\Source\SourceInterface;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-final class ConvertEvent extends Event
+final class ConvertEvent extends BaseEvent
+Event
 {
     /**
      * @var SourceInterface
@@ -37,44 +38,39 @@ final class ConvertEvent extends Event
      */
     private $defaultFormatter;
 
-    public function __construct(SourceInterface $source, string $converter, string $defaultFormatter)
+    public function __construct($source, $converter, $defaultFormatter)
     {
         $this->source = $source;
         $this->converter = $converter;
         $this->defaultFormatter = $defaultFormatter;
     }
 
-    public function source(): SourceInterface
-    {
+    public function source(){
         return $this->source;
     }
 
-    public function converter(): string
-    {
+    public function converter(){
         return $this->converter;
     }
 
     /**
      * Test if Source is converted by requested converter
      */
-    public function isConvertedBy(string $requestedConverter): bool
-    {
+    public function isConvertedBy($requestedConverter){
         return $requestedConverter === $this->converter;
     }
 
     /**
      * Test if Source is formatted by requested formatter
      */
-    public function isFormattedBy(string $requestedFormatter): bool
-    {
+    public function isFormattedBy($requestedFormatter){
         return $requestedFormatter == ($this->source->data()->get('formatter') ?: $this->defaultFormatter);
     }
 
     /**
      * Test if Source is converted and formatted by requested converter and formatter
      */
-    public function isHandledBy(string $requestedConverter, string $requestedFormatter): bool
-    {
+    public function isHandledBy($requestedConverter, $requestedFormatter){
         return $this->isConvertedBy($requestedConverter) and $this->isFormattedBy($requestedFormatter);
     }
 }

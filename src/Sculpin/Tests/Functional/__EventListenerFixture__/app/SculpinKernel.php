@@ -1,9 +1,9 @@
 <?php
 
-class SculpinKernel extends \Sculpin\Bundle\SculpinBundle\HttpKernel\AbstractKernel
+class SculpinKernel extends Kernel
+\Sculpin\Bundle\SculpinBundle\HttpKernel\AbstractKernel
 {
-    protected function getAdditionalSculpinBundles(): array
-    {
+    protected function getAdditionalSculpinBundles(){
         return [
             \Sculpin\Tests\Functional\EventListenerTestFixtureBundle\EventListenerTestFixtureBundle::class,
         ];

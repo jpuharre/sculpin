@@ -97,7 +97,7 @@ abstract class AbstractSource implements SourceInterface
      */
     protected $shouldBeSkipped = false;
 
-    protected function init(bool $hasChanged = false)
+    protected function init($hasChanged = false)
     {
         if ($hasChanged) {
             $this->hasChanged = $hasChanged;
@@ -108,32 +108,28 @@ abstract class AbstractSource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function sourceId(): string
-    {
+    public function sourceId(){
         return $this->sourceId;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function isRaw(): bool
-    {
+    public function isRaw(){
         return $this->isRaw;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function content(): ?string
-    {
+    public function content(){
         return $this->content;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setContent(?string $content = null): void
-    {
+    public function setContent($content = null){
         $this->content = $content;
 
         // If we are setting content, we are going to assume that we should
@@ -144,63 +140,56 @@ abstract class AbstractSource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function formattedContent(): ?string
-    {
+    public function formattedContent(){
         return $this->formattedContent;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setFormattedContent(?string $formattedContent = null): void
-    {
+    public function setFormattedContent($formattedContent = null){
         $this->formattedContent = $formattedContent;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function data(): Data
-    {
+    public function data(){
         return $this->data;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function hasChanged(): bool
-    {
+    public function hasChanged(){
         return $this->hasChanged;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setHasChanged(): void
-    {
+    public function setHasChanged(){
         $this->hasChanged = true;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setHasNotChanged(): void
-    {
+    public function setHasNotChanged(){
         $this->hasChanged = false;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function permalink(): PermalinkInterface
-    {
+    public function permalink(){
         return $this->permalink;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setPermalink(PermalinkInterface $permalink)
+    public function setPermalink($permalink)
     {
         $this->permalink = $permalink;
     }
@@ -208,144 +197,126 @@ abstract class AbstractSource implements SourceInterface
     /**
      * {@inheritdoc}
      */
-    public function useFileReference(): bool
-    {
+    public function useFileReference(){
         return $this->useFileReference;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function canBeFormatted(): bool
-    {
+    public function canBeFormatted(){
         return $this->canBeFormatted;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function isGenerator(): bool
-    {
+    public function isGenerator(){
         return $this->isGenerator;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setIsGenerator(): void
-    {
+    public function setIsGenerator(){
         $this->isGenerator = true;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setIsNotGenerator(): void
-    {
+    public function setIsNotGenerator(){
         $this->isGenerator = false;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function isGenerated(): bool
-    {
+    public function isGenerated(){
         return $this->isGenerated;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setIsGenerated(): void
-    {
+    public function setIsGenerated(){
         $this->isGenerated = true;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setIsNotGenerated(): void
-    {
+    public function setIsNotGenerated(){
         $this->isGenerated = false;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function shouldBeSkipped(): bool
-    {
+    public function shouldBeSkipped(){
         return $this->shouldBeSkipped;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setShouldBeSkipped(): void
-    {
+    public function setShouldBeSkipped(){
         $this->shouldBeSkipped = true;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setShouldNotBeSkipped(): void
-    {
+    public function setShouldNotBeSkipped(){
         $this->shouldBeSkipped = false;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function forceReprocess(): void
-    {
+    public function forceReprocess(){
         $this->init(true);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function relativePathname(): string
-    {
+    public function relativePathname(){
         return $this->relativePathname;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function filename(): string
-    {
+    public function filename(){
         return $this->filename;
     }
 
     /**
      * Mark source as can be formatted
      */
-    public function setCanBeFormatted(): void
-    {
+    public function setCanBeFormatted(){
         $this->canBeFormatted = true;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function file(): \SplFileInfo
-    {
+    public function file(){
         return $this->file;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function url(): string
-    {
+    public function url(){
         return $this->permalink()->relativeUrlPath();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function duplicate(string $newSourceId, array $options = []): SourceInterface
-    {
+    public function duplicate($newSourceId, $options = []){
         return new MemorySource(
             $newSourceId,
             new Data($this->data->exportRaw()),

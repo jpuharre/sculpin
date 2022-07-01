@@ -27,7 +27,7 @@ class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSub
     private $taxonomyKey;
 
     public function __construct(
-        DataProviderManager $dataProviderManager,
+        $dataProviderManager,
         $dataProviderName,
         $taxonomyKey
     ) {
@@ -36,8 +36,7 @@ class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSub
         $this->taxonomyKey = $taxonomyKey;
     }
 
-    public function provideData(): array
-    {
+    public function provideData(){
         return $this->taxons;
     }
 
@@ -48,7 +47,7 @@ class ProxySourceTaxonomyDataProvider implements DataProviderInterface, EventSub
         ];
     }
 
-    public function beforeRun(SourceSetEvent $sourceSetEvent)
+    public function beforeRun($sourceSetEvent)
     {
         $taxons = [];
         $dataProvider = $this->dataProviderManager->dataProvider($this->dataProviderName);

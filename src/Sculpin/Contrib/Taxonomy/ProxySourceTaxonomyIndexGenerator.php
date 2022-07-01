@@ -26,11 +26,11 @@ class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
     private $permalinkStrategyCollection;
 
     public function __construct(
-        DataProviderManager $dataProviderManager,
+        $dataProviderManager,
         $dataProviderName,
         $injectedTaxonKey,
         $injectedTaxonItemsKey,
-        PermalinkStrategyCollection $permalinkStrategyCollection
+        $permalinkStrategyCollection
     ) {
         $this->dataProviderManager = $dataProviderManager;
         $this->dataProviderName = $dataProviderName; // post_tags
@@ -39,8 +39,7 @@ class ProxySourceTaxonomyIndexGenerator implements GeneratorInterface
         $this->permalinkStrategyCollection = $permalinkStrategyCollection;
     }
 
-    public function generate(SourceInterface $source): array
-    {
+    public function generate($source){
         $dataProvider = $this->dataProviderManager->dataProvider($this->dataProviderName);
         $taxons = $dataProvider->provideData();
 

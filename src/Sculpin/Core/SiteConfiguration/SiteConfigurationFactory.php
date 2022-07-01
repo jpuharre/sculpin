@@ -32,7 +32,7 @@ final class SiteConfigurationFactory
      */
     private $environment;
 
-    public function __construct(string $rootDir, string $environment)
+    public function __construct($rootDir, $environment)
     {
         $this->rootDir = $rootDir;
         $this->environment = $environment;
@@ -45,8 +45,7 @@ final class SiteConfigurationFactory
      *
      * @return ConfigurationInterface
      */
-    private function getConfigFile(string $configFile): ConfigurationInterface
-    {
+    private function getConfigFile($configFile){
         $builder = new YamlFileConfigurationBuilder([$configFile]);
 
         return $builder->build();
@@ -57,8 +56,7 @@ final class SiteConfigurationFactory
      *
      * @return ConfigurationInterface
      */
-    public function create(): ConfigurationInterface
-    {
+    public function create(){
         $config = $this->detectConfig();
         $config->set('env', $this->environment);
 
@@ -69,8 +67,7 @@ final class SiteConfigurationFactory
      *
      * @return Configuration
      */
-    public function detectConfig(): ConfigurationInterface
-    {
+    public function detectConfig(){
         if (file_exists($file = $this->rootDir.'/config/sculpin_site_'.$this->environment.'.yml')) {
             return $this->getConfigFile($file);
         }

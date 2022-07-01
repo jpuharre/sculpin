@@ -4,22 +4,21 @@ declare(strict_types=1);
 
 namespace Sculpin\Tests\Functional;
 
-class GenerateCommandTest extends FunctionalTestCase
+class GenerateCommandTest extends TestCase
+FunctionalTestCase
 {
     public const CONFIG_FILE = DIRECTORY_SEPARATOR . 'app'
         . DIRECTORY_SEPARATOR . 'config'
         . DIRECTORY_SEPARATOR . 'sculpin_kernel.yml';
 
-    public function tearDown(): void
-    {
+    public function tearDown(){
         parent::tearDown();
 
         $this->writeToProjectFile(self::CONFIG_FILE, '');
     }
 
     /** @test */
-    public function shouldGenerateInSpecifiedOutputDir(): void
-    {
+    public function shouldGenerateInSpecifiedOutputDir(){
         $this->copyFixtureToProject(__DIR__ . '/Fixture/source/blog_index.html', '/source/index.html');
         $this->addProjectDirectory(__DIR__ . '/Fixture/source/_posts');
 
@@ -33,8 +32,7 @@ class GenerateCommandTest extends FunctionalTestCase
     }
 
     /** @test */
-    public function shouldGenerateUsingSpecifiedSourceDir(): void
-    {
+    public function shouldGenerateUsingSpecifiedSourceDir(){
         $filePath  = '/output_test/index.html';
         $sourceDir = 'custom_source_dir';
 
@@ -56,8 +54,7 @@ class GenerateCommandTest extends FunctionalTestCase
     }
 
     /** @test */
-    public function shouldExposeWebpackManifestInTwig(): void
-    {
+    public function shouldExposeWebpackManifestInTwig(){
         $this->configureForWebpack();
         $this->copyFixtureToProject(__DIR__ . '/Fixture/webpack_manifest/manifest_test.md', '/source/test.md');
         $this->copyFixtureToProject(__DIR__ . '/Fixture/webpack_manifest/manifest.json', '/source/build/manifest.json');
@@ -72,8 +69,7 @@ class GenerateCommandTest extends FunctionalTestCase
         $this->assertGeneratedFileHasContent($filePath, 'Testing JS /build/js/app.43dcc737.js');
     }
 
-    protected function configureForWebpack(): void
-    {
+    protected function configureForWebpack(){
         $this->writeToProjectFile(
             self::CONFIG_FILE,
             'sculpin_twig:' . "\n"

@@ -78,8 +78,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setExcludes(array $excludes = []): self
-    {
+    public function setExcludes($excludes = []){
         foreach ($excludes as $exclude) {
             $this->addExclude($exclude);
         }
@@ -94,8 +93,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function addExclude(string $pattern): self
-    {
+    public function addExclude($pattern){
         if (substr($pattern, 0, 2)=='./') {
             $pattern = substr($pattern, 2);
         }
@@ -112,8 +110,7 @@ class Configuration extends BaseConfiguration
      *
      * @return array
      */
-    public function excludes(): array
-    {
+    public function excludes(){
         return $this->excludes;
     }
 
@@ -126,8 +123,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setIgnores(array $ignores = []): self
-    {
+    public function setIgnores($ignores = []){
         foreach ($ignores as $ignore) {
             $this->addIgnore($ignore);
         }
@@ -142,8 +138,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function addIgnore(string $pattern): self
-    {
+    public function addIgnore($pattern){
         if (substr($pattern, 0, 2)=='./') {
             $pattern = substr($pattern, 2);
         }
@@ -160,8 +155,7 @@ class Configuration extends BaseConfiguration
      *
      * @return array
      */
-    public function ignores(): array
-    {
+    public function ignores(){
         return $this->ignores;
     }
 
@@ -174,8 +168,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setRaws(array $raws = []): self
-    {
+    public function setRaws($raws = []){
         foreach ($raws as $raw) {
             $this->addRaw($raw);
         }
@@ -190,8 +183,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function addRaw(string $pattern): self
-    {
+    public function addRaw($pattern){
         if (substr($pattern, 0, 2)=='./') {
             $pattern = substr($pattern, 2);
         }
@@ -207,8 +199,7 @@ class Configuration extends BaseConfiguration
      *
      * @return array
      */
-    public function raws(): array
-    {
+    public function raws(){
         return $this->raws;
     }
 
@@ -219,8 +210,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setSourceDir(string $sourceDir): self
-    {
+    public function setSourceDir($sourceDir){
         $this->sourceDir = $sourceDir;
 
         return $this;
@@ -231,8 +221,7 @@ class Configuration extends BaseConfiguration
      *
      * @return string
      */
-    public function sourceDir(): string
-    {
+    public function sourceDir(){
         return $this->sourceDir;
     }
 
@@ -243,8 +232,7 @@ class Configuration extends BaseConfiguration
      *
      * @return $this
      */
-    public function setOutputDir(string $outputDir): self
-    {
+    public function setOutputDir($outputDir){
         $this->outputDir = $outputDir;
 
         return $this;
@@ -255,8 +243,7 @@ class Configuration extends BaseConfiguration
      *
      * @return string
      */
-    public function outputDir(): string
-    {
+    public function outputDir(){
         return $this->outputDir;
     }
 
@@ -267,8 +254,7 @@ class Configuration extends BaseConfiguration
      *
      * @return $this
      */
-    public function setPermalink(string $permalink): self
-    {
+    public function setPermalink($permalink){
         $this->permalink = $permalink;
 
         return $this;
@@ -279,8 +265,7 @@ class Configuration extends BaseConfiguration
      *
      * @return string
      */
-    public function permalink(): string
-    {
+    public function permalink(){
         return $this->permalink;
     }
 
@@ -291,8 +276,7 @@ class Configuration extends BaseConfiguration
      *
      * @return Configuration
      */
-    public function setDefaultFormatter(string $defaultFormatter): self
-    {
+    public function setDefaultFormatter($defaultFormatter){
         $this->defaultFormatter = $defaultFormatter;
 
         return $this;
@@ -303,8 +287,7 @@ class Configuration extends BaseConfiguration
      *
      * @return string
      */
-    public function defaultFormatter(): string
-    {
+    public function defaultFormatter(){
         return $this->defaultFormatter;
     }
 }

@@ -24,8 +24,7 @@ class DraftsFilter implements FilterInterface
         $this->publishDrafts = $publishDrafts;
     }
 
-    public function match(SourceInterface $source): bool
-    {
+    public function match($source){
         if ($source->data()->get('draft')) {
             if (!$this->publishDrafts) {
                 // If we are not configured to publish drafts we should

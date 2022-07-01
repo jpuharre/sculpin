@@ -45,7 +45,7 @@ final class ConverterManager
      */
     private $converters = [];
 
-    public function __construct(EventDispatcherInterface $eventDispatcher, FormatterManager $formatterManager)
+    public function __construct($eventDispatcher, $formatterManager)
     {
         $this->formatterManager = $formatterManager;
         $this->eventDispatcher = $eventDispatcher;
@@ -57,8 +57,7 @@ final class ConverterManager
      *
      * @param string             $name      Name of the converter
      */
-    public function registerConverter(string $name, ConverterInterface $converter): void
-    {
+    public function registerConverter($name, $converter){
         $this->converters[$name] = $converter;
     }
 
@@ -69,8 +68,7 @@ final class ConverterManager
      *
      * @return ConverterInterface
      */
-    public function converter(string $name): ConverterInterface
-    {
+    public function converter($name){
         return $this->converters[$name];
     }
 
@@ -79,8 +77,7 @@ final class ConverterManager
      *
      * The converter does not save anything but trigger an event
      */
-    public function convertSource(SourceInterface $source): void
-    {
+    public function convertSource($source){
         $converters = $source->data()->get('converters');
         if (!$converters || !is_array($converters)) {
             $converters = ['null'];

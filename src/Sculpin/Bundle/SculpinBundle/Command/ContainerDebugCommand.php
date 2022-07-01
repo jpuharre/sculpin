@@ -31,13 +31,13 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @author Ryan Weaver <ryan@thatsquality.com>
  */
-final class ContainerDebugCommand extends ContainerAwareCommand
+final class ContainerDebugCommand extends Command ContainerAwareCommand
+ContainerAwareInterface
 {
     /**
      * {@inheritdoc}
      */
-    protected function configure(): void
-    {
+    protected function configure(){
         $this
             ->setName('container:debug')
             ->setDefinition([
@@ -113,7 +113,7 @@ EOF
      *
      * @throws \LogicException
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute($input, $output)
     {
         $this->validateInput($input);
 
@@ -167,7 +167,7 @@ EOF
         return 0;
     }
 
-    private function validateInput(InputInterface $input)
+    private function validateInput($input)
     {
         $options = ['tags', 'tag', 'parameters', 'parameter'];
 
@@ -191,11 +191,10 @@ EOF
     }
 
     private function outputServices(
-        OutputInterface $output,
+        $output,
         $serviceIds,
         $showPrivate = false,
-        $showTagAttributes = null
-    ): void {
+        $showTagAttributes ){
         // set the label to specify public or public+private
         if ($showPrivate) {
             $label = '<comment>Public</comment> and <comment>private</comment> services';
@@ -310,8 +309,7 @@ EOF
         }
     }
 
-    private function buildArgumentsArray($serviceId, $className, array $tagAttributes = []): array
-    {
+    private function buildArgumentsArray($serviceId, $className, $tagAttributes = []){
         $arguments = [$serviceId];
         foreach ($tagAttributes as $tagAttribute) {
             $arguments[] = $tagAttribute;
@@ -324,7 +322,7 @@ EOF
     /**
      * Renders detailed service information about one service
      */
-    private function outputService(OutputInterface $output, string $serviceId)
+    private function outputService($output, $serviceId)
     {
         $definition = $this->resolveServiceDefinition($serviceId);
 
@@ -377,8 +375,7 @@ EOF
         }
     }
 
-    private function outputParameters(OutputInterface $output, array $parameters): void
-    {
+    private function outputParameters($output, $parameters){
         $output->writeln($this->getHelper('formatter')->formatSection('container', 'List of parameters'));
 
         $maxTerminalWidth   = (int) (getenv('COLUMNS') ?? 80);
@@ -453,8 +450,7 @@ EOF
      *
      * @throws \Exception
      */
-    private function outputTags(OutputInterface $output, bool $showPrivate = false): void
-    {
+    private function outputTags($output, $showPrivate = false){
         $container = $this->getContainer();
         if (! $container instanceof ContainerBuilder) {
             return;

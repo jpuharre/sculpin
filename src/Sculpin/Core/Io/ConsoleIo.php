@@ -49,61 +49,55 @@ final class ConsoleIo implements IoInterface
      */
     private $startTime;
 
-    public function __construct(InputInterface $input, OutputInterface $output)
+    public function __construct($input, $output)
     {
         $this->input = $input;
         $this->output = $output;
     }
 
-    public function enableDebugging(float $startTime): void
-    {
+    public function enableDebugging($startTime){
         $this->startTime = $startTime;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isInteractive(): bool
-    {
+    public function isInteractive(){
         return $this->input->isInteractive();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isDecorated(): bool
-    {
+    public function isDecorated(){
         return $this->output->isDecorated();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isVerbose(): bool
-    {
+    public function isVerbose(){
         return $this->output->isVerbose();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isVeryVerbose(): bool
-    {
+    public function isVeryVerbose(){
         return $this->output->isVeryVerbose();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function isDebug(): bool
-    {
+    public function isDebug(){
         return $this->output->isDebug();
     }
 
     /**
      * {@inheritDoc}
      */
-    public function write($messages, bool $newline = true)
+    public function write($messages, $newline = true)
     {
         if (null !== $this->startTime) {
             $messages = (array) $messages;
@@ -121,7 +115,7 @@ final class ConsoleIo implements IoInterface
     /**
      * {@inheritDoc}
      */
-    public function overwrite($messages, bool $newline = true, ?int $size = null)
+    public function overwrite($messages, $newline = true, $size = null)
     {
         // messages can be an array, let's convert it to string anyway
         $messages = join($newline ? "\n" : '', (array) $messages);

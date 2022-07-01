@@ -35,7 +35,9 @@ use Twig\Error\SyntaxError;
  *
  * @author Beau Simensen <beau@dflydev.com>
  */
-class GenerateCommand extends AbstractCommand
+class GenerateCommand extends ContainerAwareCommand
+AbstractCommand
+Command ContainerAwareInterface
 {
     /**
      * @var bool
@@ -45,8 +47,7 @@ class GenerateCommand extends AbstractCommand
     /**
      * {@inheritdoc}
      */
-    protected function configure(): void
-    {
+    protected function configure(){
         $prefix = $this->isStandaloneSculpin() ? '' : 'sculpin:';
 
         $this
@@ -86,7 +87,7 @@ EOT
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute($input, $output)
     {
         $application = $this->getApplication();
         if ($application instanceof Application) {
@@ -159,8 +160,7 @@ EOT
      *
      * @param string $dir The directory to remove
      */
-    private function clean(InputInterface $input, OutputInterface $output, string $dir): void
-    {
+    private function clean($input, $output, $dir){
         $fileSystem = $this->getContainer()->get('filesystem');
 
         if ($fileSystem->exists($dir)) {
@@ -187,13 +187,13 @@ EOT
      * @throws \Throwable
      */
     protected function runSculpin(
-        Sculpin $sculpin,
-        DataSourceInterface $dataSource,
-        SourceSet $sourceSet,
-        IoInterface $io
+        $sculpin,
+        $dataSource,
+        $sourceSet,
+        $io
     ) {
         $messages = [];
-        $errPrint = function (\Throwable $e) {
+        $errPrint = function ($e) {
             return $e->getMessage().PHP_EOL.' at '.str_replace(getcwd().DIRECTORY_SEPARATOR, '', $e->getFile());
         };
 

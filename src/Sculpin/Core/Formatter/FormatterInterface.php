@@ -21,14 +21,14 @@ interface FormatterInterface
     /**
      * Format the input blocks
      */
-    public function formatBlocks(FormatContext $formatContext): array;
+    public function formatBlocks($formatContext);
 
     /**
      * Format an entire page
      *
      * @return string
      */
-    public function formatPage(FormatContext $formatContext): string;
+    public function formatPage($formatContext);
 
     /**
      * Reset

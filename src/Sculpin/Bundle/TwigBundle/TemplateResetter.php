@@ -24,7 +24,7 @@ final class TemplateResetter implements EventSubscriberInterface
 {
     private $twig;
 
-    public function __construct(Environment $twig)
+    public function __construct($twig)
     {
         $this->twig = $twig;
     }
@@ -32,8 +32,7 @@ final class TemplateResetter implements EventSubscriberInterface
     /**
      * {@inheritdoc}
      */
-    public static function getSubscribedEvents(): array
-    {
+    public static function getSubscribedEvents(){
         return [
             Sculpin::EVENT_BEFORE_RUN => 'beforeRun',
         ];
@@ -44,8 +43,7 @@ final class TemplateResetter implements EventSubscriberInterface
      *
      * @param SourceSetEvent $sourceSetEvent Source Set Event
      */
-    public function beforeRun(SourceSetEvent $sourceSetEvent): void
-    {
+    public function beforeRun($sourceSetEvent){
         $updated = $sourceSetEvent->updatedSources();
         if ($updated) {
             $this->twig->invalidateLoadedTemplates();
